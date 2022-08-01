@@ -102,7 +102,10 @@ dist
 
 # TernJS port file
 .tern-port
+<<<<<<< HEAD
 
 seelsorge*
 
 db_storage/*
+=======
+>>>>>>> 68c1b4d2a99fff54edf121574b0e88caa90156ec
