@@ -1,0 +1,82 @@
+{% if result.board_of_directors == 1 %}
+<div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" name="board_of_directors" id="board_of_directors" checked>
+    <label class="form-check-label" for="flexSwitchCheckChecked">Vorstand</label>
+</div>
+{% else %}
+<div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" name="board_of_directors" id="board_of_directors">
+    <label class="form-check-label" for="flexSwitchCheckChecked">Vorstand</label>
+</div>
+{% endif %}
+
+{% if result.advisory_council == 1 %}
+<div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" name="advisory_council" id="advisory_council" checked>
+    <label class="form-check-label" for="flexSwitchCheckChecked">Beirat</label>
+</div>
+{% else %}
+<div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" name="advisory_council" id="advisory_council">
+    <label class="form-check-label" for="flexSwitchCheckChecked">Beirat</label>
+</div>
+{% endif %}
+
+{% if result.buko_member == 1 %}
+<div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" name="buko_member" id="buko_member" checked>
+    <label class="form-check-label" for="flexSwitchCheckChecked">Buko Mitglied</label>
+</div>
+{% else %}
+<div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" name="buko_member" id="buko_member">
+    <label class="form-check-label" for="flexSwitchCheckChecked">Buko Mitglied</label>
+</div>
+{% endif %}
+
+{% if result.no_member == 1 %}
+<div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" name="no_member" id="no_member" checked>
+    <label class="form-check-label" for="flexSwitchCheckChecked">kein Mitglied</label>
+</div>
+{% else %}
+<div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" name="no_member" id="no_member">
+    <label class="form-check-label" for="flexSwitchCheckChecked">kein Mitglied</label>
+</div>
+{% endif %}
+
+{% if result.ethics == 1 %}
+<div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" name="ethics" id="ethics" checked>
+    <label class="form-check-label" for="flexSwitchCheckChecked">Ehtik</label>
+</div>
+{% else %}
+<div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" name="ethics" id="ethics">
+    <label class="form-check-label" for="flexSwitchCheckChecked">Ehtik</label>
+</div>
+{% endif %}
+
+{% if result.youth == 1 %}
+<div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" name="youth" id="youth" checked>
+    <label class="form-check-label" for="flexSwitchCheckChecked">Jugendliche</label>
+</div>
+{% else %}
+<div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" name="youth" id="youth">
+    <label class="form-check-label" for="flexSwitchCheckChecked">Jugendliche</label>
+</div>
+{% endif %}
+{% if result.retired == 1 %}
+<div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" name="retired" id="retired" checked>
+    <label class="form-check-label" for="flexSwitchCheckChecked">Pensioniert</label>
+</div>
+{% else %}
+<div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" name="retired" id="retired">
+    <label class="form-check-label" for="flexSwitchCheckChecked">Pensioniert</label>
+</div>
+{% endif %}

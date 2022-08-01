@@ -1,0 +1,29 @@
+{
+  "name": "ElectronApp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "electron": "^19.0.6",
+    "electron-builder": "^23.1.0",
+    "electron-rebuild": "^3.2.7"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.1.1",
+    "better-sqlite3": "^7.5.3",
+    "better-sqlite3-helper": "^3.1.6",
+    "datatables.net-dt": "^1.12.1",
+    "electron-twig": "^1.1.1",
+    "jquery": "^3.6.0",
+    "sqlite3": "^5.0.8",
+    "twing": "^5.1.1",
+    "utf8": "^3.0.0"
+  }
+}

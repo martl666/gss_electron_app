@@ -1,0 +1,30 @@
+{% if result.contactData|length >= 1 %}
+    {% for contactInfo in result.contactData|split(',') %}
+    {% set contactInfoFields = contactInfo|split('$$') %}
+        <div class="col-12">
+            <label for="inputContact" class="form-label">{{ contactInfoFields[1]|replace({'private_phone': 'Privates Telefon', 'business_phone': 'Geschäftliches Telefon', 'email': 'E-Mail' }) }}</label>
+            
+            {% if contactInfoFields[1] == 'email' %}
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="inputContact" name="contact_data" value="{{ contactInfoFields[2]|trim }}" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    {% if contactInfoFields[3] == 1 %}
+                        <button class="btn btn-info btn-outline-secondary" type="button" id="basic-addon2" title="Primäre Email Adresse"><i class="fa-solid fa-envelope-circle-check" style="color:#fff;"></i></button>
+                    {% else %}
+                        <button class="btn btn-warning btn-outline-secondary" onClick="javascript:changePrimaryMail({{ result.customer_id }}, {{ contactInfoFields[0] }});" type="button" id="basic-addon2" title="zur Primäre Email Adresse machen"><i class="fa-solid fa-rotate" style="color:#fff;"></i></button>
+                    {% endif %}
+                    <button class="btn btn-danger btn-outline-secondary" type="button" id="basic-addon2" onClick="javascript:deleteMail({{ result.customer_id }}, {{ contactInfoFields[0] }})"><i style="color:#fff;" class="fa-solid fa-trash"></i></button>
+                </div>
+                {% if loop.last == 1 %}
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#mailModal">
+                    Email hinzufügen
+                </button>
+                {{ include('./member/update/modalEmail.html', {result: result.customer_id})}}
+                {% endif %}
+            {% else %}
+                <input type="text" class="form-control" id="inputContact" name="contact_data" value="{{ contactInfoFields[2]|trim }}">
+            {% endif %}
+            <input type="hidden" name="contact_type" value="{{ contactInfoFields[1] }}">
+            <input type="hidden" name="contactId" value="{{ contactInfoFields[0] }}">
+        </div>
+    {% endfor %}
+{% endif %}

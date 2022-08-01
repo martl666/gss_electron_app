@@ -1,0 +1,10 @@
+@media print {
+    @page { 
+        size: 110mm 220mm landscape; 
+    }
+
+    body {
+        font-family: sans-serif;
+        margin: 0;
+    }
+}

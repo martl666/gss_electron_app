@@ -1,0 +1,73 @@
+<script>
+            const addressController = require('./controller/address');
+            MassAddressDict = addressController.getAllPostalAddressWithoutAStoredEmail();
+            function combineSenderInfo(){
+                const senderInfoConfig = require('./config/print.json');
+                var from = "<div style='padding-top:0px; margin-top: -6px; margin-left: 0px; font-size: 7px; line-height: 1.2;'>";
+                var name = "" + "<br>";
+              
+                var address = "<table><tr><td><img src='"+senderInfoConfig.logo+"' width='76'></td><td>"+senderInfoConfig.evName + "<br>" + senderInfoConfig.street+"<br>"+ senderInfoConfig.zipCity + "<br></td></tr></table></div>";
+              
+                return from + name + address;
+              }
+              
+              function combineReceiverInfo(recieverData){
+                let countryInfo = "";
+                if (recieverData.country != "Deutschland") {
+                    countryInfo = "<br>" + recieverData.country;
+                }
+                var from =   "<br>" +"<div style='max-width:470px;margin-left: 430px;  '><h3> "
+                var name = recieverData.firstname + ' ' + recieverData.lastname  + "</h3>";
+                var address = "<h3 style=''>" + recieverData.street  + "<br>" + recieverData.zip + ' ' + recieverData.city + countryInfo + "</h3></div>" ;
+                return from + name + address;
+              }
+
+            let data = '<html><head>';
+            data += '<link href="css/print.css" media="print" rel="stylesheet">';
+            data += '</head><body>';
+   
+    var padding = 80;
+    Object.keys(MassAddressDict).forEach(function(key) {
+        console.log(key + " " + MassAddressDict[key]);
+
+        var recieverData = MassAddressDict[key]
+
+        var senderInfo = combineSenderInfo();
+        var receiverInfo = combineReceiverInfo(recieverData);
+
+        var index = Object.keys(MassAddressDict).indexOf(key);
+        
+        data += '<div style="page-break-after: always;">';
+        data += `<div id="label${index}" style="display:flex;justify-content:space-between">`;
+        data += senderInfo;
+        data += '</div>';
+        data += receiverInfo;
+        data += '</div>';
+        data += '</body></html>';
+    });
+
+    PrintDiv(data);
+
+    function PrintDiv(data) {
+        var mywindow = window.open();
+        var is_chrome = Boolean(mywindow.chrome);
+        mywindow.document.write(data);
+    
+       if (is_chrome) {
+         setTimeout(function() { // wait until all resources loaded 
+            mywindow.document.close(); // necessary for IE >= 10
+            mywindow.focus(); // necessary for IE >= 10
+            mywindow.print(); // change window to winPrint
+            mywindow.close(); // change window to winPrint
+         }, 250);
+       } else {
+            mywindow.document.close(); // necessary for IE >= 10
+            mywindow.focus(); // necessary for IE >= 10
+    
+            mywindow.print();
+            mywindow.close();
+       }
+    
+        return true;
+    }
+</script>

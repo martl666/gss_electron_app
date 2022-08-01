@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="card-header">
+    Anstaltsinfo
+  </div>  
+  <div class="card-body"> 
+    <div class="col-md-6">
+      <label for="inputEmail4" class="form-label">JVA</label>
+      <input type="text" class="form-control" name="institute" value="{{ result.institute }}">
+    </div>
+    <div class="col-md-6">
+      <label for="inputPassword4" class="form-label">Diözese</label>
+      <input type="text" class="form-control" name="diocese" value="{{ result.diocese }}">
+    </div>
+    {{ include('./member/update/memberOrganizationalFormSwitch.html', {result: result}) }}
+  </div> 
+</div>
