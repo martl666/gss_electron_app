@@ -4,7 +4,8 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "rebuild": "./node_modules/.bin/electron-rebuild"
   },
   "keywords": [],
   "author": "",
@@ -13,7 +14,7 @@
     "@types/node": "^18.0.0",
     "electron": "^19.0.6",
     "electron-builder": "^23.1.0",
-    "electron-rebuild": "^3.2.7"
+    "electron-rebuild": "^3.2.8"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.1.1",

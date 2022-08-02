@@ -3,10 +3,11 @@
 const fs = require('fs');
 const path = require('path');
 
-let currentDirArr = __dirname.split("\\");
+let currentDirArr = __dirname.split(path.sep);
 
-if (__dirname.split("\\").indexOf('Users') !== -1) {
+if (__dirname.split(path.sep).indexOf('Users') !== -1) {
     let usersDirNumber = currentDirArr.indexOf('Users');
+    console.log(usersDirNumber);
     let documentDir = "Documents";
     let savePath = [];
     for (let i = 0; i < currentDirArr.length; i++) {

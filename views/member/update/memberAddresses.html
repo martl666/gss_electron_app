@@ -1,6 +1,6 @@
 {% for addressData in result.address|split(',') %}
   {% set addressFields = addressData|split('$$') %}
-  <div class="col-12">
+  <div class="col-12 mt-3">
     <label for="inputAddress" class="form-label">Straße ({{ addressFields[3] }})</label>
     <input type="text" class="form-control" id="inputAddress" placeholder="Musterweg 1" name="{{ addressFields[3] }}_street" value="{{ addressFields[0] }}">
   </div>

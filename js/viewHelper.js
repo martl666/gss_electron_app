@@ -6,7 +6,9 @@ function saveMail(input) {
 }
 
 function deleteMail(memberId, rowId) {
-    renderer.rendererDeleteMail(memberId, rowId);
+    if (confirm('Wollen Sie diese E-Mail Adresse wirklich löschen?')) {
+        renderer.rendererDeleteMail(memberId, rowId);
+    }
 }
 
 function updateMemeberView(memberId) {

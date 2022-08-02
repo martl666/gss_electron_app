@@ -1,7 +1,7 @@
 {% if result.contactData|length >= 1 %}
     {% for contactInfo in result.contactData|split(',') %}
     {% set contactInfoFields = contactInfo|split('$$') %}
-        <div class="col-12">
+        <div class="col-12 mt-3">
             <label for="inputContact" class="form-label">{{ contactInfoFields[1]|replace({'private_phone': 'Privates Telefon', 'business_phone': 'Geschäftliches Telefon', 'email': 'E-Mail' }) }}</label>
             
             {% if contactInfoFields[1] == 'email' %}

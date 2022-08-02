@@ -1,6 +1,6 @@
 {
-    "documentsPath": "C:\\Users\\M.Haydn\\Documents",
-    "seelsorgePath": "C:\\Users\\M.Haydn\\Documents\\Gefängnisseelsorge",
-    "exports": "C:\\Users\\M.Haydn\\Documents\\Gefängnisseelsorge\\exports",
-    "imports": "C:\\Users\\M.Haydn\\Documents\\Gefängnisseelsorge\\imports"
+    "documentsPath": "/Users/martinhaydn/Documents",
+    "seelsorgePath": "/Users/martinhaydn/Documents/Gefängnisseelsorge",
+    "exports": "/Users/martinhaydn/Documents/Gefängnisseelsorge/exports",
+    "imports": "/Users/martinhaydn/Documents/Gefängnisseelsorge/imports"
 }

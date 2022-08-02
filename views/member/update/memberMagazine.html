@@ -1,10 +1,10 @@
 {% if result.magazine_pdf == 1 %}
-<div class="form-check form-switch">
+<div class="form-check form-switch mt-3">
     <input class="form-check-input" type="checkbox" name="magazine_pdf" id="magazine_pdf" checked>
     <label class="form-check-label" for="flexSwitchCheckChecked">Magazine als PDF</label>
 </div>
 {% else %}
-<div class="form-check form-switch">
+<div class="form-check form-switch mt-3">
     <input class="form-check-input" type="checkbox" name="magazine_pdf" id="magazine_pdf">
     <label class="form-check-label" for="flexSwitchCheckChecked">Magazine als PDF</label>
 </div>
@@ -22,7 +22,7 @@
 </div>
 {% endif %}
 
-<div class="col-12">
+<div class="col-12 mt-3">
     <label for="inputAddress" class="form-label">Anzahl der Magazine</label>
     <input type="text" class="form-control" id="inputAddress" placeholder="Musterweg 1" name="number_of_magazine" value="{{ result.number_of_magazine }}">
 </div>

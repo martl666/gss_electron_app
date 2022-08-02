@@ -29,10 +29,11 @@ function writeDataToFile(data, fileName) {
 }
 
 function createDirs() {
-    let currentDirArr = __dirname.split("\\");
+    let currentDirArr = __dirname.split(path.sep);
 
-    if (__dirname.split("\\").indexOf('Users') !== -1) {
+    if (__dirname.split(path.sep).indexOf('Users') !== -1) {
         let usersDirNumber = currentDirArr.indexOf('Users');
+        console.log(usersDirNumber);
         let documentDir = "Documents";
         let savePath = [];
         for (let i = 0; i < currentDirArr.length; i++) {
@@ -42,6 +43,7 @@ function createDirs() {
                 savePath.push(documentDir);
                 i = currentDirArr.length+1;
             } else {
+                console.log(currentDirArr[i]);
                 savePath.push(currentDirArr[i]);
             }
         }
@@ -71,6 +73,10 @@ function createDir(dirPath, name) {
             if (err) {
                 return console.error(err);
             }
+            fs.chmod(dirPath, 0o777, (err) => {
+                if (err) throw err;
+                console.log('The permissions set for dirs');
+              });
             console.log(name + ' Directory created successfully!');
             if (!fs.existsSync(configFile)) {
                 writeConfigFile = true;

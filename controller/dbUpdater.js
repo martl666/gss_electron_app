@@ -8,7 +8,7 @@ let dbStorageDir = __dirname  + path.sep + ['..', 'db_storage', ''].join(path.se
 function createBackup() {
     let currentDate = new Date();
     let dateVersion = currentDate.toISOString().replace(/-/g, '').replace(/:/g, '').replace('.','');
-    fs.copyFileSync(__dirname + path.sep + '..\\seelsorge.db', dbStorageDir + 'seelsorgeBackup_'+dateVersion+'.db');
+    fs.copyFileSync(__dirname + path.sep + '../seelsorge.db', dbStorageDir + 'seelsorgeBackup_'+dateVersion+'.db');
 }
 
 function checkIsNewVersionOnline() {
