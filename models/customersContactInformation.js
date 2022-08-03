@@ -1,7 +1,7 @@
 'use strict';
 
 const db = require('../controller/dbConnector').getDB();
-let updateHelperController = require('../controller/updateHelperController');'use strict';
+let updateHelperController = require('../controller/updateHelperController');
 
 function updateMemberContactInfo(updateObject, cciID) {
     let updateQuerySQL = "UPDATE customers_contact_information SET " + updateHelperController.createSetForUpdateDB(updateObject).join(',') + " WHERE ID = ?";

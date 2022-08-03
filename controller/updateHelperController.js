@@ -26,6 +26,7 @@ let address = {
     street: '',
     zip: '',
     city: '',
+    state: '',
     type: '',
 }
 
@@ -86,6 +87,8 @@ function createSetForUpdateDB(updateObject) {
     Object.keys(updateObject).forEach((key) => {
         if (isNaN(updateObject[key])) {
             updateQuerySetPart.push(key + "='" +updateObject[key].trim()+"'");
+        } else if (updateObject[key] === '') { 
+            updateQuerySetPart.push(key + "=''");
         } else {
             updateQuerySetPart.push(key + "=" +updateObject[key]);
         }

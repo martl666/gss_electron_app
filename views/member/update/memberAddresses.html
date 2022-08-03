@@ -14,8 +14,12 @@
       <input type="text" class="form-control" id="inputZip" name="{{ addressFields[3] }}_zip" value="{{ addressFields[2] }}">
     </div>
     <div class="col-md-2">
+      <label for="inputState" class="form-label">Bundesland</label>
+      <input type="text" class="form-control" id="inputState" name="{{ addressFields[3] }}_state" value="{{ addressFields[6] }}">
+    </div>
+    <div class="col-md-2">
       <label for="inputCountry" class="form-label">Land</label>
-      <input type="text" class="form-control" id="inputCountry" name="{{ addressFields[3] }}_zip" value="{{ addressFields[5] }}">
+      <input type="text" class="form-control" id="inputCountry" name="{{ addressFields[3] }}_country" value="{{ addressFields[5] }}">
     </div>
   </div>
   <input type="hidden" name="{{ addressFields[3] }}_type" value="{{ addressFields[3] }}">
@@ -37,8 +41,12 @@
           <input type="text" class="form-control" id="inputZip" name="new_{{ addressType }}_zip" value="">
         </div>
         <div class="col-md-2">
+          <label for="inputState" class="form-label">Bundesland</label>
+          <input type="text" class="form-control" id="inputState" name="{{ addressFields[3] }}_state" value="">
+        </div>
+        <div class="col-md-2">
           <label for="inputCountry" class="form-label">Land</label>
-          <input type="text" class="form-control" id="inputCountry" name="new_{{ addressFields[3] }}_zip" value="">
+          <input type="text" class="form-control" id="inputCountry" name="new_{{ addressFields[3] }}_country" value="">
         </div>
       </div>
       <input type="hidden" name="new_{{ addressType }}_type" value="{{ addressType }}">
@@ -58,8 +66,12 @@
           <input type="text" class="form-control" id="inputZip" name="new_{{ addressType }}_zip" value="">
         </div>
         <div class="col-md-2">
+          <label for="inputState" class="form-label">Bundesland</label>
+          <input type="text" class="form-control" id="inputState" name="{{ addressFields[3] }}_state" value="">
+        </div>
+        <div class="col-md-2">
           <label for="inputCountry" class="form-label">Land</label>
-          <input type="text" class="form-control" id="inputCountry" name="new_{{ addressFields[3] }}_zip" value="">
+          <input type="text" class="form-control" id="inputCountry" name="new_{{ addressFields[3] }}_country" value="">
         </div>
       </div>
       <input type="hidden" name="new_{{ addressType }}_type" value="{{ addressType }}">

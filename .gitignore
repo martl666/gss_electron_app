@@ -108,3 +108,5 @@ seelsorge*
 db_storage/*
 
 ExportDaten/*
+
+config/sftp.json

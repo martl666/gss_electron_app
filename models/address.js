@@ -5,6 +5,7 @@ let updateHelperController = require('../controller/updateHelperController');
 
 function updateMemberAddress(updateObject, addressID) {
     let updateQuerySQL = "UPDATE address SET " + updateHelperController.createSetForUpdateDB(updateObject).join(',') + " WHERE ID = ?";
+    console.log(updateQuerySQL);
     const updateQuery = db.prepare(updateQuerySQL);
     const returnValue = updateQuery.run(addressID);
 
