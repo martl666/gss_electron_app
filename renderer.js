@@ -11,6 +11,13 @@ document.querySelector('#addMember').addEventListener('click', () => {
   addMember();
 });
 
+document.querySelector('#exportCSV').addEventListener('click', () => {
+  ipcRenderer.invoke('exportCSV').then((result)=>{
+    document.getElementById('content').innerHTML = result;
+    return true;
+  });
+});
+
 document.querySelector('#exportMailDistributor').addEventListener('click', () => {
   ipcRenderer.invoke('exportMailDistributor').then((result)=>{
     document.getElementById('content').innerHTML = result;
@@ -126,6 +133,14 @@ function exportMailDistributorSearch(queryString) {
   });
 }
 
+function exportCsvSearch(queryString) {
+  ipcRenderer.invoke('exportCsvSearch', {queryString: queryString}).then((result) => {
+    if (result >= 1) {
+      console.log('Write File to Browser');
+    } 
+  });
+}
+
 function changePrimaryMail(memberId, newPrimaryMailId) {
   ipcRenderer.invoke('changePrimaryMail', {memberId: memberId, newPrimaryMailId: newPrimaryMailId}).then((result) => {
     if (result >= 1) {
@@ -149,6 +164,7 @@ module.exports = {
   updateMemberData: updateMemberData,
   addMember: addMember,
   exportMailDistributorSearch: exportMailDistributorSearch,
+  exportCsvSearch: exportCsvSearch,
   changePrimaryMail: changePrimaryMail,
   printMailingLabel: printMailingLabel,
 }

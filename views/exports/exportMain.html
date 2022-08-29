@@ -4,11 +4,21 @@
     </div>
     <div class="card">
         <div class="card-header">
-            Suche für Export
+            Suche für 
+            {% if csv %}
+                CSV
+            {% else %}
+                Mail
+            {% endif %}
+            Export
         </div>
         <div class="card-body">
             <blockquote class="blockquote mb-0">
-                {{ include('./exports/exportMailSearch.html', {}) }}
+                {% if csv %}
+                    {{ include('./exports/exportCsvSearch.html', {}) }}
+                {% else %}
+                    {{ include('./exports/exportMailSearch.html', {}) }}
+                {% endif %}
             </blockquote>
         </div>
     </div>

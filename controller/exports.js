@@ -3,7 +3,7 @@
 let exportModel = require('../models/exports');
 let fileWriter = require('./fileWriter');
 
-function exportMailDistributorResult(queryString) {
+function exportResult(queryString, type) {
     let searchSqlSearchString = '';
     let link;
     let termObject;
@@ -46,9 +46,17 @@ function exportMailDistributorResult(queryString) {
         
     });
     
-    let result = exportModel.exportMailDistributorSqlResult(searchSqlSearchString.slice(0,-10).replaceAll('%%LINK%%', link), link);
-    
-    fileWriter.writeDataToFile(result, 'export_test.txt');
+    let result;
+    let fileName;
+    if (type === 'mail') {
+        result = exportModel.exportMailDistributorSqlResult(searchSqlSearchString.slice(0,-10).replaceAll('%%LINK%%', link), link);
+        fileName = 'mail_export.txt';
+    }
+    if (type === 'csv') {
+        result = 'TEST,test1';
+        fileName = 'member_data.csv';
+    }
+    fileWriter.writeDataToFile(result, fileName);
     
 }
 
@@ -102,5 +110,5 @@ function getTermValueForSql(value) {
 }
 
  module.exports = {
-    exportMailDistributorResult: exportMailDistributorResult,
+    exportResult: exportResult,
  }

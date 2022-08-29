@@ -59,6 +59,13 @@ function exportMailDistributorSearch() {
     renderer.exportMailDistributorSearch(queryString);
 }
 
+function exportCsvSearch() {
+    let data = document.forms.exportCsvSearch;
+    queryString = exportHelperForQueryString(data);
+    
+    renderer.exportCsvSearch(queryString);
+}
+
 function printMailingLabel() {
     let data = document.forms.printMailingLabel;
     console.log(data.elements[0].value);

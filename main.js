@@ -76,6 +76,16 @@ ipcMain.handle('addMember', async (event, param) => {
   return content;
 });
 
+ipcMain.handle('exportCSV', async (event, param) => {
+  let content = twing.load('exports/exportMain.html').then((template) => {
+    return template.render({csv: true}).then((output) => {
+      return output;
+    });
+  });
+  
+  return content;
+});
+
 ipcMain.handle('exportMailDistributor', async (event, param) => {
   let content = twing.load('exports/exportMain.html').then((template) => {
     return template.render({}).then((output) => {
@@ -122,7 +132,11 @@ ipcMain.handle('changePrimaryMail', async(event, param) => {
 
 
 ipcMain.handle('exportMailDistributorSearch', async (event, param) => {
-  exportController.exportMailDistributorResult(param.queryString);
+  exportController.exportResult(param.queryString, 'mail');
+});
+
+ipcMain.handle('exportCsvSearch', async (event, param) => {
+  exportController.exportResult(param.queryString, 'csv');
 });
 
 ipcMain.handle('saveNewMail', async(event, param) => {
