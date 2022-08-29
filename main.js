@@ -100,9 +100,9 @@ ipcMain.handle('printEnvelops', async (event, param) => {
 ipcMain.handle('printMailingLabel', async(event, param) => {
   const printWindow = new BrowserWindow({
     show: false,
-    icon: __dirname + path.sep + 'img' + path.sep + 'seelsorge.jpg',
+    icon: __dirname + path.sep + 'img' + path.sep + 'seelsorge.jpeg',
     webPreferences: {
-      nodeIntegration: false,
+      nodeIntegration: true,
       contextIsolation: false,
     }
   });
