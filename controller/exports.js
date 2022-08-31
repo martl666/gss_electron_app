@@ -1,7 +1,9 @@
 'use strict';
 
 let exportModel = require('../models/exports');
+let customersModel = require('../models/customers');
 let fileWriter = require('./fileWriter');
+const address = require('./address');
 
 function exportResult(queryString, type) {
     let searchSqlSearchString = '';
@@ -53,11 +55,55 @@ function exportResult(queryString, type) {
         fileName = 'mail_export.txt';
     }
     if (type === 'csv') {
-        result = 'TEST,test1';
+        result = customersModel.getMemberData('all');
+        let csvObject = [];
+        let csvLine = [];
+        for(let rows = 0; rows < result.length; rows++) {
+            Object.keys(result[rows]).forEach(function (key, index) {
+                let val = result[rows][key];
+                if (index === 16) {
+                    console.log('Key: ' + key + ' Value: ' + result[rows][key] + ' Index: ' + index);
+                    if(val !== null && val !== undefined) {
+                        let addressSplit = val.split(',');
+                        console.log('length: ' + addressSplit.length);
+                        if (addressSplit.length < 2) {
+                            val += ',';
+                        }
+                    }
+                }
+                //TODO order phone numbers in private/business, max. 4 mail addresses!
+                if (val !== undefined && isNaN(val) && val.includes(',') && (index !== 3 && index !== 18 && index  !== 19)) {
+                    if (val !== undefined && isNaN(val)) {
+                        let splitVals = val.split(',');
+                        let splitValsArr = [];
+                        splitVals.forEach((item) => {
+                            splitValsArr.push('"'+item+'"');
+                        });
+                        val = splitValsArr.join(',');
+                    }
+                } else if (val !== undefined && isNaN(val) && val.includes(',') && (index === 3 || index === 18 || index  === 19)) {
+                    val = '"'+val+'"';
+                }
+                csvLine.push(val);
+                if (index == 29) {
+                    csvObject.push(csvLine.join(','));
+                    csvLine = [];
+                }
+            });
+        }
+        result = csvObject;
         fileName = 'member_data.csv';
     }
-    fileWriter.writeDataToFile(result, fileName);
+    fileWriter.writeDataToFile(result, fileName, type);
     
+}
+
+function orderPhoneNumbers(phoneNumbersObj) {
+    //first private, business second
+}
+
+function setEmptyMailFieldsForCsv(mailAddressObj) {
+    //max. 4 mail addresses
 }
 
 function getTermValueForSql(value) {

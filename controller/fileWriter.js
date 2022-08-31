@@ -14,15 +14,27 @@ let writeConfigFile = false;
 
 let configFile = __dirname + path.sep + '../config/config.json';
 
-function writeDataToFile(data, fileName) {
+function writeDataToFile(data, fileName, type) {
     createDirs();
     let pathToSave = paths.exports + path.sep + fileName;
     console.log(pathToSave);
-    fs.writeFileSync(pathToSave, '');
+    let firstRow = '';
+    if (type === 'csv') {
+        firstRow = 'Mitglieder-ID,Vorname,Nachname,Titel,,,,,,,,,,,,,Adresse,Adresse,ID,JVA,Bistum,Telefon 1, Telefon2,Email 1, Email 2, Email 3,Email 4,,,,,,,\n';
+    }
+    fs.writeFileSync(pathToSave, firstRow);
     for (let i = 0; i < data.length; i++) {
-        let toAppend = data[i].contact_data;
-        fs.appendFileSync(pathToSave, toAppend + '; ');
-        if (i % 100 == 0  && i > 0) {
+        let toAppend;
+        let delimiter = '; ';
+        if (type === 'csv') {
+            toAppend = data[i];
+            delimiter = '\n';
+        } else {
+            toAppend = data[i].contact_data;
+        }
+        
+        fs.appendFileSync(pathToSave, toAppend + delimiter);
+        if (i % 100 == 0  && i > 0 && type !== 'csv') {
             fs.appendFileSync(pathToSave, '\n\n');
         }
     }
