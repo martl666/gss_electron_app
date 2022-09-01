@@ -110,3 +110,5 @@ db_storage/*
 ExportDaten/*
 
 config/sftp.json
+
+config/config.json

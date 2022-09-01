@@ -20,7 +20,7 @@ function writeDataToFile(data, fileName, type) {
     console.log(pathToSave);
     let firstRow = '';
     if (type === 'csv') {
-        firstRow = 'Mitglieder-ID,Vorname,Nachname,Titel,,,,,,,,,,,,,Adresse,Adresse,ID,JVA,Bistum,Telefon 1, Telefon2,Email 1, Email 2, Email 3,Email 4,,,,,,,\n';
+        firstRow = 'Mitglieder-ID,Vorname,Nachname,Titel,,,,,,,,,,,,,Adresse,Adresse,ID,JVA,Bistum,Privates Telefon,Geschäftlich Telefon, Primäre Email, Email 2, Email 3,Email 4,,,,,,,\n';
     }
     fs.writeFileSync(pathToSave, firstRow);
     for (let i = 0; i < data.length; i++) {

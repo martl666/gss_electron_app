@@ -62,16 +62,17 @@ function exportResult(queryString, type) {
             Object.keys(result[rows]).forEach(function (key, index) {
                 let val = result[rows][key];
                 if (index === 16) {
-                    console.log('Key: ' + key + ' Value: ' + result[rows][key] + ' Index: ' + index);
                     if(val !== null && val !== undefined) {
                         let addressSplit = val.split(',');
-                        console.log('length: ' + addressSplit.length);
                         if (addressSplit.length < 2) {
                             val += ',';
                         }
                     }
                 }
-                //TODO order phone numbers in private/business, max. 4 mail addresses!
+                
+                if (index === 20) {
+                    val = splitMailFromPhone(val);
+                }
                 if (val !== undefined && isNaN(val) && val.includes(',') && (index !== 3 && index !== 18 && index  !== 19)) {
                     if (val !== undefined && isNaN(val)) {
                         let splitVals = val.split(',');
@@ -98,12 +99,59 @@ function exportResult(queryString, type) {
     
 }
 
-function orderPhoneNumbers(phoneNumbersObj) {
-    //first private, business second
-}
+function splitMailFromPhone(addressLine) {
+    let phone = {
+        private: '',
+        business: ''
+    };
 
-function setEmptyMailFieldsForCsv(mailAddressObj) {
-    //max. 4 mail addresses
+    let mail = {
+        mail_primary: '',
+        mail_1: '',
+        mail_2: '',
+        mail_3: ''
+    }
+
+    if (addressLine === null || addressLine === undefined) {
+        return ',,,,,,';
+    }
+
+    let splitedAddress = addressLine.split(',');
+
+    splitedAddress.forEach((addressInfoItem) => {
+        let addressParts = addressInfoItem.split(' ');
+        if (addressParts[0] === 'private_phone') {
+                phone.private = addressParts.slice(1, addressParts.length-1).join(' ');
+        }
+        
+        if (addressParts[0] === 'business_phone') {
+                phone.business = addressParts.slice(1, addressParts.length-1).join(' ');
+        }
+        
+        if (addressParts[0] === 'email' && addressParts[2] == 1) {
+                mail.mail_primary = addressParts[1];
+        }
+        
+        if (addressParts[0] === 'email' && addressParts[2] == 0) {
+                if (mail.mail_1 == '')
+                    mail.mail_1 = addressParts[1];
+                if (mail.mail_2 == '' && mail.mail_1 !== addressParts[1])
+                    mail.mail_2 = addressParts[1];
+                if (mail.mail_3 == '' && mail.mail_1 !== addressParts[1] && mail.mail_2 !== addressParts[1])
+                    mail.mail_3 = addressParts[1];
+        }
+    });
+
+    let returnAddress = [];
+    Object.keys(phone).forEach((item) => {
+        returnAddress.push(phone[item]);
+    });
+
+    Object.keys(mail).forEach((item) => {
+        returnAddress.push(mail[item]);
+    });
+
+    return returnAddress;
 }
 
 function getTermValueForSql(value) {
