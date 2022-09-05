@@ -3,8 +3,6 @@
 let exportModel = require('../models/exports');
 let customersModel = require('../models/customers');
 let fileWriter = require('./fileWriter');
-const address = require('./address');
-
 function exportResult(queryString, type) {
     let searchSqlSearchString = '';
     let link;
@@ -55,7 +53,7 @@ function exportResult(queryString, type) {
         fileName = 'mail_export.txt';
     }
     if (type === 'csv') {
-        result = customersModel.getMemberData('all');
+        result = exportModel.exportCsvFileData(searchSqlSearchString.slice(0,-10).replaceAll('%%LINK%%', link), link);//customersModel.getMemberData('all');
         let csvObject = [];
         let csvLine = [];
         for(let rows = 0; rows < result.length; rows++) {
