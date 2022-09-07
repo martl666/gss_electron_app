@@ -35,7 +35,7 @@ function exportResult(queryString, type) {
             } else if (termObject.like == 'end') {
                 searchSqlSearchString += "'%"+splittedValues[1] + '\' %%LINK%% ';
             } else {
-                searchSqlSearchString += splittedValues[1] + ' %%LINK%% ';
+                searchSqlSearchString += "'"+splittedValues[1] +"'" + ' %%LINK%% ';
             }
             termObject = null;
         }

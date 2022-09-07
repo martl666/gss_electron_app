@@ -1,20 +1,8 @@
 <form action="" method="post" onsubmit="javascript:exportMailDistributorSearch();" id="exportMailDistributorSearch">
-    {% for i in 0..9 %}
+    {% for i in 0..33 %}
     <div class="row">
         <div class="col-md-4">
-            <select class="form-select" name="searchField">
-                <option value="not_used" selected>Bitte wählen</option>
-                <option value="customers_contact_information.contact_primary_mail_address">Primäre Email Adresse (Werte: 0, 1)</option>
-                <option value="customers.active">Mitglied aktiv (Werte: 0, 1)</option>
-                <option value="customers.board_of_directors">Vorstand (Werte: 0, 1)</option>
-                <option value="customers.advisory_council">Beirat (Werte: 0, 1)</option>
-                <option value="customers.buko_member">Buko Mitglied (Werte: 0, 1)</option>
-                <option value="customers.no_member">kein Mitglied (Werte: 0, 1)</option>
-                <option value="customers.ethics">Ehtik (Werte: 0, 1)</option>
-                <option value="customers.youth">Jugendliche (Werte: 0, 1)</option>
-                <option value="customers.retired">Pensioniert (Werte: 0, 1)</option>
-                <option value="customers_contact_information.contact_data">E-Mail Adresse</option>
-            </select>
+            {{ include('./exports/searchSelect.html', {}) }}
         </div>
         {{ include('./exports/searchTerm.html', {}) }}
         <div class="col-md-4">
