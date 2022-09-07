@@ -12,14 +12,8 @@ function getAllMembersData() {
 function getMemberData (memberId) {
 
     let query = "SELECT customers.*, GROUP_CONCAT(address.street || '$$' || address.city || '$$' || address.zip || '$$' || address.type || '$$' || address.ID || '$$' || address.country || '$$' || IFNULL(address.state, '')) AS `address`, institute.*, cci.contactData, organizational_form.* FROM customers LEFT JOIN address ON customers.ID = address.customer_Id LEFT JOIN institute ON customers.ID = institute.customer_id LEFT JOIN organizational_form ON institute.ID = organizational_form.institute_id LEFT JOIN (SELECT customers_contact_information.customer_id, GROUP_CONCAT(customers_contact_information.ID || '$$' || customers_contact_information.contact_type || '$$' || customers_contact_information.contact_data || '$$' || customers_contact_information.contact_primary_mail_address ) AS `contactData` FROM customers_contact_information GROUP BY customer_id) cci ON customers.ID = cci.customer_id  WHERE customers.ID = ? GROUP BY address.customer_id";
-    let queryCsv = "SELECT customers.*, GROUP_CONCAT(address.street || ' ' || address.city || ' ' || address.zip || ' ' || address.country || ' ' || address.type || ' ' || IFNULL(address.state, '')) AS `address`, institute.*, cci.contactData, organizational_form.* FROM customers LEFT JOIN address ON customers.ID = address.customer_Id LEFT JOIN institute ON customers.ID = institute.customer_id LEFT JOIN organizational_form ON institute.ID = organizational_form.institute_id LEFT JOIN (SELECT customers_contact_information.customer_id, GROUP_CONCAT(customers_contact_information.contact_type || ' ' || customers_contact_information.contact_data || ' ' || customers_contact_information.contact_primary_mail_address ) AS `contactData` FROM customers_contact_information GROUP BY customer_id) cci ON customers.ID = cci.customer_id GROUP BY address.customer_id";
     
-    let result;
-    if (memberId !== 'all')
-        result = db.prepare(query).get(memberId);
-    else {
-        result = db.prepare(queryCsv).all();
-    }
+    let result = db.prepare(query).get(memberId);
 
     return result;
 }
