@@ -161,6 +161,11 @@ ipcMain.handle('updateMemberData', async(event, param) => {
   return param.memberId;
 });
 
+ipcMain.handle('addMemberData', async(event, param) => {
+  console.log('IPC-MAIN Handle Add Member Data: ' + param);
+  return true;
+});
+
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.

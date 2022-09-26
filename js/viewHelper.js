@@ -18,6 +18,27 @@ function updateMemeberView(memberId) {
 function updateMemberData() {
     let data = document.forms.memberDataForm;
 
+    let dataObject = getQueryString(data);
+
+    renderer.updateMemberData(dataObject.queryString, dataObject.memberId);
+
+    return true;
+}
+
+function insertMemberData() {
+    let data = document.forms.addMemberForm;
+
+    let dataObject = getQueryString(data);
+
+    console.log(dataObject.queryString);
+    console.log(dataObject.memberId);
+
+    renderer.newMemberData(dataObject.queryString);
+
+    return false;
+}
+
+function getQueryString(data) {
     var params = '';
     var memberId = 0;
     for( var i=0; i<data.elements.length; i++ )
@@ -48,8 +69,11 @@ function updateMemberData() {
     if (params.slice(-1) === '&') {
         queryString = params.slice(0, -1);
     }
-    renderer.updateMemberData(queryString, memberId);
-    return true;
+
+    return {
+        queryString: queryString,
+        memberId: memberId
+    }
 }
 
 function exportMailDistributorSearch() {

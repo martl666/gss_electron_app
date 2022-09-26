@@ -2,7 +2,7 @@
     <div class="row">
         <h3>Mitglied anlegen</h3>
     </div>
-    <form action="" method="post" onsubmit="" id="addMemberForm">
+    <form action="javascript:checkForm();" method="post" onsubmit="event.preventDefault(); javascript:insertMemberData();" id="addMemberForm">
         <div class="row">
             <div class="col-md-6">
                 <label for="inputTitle" class="form-label">Titel</label>
@@ -61,66 +61,119 @@
         </div>
         <div class="col-12">
             <label for="inputContactEmailPrimary" class="form-label">Primäre Email</label>
-            <input type="email" class="form-control" id="inputContactEmailPrimary" name="contact_data" value="">
+            <input type="email" class="form-control" id="inputContactEmailPrimary" name="contact_data" value="" placeholder="max@mustermann.de">
             <input type="hidden" name="contact_type" value="email_primary">
         </div>
         <div class="col-12">
-            <label for="inputContactEmailSeconde" class="form-label">weitere Email</label>
-            <input type="email" class="form-control" id="inputContactEmailSeconde" name="contact_data" value="">
+            <label for="inputContactEmailSecond" class="form-label">weitere Email</label>
+            <input type="email" class="form-control" id="inputContactEmailSecond" name="contact_data" value="">
             <input type="hidden" name="contact_type" value="email_second">
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <label for="inputEmail4" class="form-label">JVA</label>
-                <input type="text" class="form-control" name="institute" value="">
+        <div class="card mt-3">
+            <div class="card-header">
+              Anstaltsinfo
+            </div>  
+            <div class="card-body"> 
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">JVA</label>
+                    <input type="text" class="form-control" name="institute" value="">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputPassword4" class="form-label">Diözese</label>
+                    <input type="text" class="form-control" name="diocese" value="">
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="men" id="men">
+                    <label class="form-check-label" for="flexSwitchCheckChecked">Männer</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="remand" id="remand">
+                    <label class="form-check-label" for="flexSwitchCheckChecked">Untersuchungshaft</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="punishable" id="punishable">
+                    <label class="form-check-label" for="flexSwitchCheckChecked">Strafhaft</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="enforcement" id="enforcement">
+                    <label class="form-check-label" for="flexSwitchCheckChecked">Regelvollzug</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="first_execution" id="first_execution">
+                    <label class="form-check-label" for="flexSwitchCheckChecked">Erstvollzug</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="open_execution" id="open_execution">
+                    <label class="form-check-label" for="flexSwitchCheckChecked">Offener Vollzug</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="women" id="women">
+                    <label class="form-check-label" for="flexSwitchCheckChecked">Frauen</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="org_youth" id="org_youth">
+                    <label class="form-check-label" for="flexSwitchCheckChecked">Jugend</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="subject_to_deportation" id="subject_to_deportation">
+                    <label class="form-check-label" for="flexSwitchCheckChecked">Abschiebehaft</label>
+                </div>
+            </div> 
+        </div>
+        <div class="card mt-3">
+            <div class="card-header">
+              Mitglieder Info
+            </div>  
+            <div class="card-body"> 
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="board_of_directors" id="board_of_directors">
+                    <label class="form-check-label" for="flexSwitchCheckChecked">Vorstand</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="advisory_council" id="advisory_council">
+                    <label class="form-check-label" for="flexSwitchCheckChecked">Beirat</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="buko_member" id="buko_member">
+                    <label class="form-check-label" for="flexSwitchCheckChecked">Buko Mitglied</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="no_member" id="no_member">
+                    <label class="form-check-label" for="flexSwitchCheckChecked">kein Mitglied</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="ethics" id="ethics">
+                    <label class="form-check-label" for="flexSwitchCheckChecked">Ehtik</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="youth" id="youth">
+                    <label class="form-check-label" for="flexSwitchCheckChecked">Jugendliche</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="retired" id="retired">
+                    <label class="form-check-label" for="flexSwitchCheckChecked">Pensioniert</label>
+                </div>
             </div>
-            <div class="col-md-6">
-                <label for="inputPassword4" class="form-label">Diözese</label>
-                <input type="text" class="form-control" name="diocese" value="">
+        </div>
+        <div class="card mt-3">
+            <div class="card-header">
+              Magazine
+            </div>  
+            <div class="card-body"> 
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="magazine_pdf" id="magazine_pdf">
+                    <label class="form-check-label" for="flexSwitchCheckChecked">Magazine als PDF</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="magazine_print" id="magazine_print">
+                    <label class="form-check-label" for="flexSwitchCheckChecked">Magazine per Post</label>
+                </div>
+                <div class="col-12">
+                    <label for="numberOfMagazine" class="form-label">Anzahl der Magazine</label>
+                    <input type="number" min="0" step="1" class="form-control" id="numberOfMagazine"  name="number_of_magazine" value="">
+                </div>
             </div>
         </div>
-        <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" name="board_of_directors" id="board_of_directors">
-            <label class="form-check-label" for="flexSwitchCheckChecked">Vorstand</label>
-        </div>
-        <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" name="advisory_council" id="advisory_council">
-            <label class="form-check-label" for="flexSwitchCheckChecked">Beirat</label>
-        </div>
-        <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" name="buko_member" id="buko_member">
-            <label class="form-check-label" for="flexSwitchCheckChecked">Buko Mitglied</label>
-        </div>
-        <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" name="no_member" id="no_member">
-            <label class="form-check-label" for="flexSwitchCheckChecked">kein Mitglied</label>
-        </div>
-        <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" name="ethics" id="ethics">
-            <label class="form-check-label" for="flexSwitchCheckChecked">Ehtik</label>
-        </div>
-        <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" name="youth" id="youth">
-            <label class="form-check-label" for="flexSwitchCheckChecked">Jugendliche</label>
-        </div>
-        <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" name="retired" id="retired">
-            <label class="form-check-label" for="flexSwitchCheckChecked">Pensioniert</label>
-        </div>
-        
-        <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" name="magazine_pdf" id="magazine_pdf">
-            <label class="form-check-label" for="flexSwitchCheckChecked">Magazine als PDF</label>
-        </div>
-        <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" name="magazine_print" id="magazine_print">
-            <label class="form-check-label" for="flexSwitchCheckChecked">Magazine per Post</label>
-        </div>
-        <div class="col-12">
-            <label for="numberOfMagazine" class="form-label">Anzahl der Magazine</label>
-            <input type="number" min="0" step="1" class="form-control" id="numberOfMagazine"  name="number_of_magazine" value="">
-        </div>
-
         <div class="col-12">
             <button type="submit" class="btn btn-success fa-pull-right">Mitglied speichern</button>
         </div>

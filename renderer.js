@@ -125,6 +125,12 @@ function updateMemberData(queryString, memberId) {
   });
 }
 
+function newMemberData(queryString) {
+  ipcRenderer.invoke('addMemberData', {}).then((result) => {
+
+  });
+}
+
 function exportMailDistributorSearch(queryString) {
   ipcRenderer.invoke('exportMailDistributorSearch', {queryString: queryString}).then((result) => {
     if (result >= 1) {
@@ -163,6 +169,7 @@ module.exports = {
   rendererDeleteMail: rendererDeleteMail,
   updateMemberData: updateMemberData,
   addMember: addMember,
+  newMemberData: newMemberData,
   exportMailDistributorSearch: exportMailDistributorSearch,
   exportCsvSearch: exportCsvSearch,
   changePrimaryMail: changePrimaryMail,
