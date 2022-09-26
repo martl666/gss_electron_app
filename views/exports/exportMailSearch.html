@@ -1,11 +1,11 @@
 <form action="" method="post" onsubmit="javascript:exportMailDistributorSearch();" id="exportMailDistributorSearch">
-    {% for i in 0..33 %}
+    {% for i in 0..32 %}
     <div class="row">
         <div class="col-md-4">
-            {{ include('./exports/searchSelect.html', {}) }}
+            {{ include('./exports/searchSelect.html', {index: i}) }}
         </div>
         {{ include('./exports/searchTerm.html', {}) }}
-        <div class="col-md-4">
+        <div class="col-md-4" id="searchInput_{{ i }}">
             <input type="text" class="form-control" name="searchValue" id="searchField_{{ i }}" value="">
         </div>
     </div>
