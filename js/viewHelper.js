@@ -125,8 +125,8 @@ function exportHelperForQueryString(data) {
 
 function changeInputFieldType(that, index) {
     if (that.querySelector(':checked').getAttribute('data-field') === 'select') {
-        document.getElementById('searchInput_'+index).innerHTML = "<select class=\"form-select\"><option>0</option><option>1</option></select>";
+        document.getElementById('searchInput_'+index).innerHTML = "<select  name=\"searchValue\" class=\"form-select\"><option>0</option><option>1</option></select>";
       } else {
-        document.getElementById('searchInput_'+index).innerHTML = "<input class=\"form-control\" type='text' id='text'>";
+        document.getElementById('searchInput_'+index).innerHTML = "<input  name=\"searchValue\" class=\"form-control\" type='text' id='text'>";
       }
 }
