@@ -8,6 +8,7 @@ let organizationalFormController = require('./controller/organizationalForm');
 let exportController = require('./controller/exports');
 let dbUpdater = require('./controller/dbUpdater');
 let {TwingEnvironment, TwingLoaderFilesystem} = require('twing');
+const institute = require('./controller/institute');
 
 dbUpdater.createBackup();
 let loader = new TwingLoaderFilesystem('./views');
@@ -159,6 +160,7 @@ ipcMain.handle('updateMemberData', async(event, param) => {
   addressController.updateMemberAddress(param.updateQueryString);
   cciController.updateMemberContactInformation(param.updateQueryString);
   organizationalFormController.updateOrganizationalForm(param.updateQueryString, param.memberId);
+  institute.updateInstitute(param.updateQueryString, param.memberId);
 
   return param.memberId;
 });

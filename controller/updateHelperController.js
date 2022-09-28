@@ -46,6 +46,11 @@ let organization = {
     org_youth: 0,
 }
 
+let institute = {
+    institute: "",
+    diocese: "",
+}
+
 function createUpdateObject(objectType, valuesArray) {
     let updateObject;
     let splitedValues = valuesArray.split('=');
@@ -68,6 +73,10 @@ function createUpdateObject(objectType, valuesArray) {
         case 'organization':
             updateObject = organization;
             break;
+        case 'institute':
+            updateObject = institute;
+            helperKey = cleanFormFieldName('-',key)[0];
+            break;
         default:
             break;
     }
@@ -85,7 +94,7 @@ function createUpdateObject(objectType, valuesArray) {
             }
         }
 
-        if (objectType == 'address' || objectType == 'contact') {
+        if (objectType == 'address' || objectType == 'contact' || objectType == 'institute') {
             updateObject[helperKey] = updateValue;
         }  else {
             updateObject[key] = updateValue;
