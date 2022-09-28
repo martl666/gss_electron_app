@@ -4,6 +4,7 @@ const path = require('path');
 let customersController = require('./controller/customers');
 let addressController = require('./controller/address');
 let cciController = require('./controller/customerContactInformation');
+let organizationalFormController = require('./controller/organizationalForm');
 let exportController = require('./controller/exports');
 let dbUpdater = require('./controller/dbUpdater');
 let {TwingEnvironment, TwingLoaderFilesystem} = require('twing');
@@ -157,6 +158,7 @@ ipcMain.handle('updateMemberData', async(event, param) => {
   customersController.updateMemberData(param.updateQueryString, param.memberId);
   addressController.updateMemberAddress(param.updateQueryString);
   cciController.updateMemberContactInformation(param.updateQueryString);
+  organizationalFormController.updateOrganizationalForm(param.updateQueryString, param.memberId);
 
   return param.memberId;
 });

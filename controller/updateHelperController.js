@@ -35,6 +35,17 @@ let contact = {
     contact_data: "",
 }
 
+let organization = {
+    men: 0,
+    remand: 0,
+    punishable: 0,
+    enforcement: 0,
+    first_execution: 0,
+    open_execution: 0,
+    women: 0,
+    org_youth: 0,
+}
+
 function createUpdateObject(objectType, valuesArray) {
     let updateObject;
     let splitedValues = valuesArray.split('=');
@@ -53,6 +64,9 @@ function createUpdateObject(objectType, valuesArray) {
         case 'contact':
             updateObject = contact;
             helperKey = cleanFormFieldName('-',key)[0];
+            break;
+        case 'organization':
+            updateObject = organization;
             break;
         default:
             break;
