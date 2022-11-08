@@ -57,7 +57,6 @@ ipcMain.handle('query', async (event, someArgument) => {
 })
 
 ipcMain.handle('getCusomerData', async (event, param) => {
-  console.log(param.memberId);
   const result = customersController.getMemberData(param.memberId);
   let content = twing.load('member/update/memberData.html').then((template) => {
     return template.render({result: result}).then((output) => {
@@ -167,6 +166,7 @@ ipcMain.handle('updateMemberData', async(event, param) => {
 
 ipcMain.handle('addMemberData', async(event, param) => {
   console.log('IPC-MAIN Handle Add Member Data: ' + param);
+  let newCustomerID = customersController.addMemberData(param);
   return true;
 });
 

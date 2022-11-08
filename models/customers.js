@@ -53,6 +53,10 @@ function customersUpdate(updateObject, updateMemberId) {
     return false;
 }
 
+function addCustomer(addCustomerObject) {
+    
+}
+
 function updatePrimaryMailAddress(memberId, newPrimaryMailAddress) {
     let cleanPrimaryMailAddressQuery = db.prepare("UPDATE customers_contact_information SET contact_primary_mail_address = 0 WHERE customer_id = ?").run(memberId);
     
@@ -74,4 +78,5 @@ module.exports = {
     deleteMailAddress: deleteMailAddress,
     customersUpdate: customersUpdate,
     updatePrimaryMailAddress: updatePrimaryMailAddress,
+    addCustomer: addCustomer,
 }

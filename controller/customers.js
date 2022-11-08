@@ -39,12 +39,23 @@ function deleteMailAddress(cciId) {
 }
 
 function updateMemberData(dataString, memberId) {
+    let customersUpdateObj = memberDataMapping(dataString);
+    customersModel.customersUpdate(customersUpdateObj, memberId);
+}
+
+function addMemberData(dataString) {
+    let customersAddObj = memberDataMapping(dataString);
+    return customersModel.addMemberData(customersAddObj);
+}
+
+function memberDataMapping(dataString) {
     let helperController = require('./updateHelperController');
     let customersUpdateObj;
     dataString.split('&').forEach((paramSet) => {
         customersUpdateObj = helperController.createUpdateObject('customers', paramSet);
     });
-    customersModel.customersUpdate(customersUpdateObj, memberId);
+
+    return customersUpdateObj;
 }
 
 function updatePrimaryMailAddress(memberId, newMailAddress) {
@@ -60,4 +71,5 @@ module.exports = {
     deleteMailAddress: deleteMailAddress,
     updateMemberData: updateMemberData,
     updatePrimaryMailAddress: updatePrimaryMailAddress,
+    addMemberData: addMemberData,
 }
