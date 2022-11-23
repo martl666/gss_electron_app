@@ -15,6 +15,21 @@ function updateMemberContactInfo(updateObject, cciID) {
     return false;
 }
 
+function addMemberContactInformation(data, newCustomerID) {
+    data['customer_id'] = newCustomerID;
+    let insertInto = updateHelperController.getInsertIntoSQL(data);
+    let insertIntoQuery = "INSERT INTO customers_contact_information ("+insertInto.keys.join(',')+") VALUES ("+insertInto.values.join(',')+")";
+    console.log("Contact: " + insertIntoQuery);
+    /*let newCustomer = db.prepare(insertIntoQuery).run();
+
+    if (returnValue.changes >= 1) {
+        return true;
+    }
+
+    return false;*/
+}
+
 module.exports = {
     updateMemberContactInfo: updateMemberContactInfo,
+    addMemberContactInformation: addMemberContactInformation,
 }

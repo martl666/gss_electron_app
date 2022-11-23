@@ -16,7 +16,7 @@
                 if (recieverData.country != "Deutschland") {
                     countryInfo = "<br>" + recieverData.country;
                 }
-                var from =   "<br>" +"<div style='max-width:470px;margin-left: 430px;  '><h3> "
+                var from =   "<br>" +"<div style='max-width:470px;margin-left: 430px;'><h3> "
                 var name = recieverData.firstname + ' ' + recieverData.lastname  + "</h3>";
                 var address = "<h3 style=''>" + recieverData.street  + "<br>" + recieverData.zip + ' ' + recieverData.city + countryInfo + "</h3></div>" ;
                 return from + name + address;

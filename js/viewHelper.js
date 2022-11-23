@@ -97,6 +97,9 @@ function printMailingLabel() {
         case '1':
             renderer.printMailingLabel();
             break;
+        case '2':
+            renderer.printAndersOrtLabel();
+            break;
     }
 }
 

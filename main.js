@@ -123,6 +123,21 @@ ipcMain.handle('printMailingLabel', async(event, param) => {
   printWindow.loadFile('print.html');
 });
 
+ipcMain.handle('printAndersOrtLabel', async(event, param) => {
+  const printWindow = new BrowserWindow({
+    show: false,
+    icon: __dirname + path.sep + 'img' + path.sep + 'seelsorge.jpeg',
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+    }
+  });
+  
+  printWindow.show();
+
+  printWindow.loadFile('printAndersOrt.html');
+});
+
 ipcMain.handle('changePrimaryMail', async(event, param) => {
   let returnVal = customersController.updatePrimaryMailAddress(param.memberId, param.newPrimaryMailId);
   if (returnVal)
@@ -165,8 +180,13 @@ ipcMain.handle('updateMemberData', async(event, param) => {
 });
 
 ipcMain.handle('addMemberData', async(event, param) => {
-  console.log('IPC-MAIN Handle Add Member Data: ' + param);
-  let newCustomerID = customersController.addMemberData(param);
+  let newCustomerID = customersController.addMemberData(param.insertQueryString);
+  console.log("Query String: " + param.insertQueryString);
+  addressController.addMemberAddress(param.insertQueryString, newCustomerID);
+  cciController.addMemberContactInformation(param.insertQueryString, newCustomerID);
+  //let organizationalId = organizationalFormController.addOrganizationalForm(param.insertQueryString, newCustomerID);
+  //institute.addInstitute(param.insertQueryString, organizationalId);
+
   return true;
 });
 

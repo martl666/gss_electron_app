@@ -54,7 +54,26 @@ function customersUpdate(updateObject, updateMemberId) {
 }
 
 function addCustomer(addCustomerObject) {
+    let data = addCustomerObject;
+    let insertIntoKey = [];
+    let insertIntoValue = [];
+    Object.keys(data).forEach(key => {
+        insertIntoKey.push(key);
+    if (isNaN(data[key])) {
+        insertIntoValue.push("'"+data[key]+"'");
+    } else if (data[key] === ''){
+        insertIntoValue.push("''");
+    } else {
+        insertIntoValue.push(data[key]);
+    }
     
+    });
+    let insertIntoQuery = "INSERT INTO customers ("+insertIntoKey.join(',')+") VALUES ("+insertIntoValue.join(',')+")";
+    console.log("Customer: " + insertIntoQuery);
+    /*let newCustomer = db.prepare(insertIntoQuery).run();
+
+    return newCustomer.lastInsertRowid;*/
+    return 666;
 }
 
 function updatePrimaryMailAddress(memberId, newPrimaryMailAddress) {

@@ -16,6 +16,20 @@ function updateMemberAddress(updateObject, addressID) {
     return false;
 }
 
+function addMemberAddress(addressObject, newCustomerID) {
+    addressObject['customer_id'] = newCustomerID;
+    let insertInto = updateHelperController.getInsertIntoSQL(addressObject);
+    let insertIntoQuery = "INSERT INTO address ("+insertInto.keys.join(',')+") VALUES ("+insertInto.values.join(',')+")";
+    console.log("Address: " + insertIntoQuery);
+    /*let newCustomer = db.prepare(insertIntoQuery).run();
+
+    if (returnValue.changes >= 1) {
+        return true;
+    }
+
+    return false;*/
+}
+
 function getAllPostalAddressWithoutAStoredEmail() {
     let query = "SELECT customers.ID, customers.firstname, customers.lastname, address.street, address.city, address.zip, address.type, address.country\
     FROM customers\
@@ -31,7 +45,23 @@ function getAllPostalAddressWithoutAStoredEmail() {
     return result;
 }
 
+function getAllAndersOrtAddress() {
+    //TODO use privte address if customer has only one address saved
+    let query = "SELECT customers.ID, customers.firstname, customers.lastname, address.street, address.city, address.zip, address.type, address.country, customers.magazine_print, customers.number_of_magazine, customers.magazine_pdf, COUNT(address.type) \
+    FROM customers \
+    LEFT JOIN address ON customers.ID = address.customer_id \
+    WHERE customers.magazine_print = 1 \
+    GROUP BY customers.ID \
+    ORDER BY customers.number_of_magazine DESC";
+
+    const result = db.prepare(query).all();
+
+    return result;
+}
+
 module.exports = {
     updateMemberAddress: updateMemberAddress,
     getAllPostalAddressWithoutAStoredEmail: getAllPostalAddressWithoutAStoredEmail,
+    getAllAndersOrtAddress: getAllAndersOrtAddress,
+    addMemberAddress: addMemberAddress,
 }

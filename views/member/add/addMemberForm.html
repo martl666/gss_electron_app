@@ -20,6 +20,12 @@
             </div>
         </div>
         <div class="col-12">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" name="active" id="active" checked>
+                <label class="form-check-label" for="active">aktives Mitglied</label>
+            </div>
+        </div>
+        <div class="col-12">
             <label for="inputAddress" class="form-label">Straße (privat)</label>
             <input type="text" class="form-control" id="inputAddress" placeholder="Musterweg 1" name="private_street" value="">
         </div>
@@ -32,6 +38,14 @@
                 <label for="inputZip" class="form-label">Zip</label>
                 <input type="text" class="form-control" id="inputZip" name="private_zip" value="">
             </div>
+            <div class="col-md-2">
+                <label for="inputState" class="form-label">Bundesland</label>
+                <input type="text" class="form-control" id="inputState" name="private_state" value="">
+            </div>
+            <div class="col-md-2">
+                <label for="inputCountry" class="form-label">Land</label>
+                <input type="text" class="form-control" id="inputCountry" name="private_country" value="">
+              </div>
             <input type="hidden" name="private_type" value="private">
         </div>
         <div class="col-12">
@@ -46,6 +60,14 @@
             <div class="col-md-2">
                 <label for="inputZip" class="form-label">Zip</label>
                 <input type="text" class="form-control" id="inputZip" name="business_zip" value="">
+            </div>
+            <div class="col-md-2">
+                <label for="inputState" class="form-label">Bundesland</label>
+                <input type="text" class="form-control" id="inputState" name="business_state" value="">
+            </div>
+            <div class="col-md-2">
+                <label for="inputCountry" class="form-label">Land</label>
+                <input type="text" class="form-control" id="inputCountry" name="business_country" value="">
             </div>
             <input type="hidden" name="business_type" value="business">
         </div>
@@ -84,39 +106,39 @@
                 </div>
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" name="men" id="men">
-                    <label class="form-check-label" for="flexSwitchCheckChecked">Männer</label>
+                    <label class="form-check-label" for="men">Männer</label>
                 </div>
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" name="remand" id="remand">
-                    <label class="form-check-label" for="flexSwitchCheckChecked">Untersuchungshaft</label>
+                    <label class="form-check-label" for="remand">Untersuchungshaft</label>
                 </div>
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" name="punishable" id="punishable">
-                    <label class="form-check-label" for="flexSwitchCheckChecked">Strafhaft</label>
+                    <label class="form-check-label" for="punishable">Strafhaft</label>
                 </div>
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" name="enforcement" id="enforcement">
-                    <label class="form-check-label" for="flexSwitchCheckChecked">Regelvollzug</label>
+                    <label class="form-check-label" for="enforcement">Regelvollzug</label>
                 </div>
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" name="first_execution" id="first_execution">
-                    <label class="form-check-label" for="flexSwitchCheckChecked">Erstvollzug</label>
+                    <label class="form-check-label" for="first_execution">Erstvollzug</label>
                 </div>
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" name="open_execution" id="open_execution">
-                    <label class="form-check-label" for="flexSwitchCheckChecked">Offener Vollzug</label>
+                    <label class="form-check-label" for="open_execution">Offener Vollzug</label>
                 </div>
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" name="women" id="women">
-                    <label class="form-check-label" for="flexSwitchCheckChecked">Frauen</label>
+                    <label class="form-check-label" for="women">Frauen</label>
                 </div>
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" name="org_youth" id="org_youth">
-                    <label class="form-check-label" for="flexSwitchCheckChecked">Jugend</label>
+                    <label class="form-check-label" for="org_youth">Jugend</label>
                 </div>
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" name="subject_to_deportation" id="subject_to_deportation">
-                    <label class="form-check-label" for="flexSwitchCheckChecked">Abschiebehaft</label>
+                    <label class="form-check-label" for="subject_to_deportation">Abschiebehaft</label>
                 </div>
             </div> 
         </div>
@@ -127,31 +149,31 @@
             <div class="card-body"> 
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" name="board_of_directors" id="board_of_directors">
-                    <label class="form-check-label" for="flexSwitchCheckChecked">Vorstand</label>
+                    <label class="form-check-label" for="board_of_directors">Vorstand</label>
                 </div>
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" name="advisory_council" id="advisory_council">
-                    <label class="form-check-label" for="flexSwitchCheckChecked">Beirat</label>
+                    <label class="form-check-label" for="advisory_council">Beirat</label>
                 </div>
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" name="buko_member" id="buko_member">
-                    <label class="form-check-label" for="flexSwitchCheckChecked">Buko Mitglied</label>
+                    <label class="form-check-label" for="buko_member">Buko Mitglied</label>
                 </div>
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" name="no_member" id="no_member">
-                    <label class="form-check-label" for="flexSwitchCheckChecked">kein Mitglied</label>
+                    <label class="form-check-label" for="no_member">kein Mitglied</label>
                 </div>
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" name="ethics" id="ethics">
-                    <label class="form-check-label" for="flexSwitchCheckChecked">Ehtik</label>
+                    <label class="form-check-label" for="ethics">Ehtik</label>
                 </div>
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" name="youth" id="youth">
-                    <label class="form-check-label" for="flexSwitchCheckChecked">Jugendliche</label>
+                    <label class="form-check-label" for="youth">Jugendliche</label>
                 </div>
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" name="retired" id="retired">
-                    <label class="form-check-label" for="flexSwitchCheckChecked">Pensioniert</label>
+                    <label class="form-check-label" for="retired">Pensioniert</label>
                 </div>
             </div>
         </div>
@@ -162,11 +184,11 @@
             <div class="card-body"> 
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" name="magazine_pdf" id="magazine_pdf">
-                    <label class="form-check-label" for="flexSwitchCheckChecked">Magazine als PDF</label>
+                    <label class="form-check-label" for="magazine_pdf">Magazine als PDF</label>
                 </div>
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" name="magazine_print" id="magazine_print" onchange="document.getElementById('numberOfMagazine').value=1;">
-                    <label class="form-check-label" for="flexSwitchCheckChecked">Magazine per Post</label>
+                    <label class="form-check-label" for="magazine_print">Magazine per Post</label>
                 </div>
                 <div class="col-12">
                     <label for="numberOfMagazine" class="form-label">Anzahl der Magazine</label>

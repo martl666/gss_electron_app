@@ -27,6 +27,7 @@ let address = {
     zip: '',
     city: '',
     state: '',
+    country: '',
     type: '',
 }
 
@@ -64,7 +65,8 @@ function createUpdateObject(objectType, valuesArray) {
             break;
         case 'address':
             updateObject = address;
-            helperKey = cleanFormFieldName('_',key)[1];
+            if (key.indexOf('business') !== -1 || key.indexOf('private') !== -1)
+                helperKey = cleanFormFieldName('_',key)[1];
             break;
         case 'contact':
             updateObject = contact;
@@ -128,6 +130,27 @@ function checkboxValueForDB(value) {
     }
 }
 
+function getInsertIntoSQL(inputObject) {
+    let data = inputObject;
+    let insertIntoKey = [];
+    let insertIntoValue = [];
+    Object.keys(data).forEach(key => {
+        insertIntoKey.push(key);
+        if (isNaN(data[key])) {
+            insertIntoValue.push("'"+data[key]+"'");
+        } else if (data[key] === ''){
+            insertIntoValue.push("''");
+        } else {
+            insertIntoValue.push(data[key]);
+        }
+    });
+
+    return {
+        keys: insertIntoKey,
+        values: insertIntoValue,
+    };
+}
+
 function cleanFormFieldName(splitChar, name) {
     return name.split(splitChar);
 }
@@ -135,4 +158,5 @@ function cleanFormFieldName(splitChar, name) {
 module.exports = {
     createUpdateObject: createUpdateObject,
     createSetForUpdateDB: createSetForUpdateDB,
+    getInsertIntoSQL: getInsertIntoSQL,
 }

@@ -126,7 +126,7 @@ function updateMemberData(queryString, memberId) {
 }
 
 function newMemberData(queryString) {
-  ipcRenderer.invoke('addMemberData', {}).then((result) => {
+  ipcRenderer.invoke('addMemberData', {insertQueryString: queryString}).then((result) => {
 
   });
 }
@@ -163,6 +163,14 @@ function printMailingLabel() {
   });
 }
 
+function printAndersOrtLabel() {
+  ipcRenderer.invoke('printAndersOrtLabel', {}).then((result) => {
+    if (result >= 1) {
+      printResult(result);
+    } 
+  });
+}
+
 module.exports = {
   rendererSaveMail: rendererSaveMail,
   getCustomerData: getCustomerData,
@@ -174,4 +182,5 @@ module.exports = {
   exportCsvSearch: exportCsvSearch,
   changePrimaryMail: changePrimaryMail,
   printMailingLabel: printMailingLabel,
+  printAndersOrtLabel: printAndersOrtLabel,
 }

@@ -45,7 +45,7 @@ function updateMemberData(dataString, memberId) {
 
 function addMemberData(dataString) {
     let customersAddObj = memberDataMapping(dataString);
-    return customersModel.addMemberData(customersAddObj);
+    return customersModel.addCustomer(customersAddObj);
 }
 
 function memberDataMapping(dataString) {
