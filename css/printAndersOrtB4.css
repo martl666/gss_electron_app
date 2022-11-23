@@ -1,0 +1,9 @@
+@media print {
+    @page { 
+        size: 250mm 353mm portrait; 
+    }
+
+    body {
+        font-family: sans-serif;
+        margin: 0;
+    }}
