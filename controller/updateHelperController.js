@@ -45,6 +45,7 @@ let organization = {
     open_execution: 0,
     women: 0,
     org_youth: 0,
+    subject_to_deportation: 0,
 }
 
 let institute = {

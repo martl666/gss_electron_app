@@ -181,13 +181,16 @@ ipcMain.handle('updateMemberData', async(event, param) => {
 
 ipcMain.handle('addMemberData', async(event, param) => {
   let newCustomerID = customersController.addMemberData(param.insertQueryString);
-  console.log("Query String: " + param.insertQueryString);
-  addressController.addMemberAddress(param.insertQueryString, newCustomerID);
-  cciController.addMemberContactInformation(param.insertQueryString, newCustomerID);
-  //let organizationalId = organizationalFormController.addOrganizationalForm(param.insertQueryString, newCustomerID);
-  //institute.addInstitute(param.insertQueryString, organizationalId);
-
-  return true;
+  if (newCustomerID !== -1) {
+    addressController.addMemberAddress(param.insertQueryString, newCustomerID);
+    cciController.addMemberContactInformation(param.insertQueryString, newCustomerID);
+    let instituteId = institute.addInstitute(param.insertQueryString, newCustomerID);
+    organizationalFormController.addOrganizationalForm(param.insertQueryString, instituteId);
+    
+    return true;
+  } else {
+    return false;
+  }
 });
 
 // Quit when all windows are closed, except on macOS. There, it's common

@@ -68,12 +68,15 @@ function addCustomer(addCustomerObject) {
     }
     
     });
-    let insertIntoQuery = "INSERT INTO customers ("+insertIntoKey.join(',')+") VALUES ("+insertIntoValue.join(',')+")";
-    console.log("Customer: " + insertIntoQuery);
-    /*let newCustomer = db.prepare(insertIntoQuery).run();
+    if (insertIntoValue[0] !== '' && insertIntoValue[2] !== '') {
+        let insertIntoQuery = "INSERT INTO customers ("+insertIntoKey.join(',')+") VALUES ("+insertIntoValue.join(',')+")";
+        console.log("Customer: " + insertIntoQuery);
+        let newCustomer = db.prepare(insertIntoQuery).run();
 
-    return newCustomer.lastInsertRowid;*/
-    return 666;
+        return newCustomer.lastInsertRowid;
+    } else {
+        return -1;
+    }
 }
 
 function updatePrimaryMailAddress(memberId, newPrimaryMailAddress) {

@@ -21,13 +21,13 @@ function addMemberAddress(addressObject, newCustomerID) {
     let insertInto = updateHelperController.getInsertIntoSQL(addressObject);
     let insertIntoQuery = "INSERT INTO address ("+insertInto.keys.join(',')+") VALUES ("+insertInto.values.join(',')+")";
     console.log("Address: " + insertIntoQuery);
-    /*let newCustomer = db.prepare(insertIntoQuery).run();
+    let returnValue = db.prepare(insertIntoQuery).run();
 
     if (returnValue.changes >= 1) {
         return true;
     }
 
-    return false;*/
+    return false;
 }
 
 function getAllPostalAddressWithoutAStoredEmail() {

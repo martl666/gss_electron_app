@@ -11,6 +11,17 @@ function updateInstitute(dataString, memberId) {
     instituteModel.updateInstitute(updateObj, memberId);
 }
 
+function addInstitute(dataString, newCustomerID) {
+    let helperController = require('./updateHelperController');
+    let instituteObj;
+    let helperType = '';
+    dataString.split('&').forEach((paramSet) => {
+        instituteObj = helperController.createUpdateObject('institute', paramSet);
+    });
+    return instituteModel.addInstitute(instituteObj, newCustomerID);
+}
+
 module.exports = {
     updateInstitute: updateInstitute,
+    addInstitute: addInstitute,
 }

@@ -13,6 +13,16 @@ function updateOrganizationalForm(dataString, memberId) {
     ofModel.updateOrganizationalForm(updateObj, instituteId);
 }
 
+function addOrganizationalForm(dataString, instituteId) {
+    let helperController = require('./updateHelperController');
+    let insertObject;
+    dataString.split('&').forEach((paramSet) => {
+        insertObject = helperController.createUpdateObject('organization', paramSet);
+    });
+    ofModel.addOrganizationalForm(insertObject, instituteId); 
+}
+
 module.exports = {
     updateOrganizationalForm: updateOrganizationalForm,
+    addOrganizationalForm: addOrganizationalForm,
 }

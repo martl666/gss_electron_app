@@ -133,3 +133,24 @@ function changeInputFieldType(that, index) {
         document.getElementById('searchInput_'+index).innerHTML = "<input  name=\"searchValue\" class=\"form-control\" type='text' id='text'>";
       }
 }
+
+function setNumbersOfMagazine(type) {
+    var numbersOfMagazine = document.getElementById('numberOfMagazine').value;
+    var checkBoxPrint = document.getElementById('magazine_print');
+    var checkBoxPdf = document.getElementById('magazine_pdf');
+    if (type == "print" && checkBoxPrint.checked == true) {
+        document.getElementById('numberOfMagazine').value = numbersOfMagazine == 0 ? 1 : numbersOfMagazine;
+    }
+
+    if (type == "pdf" && checkBoxPdf.checked == true) {
+        if (checkBoxPrint.checked == true) {
+            document.getElementById('numberOfMagazine').value = numbersOfMagazine
+        } else {
+            document.getElementById('numberOfMagazine').value = 0;
+        }
+    }
+
+    if (checkBoxPrint.checked == false && checkBoxPdf.checked == false) {
+        document.getElementById('numberOfMagazine').value = 0;
+    }
+}

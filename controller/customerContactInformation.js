@@ -19,7 +19,7 @@ function addMemberContactInformation(dataString, newCustomerID) {
     let helperType = '';
     dataString.split('&').forEach((paramSet) => {
         contactUpdateObj = helperController.createUpdateObject('contact', paramSet);
-        if (contactUpdateObj.contact_type !== '' && contactUpdateObj.contact_type !== helperType) {
+        if (contactUpdateObj.contact_data !== '' && contactUpdateObj.contact_type !== '' && contactUpdateObj.contact_type !== helperType) {
             if (contactUpdateObj.contact_type === 'email_primary') {
                 contactUpdateObj.contact_primary_mail_address = 1;
             } else {
