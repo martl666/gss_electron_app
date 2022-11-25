@@ -3,8 +3,11 @@ var savedDataSet;
 var $_TABLE = '#table';
 
 document.querySelector('#members').addEventListener('click', () => {
-    showTable(savedDataSet);
+  ipcRenderer.invoke('query', '').then((result) => {
+    savedDataSet = result;
+    showTable(result);
     getCustomerData();
+  });
 });
 
 document.querySelector('#addMember').addEventListener('click', () => {
