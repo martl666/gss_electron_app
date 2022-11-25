@@ -15,7 +15,7 @@ function updateMemberContactInformation(dataString) {
 
 function addMemberContactInformation(dataString, newCustomerID) {
     let helperController = require('./updateHelperController');
-    let contactUpdateObj;
+    let contactUpdateObj = null;
     let helperType = '';
     dataString.split('&').forEach((paramSet) => {
         contactUpdateObj = helperController.createUpdateObject('contact', paramSet);

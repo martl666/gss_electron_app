@@ -5,6 +5,9 @@ const TABLE = "institute";
 let updateHelperController = require('../controller/updateHelperController');
 
 function updateInstitute(updateObject, memberId) {
+    if (memberId === '') {
+        return false;
+    }
     let updateQuerySQL = "UPDATE "+TABLE+" SET " + updateHelperController.createSetForUpdateDB(updateObject).join(',') + " WHERE customer_id = ?";
     const updateQuery = db.prepare(updateQuerySQL);
     const returnValue = updateQuery.run(memberId);

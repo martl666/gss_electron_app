@@ -42,6 +42,9 @@ function deleteMailAddress(customersContactInfoId) {
 }
 
 function customersUpdate(updateObject, updateMemberId) {
+    if (updateMemberId === '') {
+        return false;
+    }
     let updateQuerySQL = "UPDATE customers SET " + updateHelperController.createSetForUpdateDB(updateObject).join(',') + " WHERE ID = ?";
     const updateQuery = db.prepare(updateQuerySQL);
     const returnValue = updateQuery.run(updateMemberId);

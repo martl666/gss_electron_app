@@ -13,8 +13,7 @@ function updateInstitute(dataString, memberId) {
 
 function addInstitute(dataString, newCustomerID) {
     let helperController = require('./updateHelperController');
-    let instituteObj;
-    let helperType = '';
+    let instituteObj = null;
     dataString.split('&').forEach((paramSet) => {
         instituteObj = helperController.createUpdateObject('institute', paramSet);
     });

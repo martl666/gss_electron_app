@@ -15,7 +15,7 @@ function updateOrganizationalForm(dataString, memberId) {
 
 function addOrganizationalForm(dataString, instituteId) {
     let helperController = require('./updateHelperController');
-    let insertObject;
+    let insertObject = null;
     dataString.split('&').forEach((paramSet) => {
         insertObject = helperController.createUpdateObject('organization', paramSet);
     });

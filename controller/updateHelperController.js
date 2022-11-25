@@ -64,10 +64,14 @@ function createUpdateObject(objectType, valuesArray) {
         case 'customers':
             updateObject = customers;
             break;
-        case 'address':
+        case 'addressInsert':
             updateObject = address;
             if (key.indexOf('business') !== -1 || key.indexOf('private') !== -1)
                 helperKey = cleanFormFieldName('_',key)[1];
+            break;
+        case 'address': 
+            updateObject = address;
+            helperKey = cleanFormFieldName('_',key)[1];
             break;
         case 'contact':
             updateObject = contact;
@@ -97,7 +101,7 @@ function createUpdateObject(objectType, valuesArray) {
             }
         }
 
-        if (objectType == 'address' || objectType == 'contact' || objectType == 'institute') {
+        if (objectType == 'addressInsert' || objectType == 'address' || objectType == 'contact' || objectType == 'institute') {
             updateObject[helperKey] = updateValue;
         }  else {
             updateObject[key] = updateValue;

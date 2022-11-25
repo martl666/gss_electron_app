@@ -15,11 +15,11 @@ function updateMemberAddress(dataString) {
 
 function addMemberAddress(dataString, newCustomerID) {
     let helperController = require('./updateHelperController');
-    let addressUpdateObj;
+    let addressUpdateObj = null;
     let index = 0;
     let count = true;
     dataString.split('&').forEach((paramSet) => {
-        addressUpdateObj = helperController.createUpdateObject('address', paramSet);
+        addressUpdateObj = helperController.createUpdateObject('addressInsert', paramSet);
         if (addressUpdateObj.type !== '') {
             if (index === 6) {
                 if (addressUpdateObj.street !== '')

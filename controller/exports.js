@@ -56,7 +56,6 @@ function exportResult(queryString, type) {
         result = exportModel.exportCsvFileData(searchSqlSearchString.slice(0,-10).replaceAll('%%LINK%%', link), link);
         let csvObject = [];
         let csvLine = [];
-        console.log('Result Dataset: ' + JSON.stringify(result));
         for(let rows = 0; rows < result.length; rows++) {
             Object.keys(result[rows]).forEach(function (key, index) {
                 let val = result[rows][key];
@@ -73,7 +72,6 @@ function exportResult(queryString, type) {
                 if (index === 19) {
                     val = splitMailFromPhone(val);
                 }
-                console.log(index + " Value after Split: " + val);
                 if (val !== undefined && isNaN(val) && val.includes(',') && (index !== 3 && index !== 18 && index  !== 19)) {
                     if (val !== undefined && isNaN(val)) {
                         let splitVals = val.split(',');
