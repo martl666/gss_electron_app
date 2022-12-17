@@ -51,7 +51,7 @@ function getQueryString(data) {
         memberId = fieldValue;
     }
 
-    var checkboxArr = ['board_of_directors', 'advisory_council', 'buko_member','no_member', 'ethics', 'youth', 'magazine_pdf', 'magazine_print', 'active', 'retired', 'subject_to_deportation','org_youth','women', 'open_execution','first_execution', 'enforcement', 'punishable', 'remand', 'men']
+    var checkboxArr = ['board_of_directors', 'advisory_council', 'buko_member','no_member', 'ethics', 'youth', 'magazine_pdf', 'magazine_print', 'active', 'retired', 'subject_to_deportation','org_youth','women', 'open_execution','first_execution', 'enforcement', 'punishable', 'remand', 'men', 'invoice', 'debit', 'evangelical', 'magazine_membership']
     if (fieldName.length > 1) {        
         //console.log(fieldName + ' - ' + checkboxArr.indexOf(fieldName));
         if (checkboxArr.indexOf(fieldName) !== -1) {
@@ -99,6 +99,9 @@ function printMailingLabel() {
             break;
         case '2':
             renderer.printAndersOrtLabel();
+            break;
+        case '3':
+            renderer.printAndersOrtLabel3();
             break;
     }
 }
@@ -153,4 +156,20 @@ function setNumbersOfMagazine(type) {
     if (checkBoxPrint.checked == false && checkBoxPdf.checked == false) {
         document.getElementById('numberOfMagazine').value = 0;
     }
+}
+
+function isCompanyNameFilled() {
+    var companynamePrivate = document.getElementById('inputCompanyNamePrivate').value.split('').length;
+    var companynameBusiness = document.getElementById('inputCompanyNameBusiness').value.split('').length;
+    document.getElementById('egPrivate').checked = false;
+    document.getElementById('egBusiness').checked = false;
+
+    if (companynamePrivate > 2) {
+        document.getElementById('egPrivate').checked = true;
+    }
+
+    if (companynameBusiness > 2) {
+        document.getElementById('egBusiness').checked = true;
+    }
+
 }

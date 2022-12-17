@@ -1,6 +1,6 @@
 <script>
     const addressController = require('./controller/address');
-    MassAddressDict = addressController.getAllAndersOrtAddress();
+    MassAddressDict = addressController.getAllAndersOrtAddress(1,2);
     function combineSenderInfo(){
         const senderInfoConfig = require('./config/print.json');
         var from = "<div style='padding-top:0px; margin-top: -6px; margin-left: 0px; font-size: 7px; line-height: 1.2;'>";
@@ -16,14 +16,34 @@
         if (recieverData.country != "Deutschland") {
             countryInfo = "<br>" + recieverData.country;
         }
-        var from =   "<br>" +"<div style='max-width:470px;margin-left: 600px;margin-top: 250px;'><h3> "
-        var name = recieverData.firstname + ' ' + recieverData.lastname  + "</h3>";
-        var address = "<h3 style=''>" + recieverData.street  + "<br>" + recieverData.zip + ' ' + recieverData.city + countryInfo + "</h3></div>" ;
-        return from + name + address;
+        var from =   "<br>" +"<div style='max-width:650px;margin-left: 480px;margin-top: 250px;'><h3> "
+        var companyname = recieverData.companyname + "<br>";
+        var title = "";
+        if (recieverData.title !== '' && recieverData.title.toLowerCase().indexOf('dr.') !== -1) {
+          title = recieverData.title + ' ';
+        }
+        var name = title + recieverData.firstname + ' ' + recieverData.lastname  + "</h3>";
+        
+        let zip;
+        if (recieverData.country == "Deutschland" && recieverData.zip.toString().length == 4) {
+          zip = '0'+recieverData.zip.toString();
+        } else {
+          zip = recieverData.zip;
+        }
+        var address = "<h3 style=''>" + recieverData.street  + "<br>" + zip + ' ' + recieverData.city + countryInfo + "</h3></div>" ;
+
+        let receiverString = "";
+        
+        if (recieverData.eg == 1) {
+          receiverString = from + companyname + "z.H. " + name + address;
+        } else {
+          receiverString = from + name + address;
+        }
+        return receiverString;
       }
 
     let data = '<html><head>';
-    data += '<link href="css/printAndersOrtB4.css" media="print" rel="stylesheet">';
+    data += '<link href="css/printAndersOrtC4.css" media="print" rel="stylesheet">';
     data += '</head><body>';
 
 var padding = 80;

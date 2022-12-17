@@ -138,6 +138,21 @@ ipcMain.handle('printAndersOrtLabel', async(event, param) => {
   printWindow.loadFile('printAndersOrt.html');
 });
 
+ipcMain.handle('printAndersOrtLabel3', async(event, param) => {
+  const printWindow = new BrowserWindow({
+    show: false,
+    icon: __dirname + path.sep + 'img' + path.sep + 'seelsorge.jpeg',
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+    }
+  });
+  
+  printWindow.show();
+
+  printWindow.loadFile('printAndersOrtB4.html');
+});
+
 ipcMain.handle('changePrimaryMail', async(event, param) => {
   let returnVal = customersController.updatePrimaryMailAddress(param.memberId, param.newPrimaryMailId);
   if (returnVal)

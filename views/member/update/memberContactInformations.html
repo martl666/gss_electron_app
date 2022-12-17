@@ -1,4 +1,9 @@
 {% if result.contactData|length >= 1 %}
+<div class="card mt-3">
+    <div class="card-header">
+        Kontaktinformationen
+    </div>  
+    <div class="card-body"> 
     {% for contactInfo in result.contactData|split(',') %}
     {% set contactInfoFields = contactInfo|split('$$') %}
         <div class="col-12 mt-3">
@@ -27,4 +32,6 @@
             <input type="hidden" name="contactId" value="{{ contactInfoFields[0] }}">
         </div>
     {% endfor %}
+        </div>
+    </div>
 {% endif %}

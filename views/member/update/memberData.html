@@ -4,12 +4,19 @@
     <h4>{{ result.title }} {{ result.firstname }} {{ result.lastname }} <small>(Mitgliedernummer: {{ result.customer_id }})</small></h4>
   </div>
   <form action="" method="post" onsubmit="event.preventDefault(); javascript:updateMemberData();" id="memberDataForm">
-    {{ include('./member/update/memberPersonalData.html', {result: result}) }}
+    <div class="card mt-3">
+      <div class="card-header">
+          Mitgliederinfo
+      </div>  
+      <div class="card-body"> 
+        {{ include('./member/update/memberPersonalData.html', {result: result}) }}
+        {{ include('./member/update/memberFormSwitch.html', {result: result}) }}
+        {{ include('./member/update/memberMagazine.html', {result: result}) }}
+      </div>
+    </div>
     {{ include('./member/update/memberAddresses.html', {result: result}) }}
     {{ include('./member/update/memberContactInformations.html', {result: result}) }}
     {{ include('./member/update/memberInstitute.html', {result: result}) }}
-    {{ include('./member/update/memberFormSwitch.html', {result: result}) }}
-    {{ include('./member/update/memberMagazine.html', {result: result}) }}
     <input type="hidden" name="customer_id" value="{{ result.customer_id }}"
     <div class="col-12">
       <button type="submit" class="btn btn-danger fa-pull-right mt-3" id="updateMemberDataBtn">Änderung(en) speichern</button>

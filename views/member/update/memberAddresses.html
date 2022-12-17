@@ -1,35 +1,66 @@
 {% for addressData in result.address|split(',') %}
   {% set addressFields = addressData|split('$$') %}
-  <div class="col-12 mt-3">
-    <label for="inputAddress" class="form-label">Straße ({{ addressFields[3] }})</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="Musterweg 1" name="{{ addressFields[3] }}_street" value="{{ addressFields[0] }}">
+  <div class="card mt-3">
+    <div class="card-header">
+      {{ addressFields[3]|replace({'p': 'P', 'b': 'B'}) }} Adresse
+    </div>  
+    <div class="card-body"> 
+      <div class="col-12 mt-3">
+        <label for="inputAddress" class="form-label">Straße ({{ addressFields[3] }})</label>
+        <input type="text" class="form-control" id="inputAddress" placeholder="Musterweg 1" name="{{ addressFields[3] }}_street" value="{{ addressFields[0] }}">
+      </div>
+      <div class="col-12">
+          <label for="inputCompanyName{{ addressFields[3] }}" class="form-label">Firmenname</label>
+          <input type="text" class="form-control" id="inputCompanyName{{ addressFields[3]|replace({'p': 'P', 'b': 'B'}) }}" name="{{ addressFields[3] }}_companyname" value="{{ addressFields[8] }}" onkeyup="javascript:isCompanyNameFilled()">
+      </div>
+      <div class="col-12">
+          <div class="form-check form-switch">
+              {% if addressFields[7] == 1 %}
+                <input class="form-check-input" type="checkbox" name="eg{{ addressFields[3]|replace({'p': 'P', 'b': 'B'}) }}" id="eg{{ addressFields[3]|replace({'p': 'P', 'b': 'B'}) }}" checked>
+              {% else %}
+                <input class="form-check-input" type="checkbox" name="eg{{ addressFields[3]|replace({'p': 'P', 'b': 'B'}) }}" id="eg{{ addressFields[3]|replace({'p': 'P', 'b': 'B'}) }}">
+              {% endif %}
+                <label class="form-check-label" for="eg{{ addressFields[3]|replace({'p': 'P', 'b': 'B'}) }}">zu Händen</label>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <label for="inputCity" class="form-label">City</label>
+          <input type="text" class="form-control" id="inputCity" name="{{ addressFields[3] }}_city" value="{{ addressFields[1] }}">
+        </div>
+        <div class="col-md-2">
+          <label for="inputZip" class="form-label">Zip</label>
+          <input type="text" class="form-control" id="inputZip" name="{{ addressFields[3] }}_zip" value="{{ addressFields[2] }}">
+        </div>
+        <div class="col-md-2">
+          <label for="inputState" class="form-label">Bundesland</label>
+          <input type="text" class="form-control" id="inputState" name="{{ addressFields[3] }}_state" value="{{ addressFields[6] }}">
+        </div>
+        <div class="col-md-2">
+          <label for="inputCountry" class="form-label">Land</label>
+          <input type="text" class="form-control" id="inputCountry" name="{{ addressFields[3] }}_country" value="{{ addressFields[5] }}">
+        </div>
+      </div>
+      <input type="hidden" name="{{ addressFields[3] }}_type" value="{{ addressFields[3] }}">
+      <input type="hidden" name="addressId" value="{{ addressFields[4] }}">
+    </div>
   </div>
-  <div class="row">
-    <div class="col-md-6">
-      <label for="inputCity" class="form-label">City</label>
-      <input type="text" class="form-control" id="inputCity" name="{{ addressFields[3] }}_city" value="{{ addressFields[1] }}">
-    </div>
-    <div class="col-md-2">
-      <label for="inputZip" class="form-label">Zip</label>
-      <input type="text" class="form-control" id="inputZip" name="{{ addressFields[3] }}_zip" value="{{ addressFields[2] }}">
-    </div>
-    <div class="col-md-2">
-      <label for="inputState" class="form-label">Bundesland</label>
-      <input type="text" class="form-control" id="inputState" name="{{ addressFields[3] }}_state" value="{{ addressFields[6] }}">
-    </div>
-    <div class="col-md-2">
-      <label for="inputCountry" class="form-label">Land</label>
-      <input type="text" class="form-control" id="inputCountry" name="{{ addressFields[3] }}_country" value="{{ addressFields[5] }}">
-    </div>
-  </div>
-  <input type="hidden" name="{{ addressFields[3] }}_type" value="{{ addressFields[3] }}">
-  <input type="hidden" name="addressId" value="{{ addressFields[4] }}">
-  {% if loop.length != 2 %}
+  {% if loop.length < 2 %}
     {% if addressFields[3] == 'private' %}
       {% set addressType = 'business' %}
       <div class="col-12">
         <label for="inputAddress" class="form-label">Straße ({{ addressType }})</label>
         <input type="text" class="form-control" id="inputAddress" placeholder="Musterweg 1" name="new_{{ addressType }}_street" value="">
+      </div>
+      <div class="col-12">
+          <label for="inputCompanyName{{ addressType }}" class="form-label">Firmenname</label>
+          <input type="text" class="form-control" id="inputCompanyName{{ addressType|replace({'p': 'P', 'b': 'B'}) }}" name="{{ addressType }}_companyname" value="" onkeyup="javascript:isCompanyNameFilled()">
+      </div>
+      <div class="col-12">
+          <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" name="eg{{ addressType|replace({'p': 'P', 'b': 'B'}) }}" id="eg{{ addressType|replace({'p': 'P', 'b': 'B'}) }}">
+              <label class="form-check-label" for="eg{{ addressType|replace({'p': 'P', 'b': 'B'}) }}">zu Händen</label>
+          </div>
       </div>
       <div class="row">
         <div class="col-md-6">
@@ -55,6 +86,16 @@
       <div class="col-12">
         <label for="inputAddress" class="form-label">Straße ({{ addressType }})</label>
         <input type="text" class="form-control" id="inputAddress" placeholder="Musterweg 1" name="new_{{ addressType }}_street" value="">
+      </div>
+      <div class="col-12">
+          <label for="inputCompanyName{{ addressType }}" class="form-label">Firmenname</label>
+          <input type="text" class="form-control" id="inputCompanyName{{ addressType|replace({'p': 'P', 'b': 'B'}) }}" name="{{ addressType }}_companyname" value="" onkeyup="javascript:isCompanyNameFilled()">
+      </div>
+      <div class="col-12">
+          <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" name="eg{{ addressType|replace({'p': 'P', 'b': 'B'}) }}" id="eg{{ addressType|replace({'p': 'P', 'b': 'B'}) }}">
+              <label class="form-check-label" for="eg{{ addressType|replace({'p': 'P', 'b': 'B'}) }}">zu Händen</label>
+          </div>
       </div>
       <div class="row">
         <div class="col-md-6">

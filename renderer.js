@@ -174,6 +174,14 @@ function printAndersOrtLabel() {
   });
 }
 
+function printAndersOrtLabel3() {
+  ipcRenderer.invoke('printAndersOrtLabel3', {}).then((result) => {
+    if (result >= 1) {
+      printResult(result);
+    } 
+  });
+}
+
 module.exports = {
   rendererSaveMail: rendererSaveMail,
   getCustomerData: getCustomerData,
@@ -186,4 +194,5 @@ module.exports = {
   changePrimaryMail: changePrimaryMail,
   printMailingLabel: printMailingLabel,
   printAndersOrtLabel: printAndersOrtLabel,
+  printAndersOrtLabel3: printAndersOrtLabel3,
 }

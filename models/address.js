@@ -34,9 +34,9 @@ function addMemberAddress(addressObject, newCustomerID) {
 }
 
 function getAllPostalAddressWithoutAStoredEmail() {
-    let query = "SELECT customers.ID, customers.firstname, customers.lastname, address.street, address.city, address.zip, address.type, address.country\
+    let query = "SELECT customers.ID, customers.firstname, customers.lastname, address.street, address.city, address.zip, address.type, address.country, address.eg, address.companyname \
     FROM customers\
-    LEFT JOIN address ON customers.ID = address.customer_id\
+    LEFT JOIN address ON customers.ID = address.customer_id \
     WHERE customers.ID NOT IN (SELECT customers_contact_information.customer_id FROM customers_contact_information WHERE customers_contact_information.contact_type = 'email')\
     AND address.street IS NOT NULL\
     AND address.type = 'private'\
@@ -48,12 +48,15 @@ function getAllPostalAddressWithoutAStoredEmail() {
     return result;
 }
 
-function getAllAndersOrtAddress() {
+function getAllAndersOrtAddress(startAt, maxNumbersOfMagazine) {
+    console.log( startAt + " " + maxNumbersOfMagazine );
     //TODO use privte address if customer has only one address saved
-    let query = "SELECT customers.ID, customers.firstname, customers.lastname, address.street, address.city, address.zip, address.type, address.country, customers.magazine_print, customers.number_of_magazine, customers.magazine_pdf, COUNT(address.type) \
+    let query = "SELECT customers.ID, customers.title, customers.firstname, customers.lastname, address.street, address.city, address.zip, address.type, address.country, address.eg, address.companyname, customers.magazine_print, customers.number_of_magazine, customers.magazine_pdf, COUNT(address.type) \
     FROM customers \
     LEFT JOIN address ON customers.ID = address.customer_id \
     WHERE customers.magazine_print = 1 \
+    AND customers.number_of_magazine BETWEEN 3 AND 3 \
+    AND address.type = 'business' \
     GROUP BY customers.ID \
     ORDER BY customers.number_of_magazine DESC";
 

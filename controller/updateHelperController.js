@@ -2,6 +2,7 @@
 
 let numberFields = {
     number_of_magazine: 'int',
+    membership_fee: 'int,'
 }
 
 let customers = {
@@ -20,6 +21,11 @@ let customers = {
     number_of_magazine : 0,
     retired : 0,
     active : 0,
+    evangelical : 0,
+    invoice : 0,
+    debit : 0,
+    membership_fee : 0,
+    magazine_membership : 0,
 };
 
 let address = {
@@ -29,6 +35,8 @@ let address = {
     state: '',
     country: '',
     type: '',
+    eg: 0,
+    companyname: '',
 }
 
 let contact = {
