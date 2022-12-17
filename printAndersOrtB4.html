@@ -1,0 +1,92 @@
+<script>
+    const addressController = require('./controller/address');
+    MassAddressDict = addressController.getAllAndersOrtAddress(3,3);
+    function combineSenderInfo(){
+        const senderInfoConfig = require('./config/print.json');
+        var from = "<div style='padding-top:0px; margin-top: -6px; margin-left: 0px; font-size: 7px; line-height: 1.2;'>";
+        var name = "" + "<br>";
+      
+        var address = "<table><tr><td><img src='"+senderInfoConfig.logo+"' width='76'></td><td>"+senderInfoConfig.evName + "<br>" + senderInfoConfig.street+"<br>"+ senderInfoConfig.zipCity + "<br></td></tr></table></div>";
+      
+        return from + name + address;
+      }
+      
+      function combineReceiverInfo(recieverData){
+        let countryInfo = "";
+        if (recieverData.country != "Deutschland") {
+            countryInfo = "<br>" + recieverData.country;
+        }
+        var from =   "<br>" +"<div style='max-width:600px;margin-left: 510px;margin-top: 250px; background-color: #454545;'><h3> "
+        var companyname = recieverData.companyname + "<br>";
+        var title = "";
+        if (recieverData.title !== '' && recieverData.title.toLowerCase().indexOf('dr.') !== -1) {
+          title = recieverData.title + ' ';
+        }
+        var name = title + recieverData.firstname + ' ' + recieverData.lastname  + "</h3>";
+        let zip;
+        if (recieverData.country == "Deutschland" && recieverData.zip.toString().length == 4) {
+          zip = '0'+recieverData.zip.toString();
+        } else {
+          zip = recieverData.zip;
+        }
+        var address = "<h3 style=''>" + recieverData.street  + "<br>" + zip + ' ' + recieverData.city + countryInfo + "</h3></div>" ;
+
+        let receiverString = "";
+        
+        if (recieverData.eg == 1) {
+          receiverString = from + companyname + "z.H. " + name + address;
+        } else {
+          receiverString = from + name + address;
+        }
+        return receiverString;
+      }
+
+    let data = '<html><head>';
+    data += '<link href="css/printAndersOrtB4.css" media="print" rel="stylesheet">';
+    data += '</head><body>';
+
+var padding = 80;
+Object.keys(MassAddressDict).forEach(function(key) {
+console.log(key + " " + MassAddressDict[key]);
+
+var recieverData = MassAddressDict[key]
+
+var senderInfo = combineSenderInfo();
+var receiverInfo = combineReceiverInfo(recieverData);
+
+var index = Object.keys(MassAddressDict).indexOf(key);
+
+data += '<div style="page-break-after: always;">';
+data += `<div id="label${index}" style="display:flex;justify-content:space-between">`;
+data += senderInfo;
+data += '</div>';
+data += receiverInfo;
+data += '</div>';
+data += '</body></html>';
+});
+
+PrintDiv(data);
+
+function PrintDiv(data) {
+var mywindow = window.open();
+var is_chrome = Boolean(mywindow.chrome);
+mywindow.document.write(data);
+
+if (is_chrome) {
+ setTimeout(function() { // wait until all resources loaded 
+    mywindow.document.close(); // necessary for IE >= 10
+    mywindow.focus(); // necessary for IE >= 10
+    mywindow.print(); // change window to winPrint
+    mywindow.close(); // change window to winPrint
+ }, 250);
+} else {
+    mywindow.document.close(); // necessary for IE >= 10
+    mywindow.focus(); // necessary for IE >= 10
+
+    mywindow.print();
+    mywindow.close();
+}
+
+return true;
+}
+</script>
