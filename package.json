@@ -25,6 +25,7 @@
     "better-sqlite3-helper": "^3.1.6",
     "datatables.net-dt": "^1.12.1",
     "electron-twig": "^1.1.1",
+    "html-pdf": "^3.0.1",
     "jquery": "^3.6.0",
     "sqlite3": "^5.0.8",
     "twing": "^5.1.1",

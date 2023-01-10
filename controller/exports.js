@@ -60,7 +60,7 @@ function exportResult(queryString, type) {
             Object.keys(result[rows]).forEach(function (key, index) {
                 let val = result[rows][key];
                 //console.log(index + " Value: " + val);
-                if (index === 16) {
+                if (index === 21) {
                     if(val !== null && val !== undefined) {
                         let addressSplit = val.split(',');
                         if (addressSplit.length < 2) {
@@ -69,7 +69,7 @@ function exportResult(queryString, type) {
                     }
                 }
                 
-                if (index === 19) {
+                if (index === 24) {
                     val = splitMailFromPhone(val);
                 }
                 if (val !== undefined && isNaN(val) && val.includes(',') && (index !== 3 && index !== 18 && index  !== 19)) {
@@ -85,7 +85,7 @@ function exportResult(queryString, type) {
                     val = '"'+val+'"';
                 }
                 csvLine.push(val);
-                if (index == 28) {
+                if (index == 33) {
                     csvObject.push(csvLine.join(','));
                     csvLine = [];
                 }

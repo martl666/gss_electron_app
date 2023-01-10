@@ -11,7 +11,7 @@ function getAllMembersData() {
 
 function getMemberData (memberId) {
 
-    let query = "SELECT customers.*, GROUP_CONCAT(address.street || '$$' || address.city || '$$' || address.zip || '$$' || address.type || '$$' || address.ID || '$$' || address.country || '$$' || IFNULL(address.state, '') || '$$' || address.eg || '$$' || IFNULL(address.companyname, '')) AS `address`, institute.*, cci.contactData, organizational_form.* FROM customers LEFT JOIN address ON customers.ID = address.customer_Id LEFT JOIN institute ON customers.ID = institute.customer_id LEFT JOIN organizational_form ON institute.ID = organizational_form.institute_id LEFT JOIN (SELECT customers_contact_information.customer_id, GROUP_CONCAT(customers_contact_information.ID || '$$' || customers_contact_information.contact_type || '$$' || customers_contact_information.contact_data || '$$' || customers_contact_information.contact_primary_mail_address ) AS `contactData` FROM customers_contact_information GROUP BY customer_id) cci ON customers.ID = cci.customer_id  WHERE customers.ID = ? GROUP BY address.customer_id";
+    let query = "SELECT customers.*, GROUP_CONCAT(address.street || '$$' || address.city || '$$' || IIF(address.country = 'Deutschland', PRINTF('%05d',address.zip), address.zip) || '$$' || address.type || '$$' || address.ID || '$$' || address.country || '$$' || IFNULL(address.state, '') || '$$' || address.eg || '$$' || IFNULL(address.companyname, '')) AS `address`, institute.*, cci.contactData, organizational_form.* FROM customers LEFT JOIN address ON customers.ID = address.customer_Id LEFT JOIN institute ON customers.ID = institute.customer_id LEFT JOIN organizational_form ON institute.ID = organizational_form.institute_id LEFT JOIN (SELECT customers_contact_information.customer_id, GROUP_CONCAT(customers_contact_information.ID || '$$' || customers_contact_information.contact_type || '$$' || customers_contact_information.contact_data || '$$' || customers_contact_information.contact_primary_mail_address ) AS `contactData` FROM customers_contact_information GROUP BY customer_id) cci ON customers.ID = cci.customer_id  WHERE customers.ID = ? GROUP BY address.customer_id";
     
     let result = db.prepare(query).get(memberId);
 
@@ -96,6 +96,18 @@ function updatePrimaryMailAddress(memberId, newPrimaryMailAddress) {
     return false;
 }
 
+function getCustomersIdForPdf() {
+    let getAllMemberIdsForPdf = db.prepare("SELECT ID FROM customers WHERE debit = 1 OR invoice = 1 AND active = 1").run();
+
+    return getAllMemberIdsForPdf;
+}
+
+function getCustomerDataForPdf(memberId) {
+    let result = db.prepare("SELECT customers.firstname, customers.lastname, customers.invoice, customers.title, institute.institute FROM customers JOIN institute ON institute.customer_id = customers.ID WHERE customers.ID = ?").run(memberId);
+
+    return result;
+}
+
 module.exports = {
     getAllMembersData: getAllMembersData,
     getMemberData: getMemberData,
@@ -104,4 +116,5 @@ module.exports = {
     customersUpdate: customersUpdate,
     updatePrimaryMailAddress: updatePrimaryMailAddress,
     addCustomer: addCustomer,
+    getCustomersIdForPdf: getCustomersIdForPdf,
 }

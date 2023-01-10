@@ -1,0 +1,1096 @@
+{
+    "privateAddress": [
+        {
+            "ID" : 2,
+            "street" : "Nottersiedlung 2",
+            "zip" : 99998,
+            "city" : "Mühlhausen OT Bollstedt",
+            "type" : "private"
+        },
+        {
+            "ID" : 3,
+            "street" : "Sperlingsgasse 15",
+            "zip" : 59457,
+            "city" : "Werl",
+            "type" : "private"
+        },
+        {
+            "ID" : 4,
+            "street" : "Trierer Landstraße 64",
+            "zip" : 54516,
+            "city" : "Wittlich",
+            "type" : "private"
+        },
+        {
+            "ID" : 5,
+            "street" : "Bärenschanzstr. 68",
+            "zip" : 90429,
+            "city" : "Nürnberg",
+            "type" : "private"
+        },
+        {
+            "ID" : 6,
+            "street" : "Christoph-von-Schmid-Str. 19",
+            "zip" : 86159,
+            "city" : "Augsburg",
+            "type" : "private"
+        },
+        {
+            "ID" : 7,
+            "street" : "Dürerstr. 11",
+            "zip" : 53340,
+            "city" : "Meckenheim",
+            "type" : "private"
+        },
+        {
+            "ID" : 9,
+            "street" : "von-Quadt-Str. 143",
+            "zip" : 51069,
+            "city" : "Köln",
+            "type" : "private"
+        },
+        {
+            "ID" : 11,
+            "street" : "Leuthener Str. 5",
+            "zip" : 10829,
+            "city" : "Berlin",
+            "type" : "private"
+        },
+        {
+            "ID" : 14,
+            "street" : "Butzheimer Str. 12",
+            "zip" : 50767,
+            "city" : "Köln",
+            "type" : "private"
+        },
+        {
+            "ID" : 15,
+            "street" : "Ungeratherstr. 1 – 15",
+            "zip" : 41366,
+            "city" : "Schwalmtal (Waldniel)",
+            "type" : "private"
+        },
+        {
+            "ID" : 16,
+            "street" : "Platanenstr. 18",
+            "zip" : 40233,
+            "city" : "Düsseldorf",
+            "type" : "private"
+        },
+        {
+            "ID" : 17,
+            "street" : "In den Auen 56",
+            "zip" : 51427,
+            "city" : "Bergisch-Gladbach",
+            "type" : "private"
+        },
+        {
+            "ID" : 20,
+            "street" : "Tulpenweg 47",
+            "zip" : 35396,
+            "city" : "Giessen",
+            "type" : "private"
+        },
+        {
+            "ID" : 23,
+            "street" : "Metzerstr. 15",
+            "zip" : 66740,
+            "city" : "Saarlouis",
+            "type" : "private"
+        },
+        {
+            "ID" : 24,
+            "street" : "Molkestr. 19",
+            "zip" : 33790,
+            "city" : "Halle \/ Westf.",
+            "type" : "private"
+        },
+        {
+            "ID" : 25,
+            "street" : "Fichtestr. 13",
+            "zip" : 92637,
+            "city" : "Weiden",
+            "type" : "private"
+        },
+        {
+            "ID" : 26,
+            "street" : "Oberreichenbach 25b",
+            "zip" : 2894,
+            "city" : "Reichenbach\/OL",
+            "type" : "private"
+        },
+        {
+            "ID" : 31,
+            "street" : "Kirchplatz 3",
+            "zip" : 57489,
+            "city" : "Drolshagen",
+            "type" : "private"
+        },
+        {
+            "ID" : 37,
+            "street" : "Kleinwaldstr. 34",
+            "zip" : 76327,
+            "city" : "Pfinztal",
+            "type" : "private"
+        },
+        {
+            "ID" : 38,
+            "street" : "Alte Hauptstr.46",
+            "zip" : 14727,
+            "city" : "Premnitz",
+            "type" : "private"
+        },
+        {
+            "ID" : 40,
+            "street" : "Friedrich-Ebert-Straße 7",
+            "zip" : 32120,
+            "city" : "Hiddenhausen",
+            "type" : "private"
+        },
+        {
+            "ID" : 41,
+            "street" : "An St. Adelheid 5",
+            "zip" : 51109,
+            "city" : "Köln-Neubrück",
+            "type" : "private"
+        },
+        {
+            "ID" : 43,
+            "street" : "Mittlere Mühlstraße 2\/1",
+            "zip" : 68766,
+            "city" : "Hockenheim",
+            "type" : "private"
+        },
+        {
+            "ID" : 44,
+            "street" : "Am Sportplatz 29",
+            "zip" : 40789,
+            "city" : "Monheim am Rhein",
+            "type" : "private"
+        },
+        {
+            "ID" : 46,
+            "street" : "Parkstr. 74",
+            "zip" : 26605,
+            "city" : "Aurich",
+            "type" : "private"
+        },
+        {
+            "ID" : 47,
+            "street" : "Katharinenstr. 8",
+            "zip" : 52388,
+            "city" : "Nörvenich",
+            "type" : "private"
+        },
+        {
+            "ID" : 48,
+            "street" : "Cloppenburger Str. 400",
+            "zip" : 26133,
+            "city" : "Oldenburg",
+            "type" : "private"
+        },
+        {
+            "ID" : 49,
+            "street" : "Leipziger Str. 119",
+            "zip" : 47918,
+            "city" : "Tönisvorst",
+            "type" : "private"
+        },
+        {
+            "ID" : 51,
+            "street" : "Im Kleinfeld 18",
+            "zip" : 67227,
+            "city" : "Frankenthal",
+            "type" : "private"
+        },
+        {
+            "ID" : 52,
+            "street" : "Mainzer Str. 11a",
+            "zip" : 67307,
+            "city" : "Göllheim",
+            "type" : "private"
+        },
+        {
+            "ID" : 53,
+            "street" : "Neufahrwasserweg 9",
+            "zip" : 12685,
+            "city" : "Berlin",
+            "type" : "private"
+        },
+        {
+            "ID" : 54,
+            "street" : "Bahnhofstr. 2",
+            "zip" : 42579,
+            "city" : "Heiligenhaus",
+            "type" : "private"
+        },
+        {
+            "ID" : 55,
+            "street" : "Beim Schacher 22",
+            "zip" : 87700,
+            "city" : "Eisenburg",
+            "type" : "private"
+        },
+        {
+            "ID" : 56,
+            "street" : "Schnellenberger Weg 89",
+            "zip" : 21339,
+            "city" : "Lüneburg",
+            "type" : "private"
+        },
+        {
+            "ID" : 60,
+            "street" : "Hilda-Geiringer-weg 9",
+            "zip" : 10557,
+            "city" : "Berlin",
+            "type" : "private"
+        },
+        {
+            "ID" : 65,
+            "street" : "Im Großen Felde 22",
+            "zip" : 38312,
+            "city" : "Ohrum",
+            "type" : "private"
+        },
+        {
+            "ID" : 66,
+            "street" : "Ruggen 3",
+            "zip" : 88267,
+            "city" : "Vogt",
+            "type" : "private"
+        },
+        {
+            "ID" : 69,
+            "street" : "Im Tännig 38",
+            "zip" : 97320,
+            "city" : "Mainstockheim",
+            "type" : "private"
+        },
+        {
+            "ID" : 70,
+            "street" : "Henry-Moisand Str. 8",
+            "zip" : 55130,
+            "city" : "Mainz",
+            "type" : "private"
+        },
+        {
+            "ID" : 71,
+            "street" : "Wanfrieder Str. 58",
+            "zip" : 28215,
+            "city" : "Bremen",
+            "type" : "private"
+        },
+        {
+            "ID" : 73,
+            "street" : "Rektor-Klaus-Str. 8",
+            "zip" : 73525,
+            "city" : "Schwäbisch Gmünd",
+            "type" : "private"
+        },
+        {
+            "ID" : 75,
+            "street" : "Auf dem Drohn 21",
+            "zip" : 49429,
+            "city" : "Visbek",
+            "type" : "private"
+        },
+        {
+            "ID" : 77,
+            "street" : "Lüttelforster Weg 1a",
+            "zip" : 41366,
+            "city" : "Schwalmtal - Waldniel",
+            "type" : "private"
+        },
+        {
+            "ID" : 79,
+            "street" : "Spandauer Allee 48",
+            "zip" : 33619,
+            "city" : "Bielefeld",
+            "type" : "private"
+        },
+        {
+            "ID" : 80,
+            "street" : "Calvinstr. 4",
+            "zip" : 24114,
+            "city" : "Kiel",
+            "type" : "private"
+        },
+        {
+            "ID" : 82,
+            "street" : "Wilhelm Kreis Str. 54",
+            "zip" : 65343,
+            "city" : "Etville",
+            "type" : "private"
+        },
+        {
+            "ID" : 83,
+            "street" : "Ziegeleistraße 64",
+            "zip" : 67122,
+            "city" : "Altrip",
+            "type" : "private"
+        },
+        {
+            "ID" : 84,
+            "street" : "Südstraße 41",
+            "zip" : 4178,
+            "city" : "Leipzig",
+            "type" : "private"
+        },
+        {
+            "ID" : 90,
+            "street" : "Am Hirtenbach13",
+            "zip" : 30952,
+            "city" : "Ronnenberg",
+            "type" : "private"
+        },
+        {
+            "ID" : 91,
+            "street" : "Nöherweg 43",
+            "zip" : 76646,
+            "city" : "Bruchsal",
+            "type" : "private"
+        },
+        {
+            "ID" : 93,
+            "street" : "Gneisenaustr. 218",
+            "zip" : 47057,
+            "city" : "Duisburg",
+            "type" : "private"
+        },
+        {
+            "ID" : 94,
+            "street" : "Gartenstr. 18",
+            "zip" : 52064,
+            "city" : "Aachen",
+            "type" : "private"
+        },
+        {
+            "ID" : 96,
+            "street" : "Liebenauer Str. 46",
+            "zip" : 6110,
+            "city" : "Halle",
+            "type" : "private"
+        },
+        {
+            "ID" : 97,
+            "street" : "Seitersstr. 6",
+            "zip" : 66606,
+            "city" : "Winterbach",
+            "type" : "private"
+        },
+        {
+            "ID" : 98,
+            "street" : "Laufdorfer Weg 21",
+            "zip" : 35578,
+            "city" : "Wetzlar",
+            "type" : "private"
+        },
+        {
+            "ID" : 99,
+            "street" : "Bei den schieren Eichen 6",
+            "zip" : 21698,
+            "city" : "Harsefeld",
+            "type" : "private"
+        },
+        {
+            "ID" : 102,
+            "street" : "Talstr. 3",
+            "zip" : 74538,
+            "city" : "Rosengarten",
+            "type" : "private"
+        },
+        {
+            "ID" : 103,
+            "street" : "Stationenweg 126",
+            "zip" : 53332,
+            "city" : "Bornheim",
+            "type" : "private"
+        },
+        {
+            "ID" : 104,
+            "street" : "Feldhasenweg 32",
+            "zip" : 50859,
+            "city" : "Köln",
+            "type" : "private"
+        },
+        {
+            "ID" : 105,
+            "street" : "Nansenstr. 4",
+            "zip" : 12047,
+            "city" : "Berlin",
+            "type" : "private"
+        },
+        {
+            "ID" : 106,
+            "street" : "Adolf-von-Harnack-Str. 3",
+            "zip" : 6114,
+            "city" : "Halle",
+            "type" : "private"
+        },
+        {
+            "ID" : 111,
+            "street" : "6 Klatzewee",
+            "zip" : 9714,
+            "city" : "Clerf",
+            "type" : "private"
+        },
+        {
+            "ID" : 112,
+            "street" : "Markt 24-26",
+            "zip" : 52249,
+            "city" : "Eschweiler",
+            "type" : "private"
+        },
+        {
+            "ID" : 113,
+            "street" : "Kettelerstr. 3",
+            "zip" : 49740,
+            "city" : "Haselünne",
+            "type" : "private"
+        },
+        {
+            "ID" : 114,
+            "street" : "Langenwiedenweg 50 A",
+            "zip" : 59457,
+            "city" : "Werl",
+            "type" : "private"
+        },
+        {
+            "ID" : 116,
+            "street" : "Am Hohlegraben 7",
+            "zip" : 34323,
+            "city" : "Malsfeld-Mosheim",
+            "type" : "private"
+        },
+        {
+            "ID" : 117,
+            "street" : "Am Lämmerrranken 9",
+            "zip" : 90616,
+            "city" : "Neuhof",
+            "type" : "private"
+        },
+        {
+            "ID" : 118,
+            "street" : "Weitenunger Str. 32",
+            "zip" : 77815,
+            "city" : "Bühl",
+            "type" : "private"
+        },
+        {
+            "ID" : 119,
+            "street" : "Alexander-Herzen-Str. 31A",
+            "zip" : 1109,
+            "city" : "Dresden",
+            "type" : "private"
+        },
+        {
+            "ID" : 120,
+            "street" : "Schönebecker Str. 45",
+            "zip" : 39104,
+            "city" : "Magdeburg",
+            "type" : "private"
+        },
+        {
+            "ID" : 121,
+            "street" : "Kreuzfeld 7",
+            "zip" : 31157,
+            "city" : "Sarstedt-Schliekum",
+            "type" : "private"
+        },
+        {
+            "ID" : 129,
+            "street" : "Dresdener Str. 21",
+            "zip" : 1877,
+            "city" : "Schmölln-Putzkau",
+            "type" : "private"
+        },
+        {
+            "ID" : 131,
+            "street" : "Holstenstr. 3b",
+            "zip" : 49809,
+            "city" : "Lingen",
+            "type" : "private"
+        },
+        {
+            "ID" : 132,
+            "street" : "Hüxstr. 43",
+            "zip" : 23552,
+            "city" : "Lübeck",
+            "type" : "private"
+        },
+        {
+            "ID" : 133,
+            "street" : "Hachenhausen-Heber 6",
+            "zip" : 37581,
+            "city" : "Bad Gandersheim",
+            "type" : "private"
+        },
+        {
+            "ID" : 134,
+            "street" : "Käthe-Kollwitz-Str. 11",
+            "zip" : 15926,
+            "city" : "Luckau",
+            "type" : "private"
+        },
+        {
+            "ID" : 135,
+            "street" : "Starstr. 65",
+            "zip" : 14532,
+            "city" : "Stahnsdorf",
+            "type" : "private"
+        },
+        {
+            "ID" : 137,
+            "street" : "Flößerstr. 4",
+            "zip" : 86920,
+            "city" : "Epfach",
+            "type" : "private"
+        },
+        {
+            "ID" : 138,
+            "street" : "Zum Bauverein 30",
+            "zip" : 45899,
+            "city" : "Gelsenkirchen",
+            "type" : "private"
+        },
+        {
+            "ID" : 139,
+            "street" : "Kirchstr. 16",
+            "zip" : 54523,
+            "city" : "Hetzerath",
+            "type" : "private"
+        },
+        {
+            "ID" : 140,
+            "street" : "Bussjans-Hof Nr.  33",
+            "zip" : 49413,
+            "city" : "Dinklage",
+            "type" : "private"
+        },
+        {
+            "ID" : 141,
+            "street" : "Solitudestr. 39",
+            "zip" : 71638,
+            "city" : "Ludwigsburg",
+            "type" : "private"
+        },
+        {
+            "ID" : 142,
+            "street" : "Talfinger Str. 30",
+            "zip" : 89073,
+            "city" : "Ulm",
+            "type" : "private"
+        },
+        {
+            "ID" : 148,
+            "street" : "Friedhofstr.16",
+            "zip" : 66287,
+            "city" : "Quierschied-Fischbach",
+            "type" : "private"
+        },
+        {
+            "ID" : 152,
+            "street" : "Behringerstr. 105",
+            "zip" : 63814,
+            "city" : "Mainaschaff",
+            "type" : "private"
+        },
+        {
+            "ID" : 155,
+            "street" : "Kirchberg 64",
+            "zip" : 99189,
+            "city" : "Witterda",
+            "type" : "private"
+        },
+        {
+            "ID" : 156,
+            "street" : "Sauerbenden 3",
+            "zip" : 53359,
+            "city" : "Rheinbach",
+            "type" : "private"
+        },
+        {
+            "ID" : 158,
+            "street" : "Tersteegerstr. 77",
+            "zip" : 40474,
+            "city" : "Düsseldorf",
+            "type" : "private"
+        },
+        {
+            "ID" : 160,
+            "street" : "Meppenerstr. 5",
+            "zip" : 48155,
+            "city" : "Münster",
+            "type" : "private"
+        },
+        {
+            "ID" : 163,
+            "street" : "Ostwall 17",
+            "zip" : 47608,
+            "city" : "Geldern",
+            "type" : "private"
+        },
+        {
+            "ID" : 165,
+            "street" : "Gymnasiumstr. 45",
+            "zip" : 70174,
+            "city" : "Stuttgart",
+            "type" : "private"
+        },
+        {
+            "ID" : 166,
+            "street" : "Am Schievekamp 56",
+            "zip" : 46419,
+            "city" : "Isselburg-Anholt",
+            "type" : "private"
+        },
+        {
+            "ID" : 167,
+            "street" : "Eisenzahnstr. 15",
+            "zip" : 10709,
+            "city" : "Berlin",
+            "type" : "private"
+        },
+        {
+            "ID" : 169,
+            "street" : "Vereinsstr. 35",
+            "zip" : 14770,
+            "city" : "Brandenburg a.d. Havel",
+            "type" : "private"
+        },
+        {
+            "ID" : 170,
+            "street" : "Teupitzer Str. 49",
+            "zip" : 15755,
+            "city" : "Schwerin",
+            "type" : "private"
+        },
+        {
+            "ID" : 171,
+            "street" : "Johann-Gnogler-Str. 7",
+            "zip" : 94377,
+            "city" : "Steinach",
+            "type" : "private"
+        },
+        {
+            "ID" : 172,
+            "street" : "Königsbergerstr. 41",
+            "zip" : 74321,
+            "city" : "Bietigheim-Bissingen",
+            "type" : "private"
+        },
+        {
+            "ID" : 174,
+            "street" : "Martinistr. 42",
+            "zip" : 20251,
+            "city" : "Hamburg",
+            "type" : "private"
+        },
+        {
+            "ID" : 176,
+            "street" : "Auf Hostert 16",
+            "zip" : 54570,
+            "city" : "Weidenbach",
+            "type" : "private"
+        },
+        {
+            "ID" : 177,
+            "street" : "Fried.-Nadig-Str. 7e",
+            "zip" : 64807,
+            "city" : "Dieburg",
+            "type" : "private"
+        },
+        {
+            "ID" : 181,
+            "street" : "Kastanienweg 5",
+            "zip" : 49808,
+            "city" : "Lingen",
+            "type" : "private"
+        },
+        {
+            "ID" : 182,
+            "street" : "Bahnhofstr. 7",
+            "zip" : 68519,
+            "city" : "Viernheim",
+            "type" : "private"
+        },
+        {
+            "ID" : 183,
+            "street" : "Thumberg 6",
+            "zip" : 83317,
+            "city" : "Oberteisendorf",
+            "type" : "private"
+        },
+        {
+            "ID" : 184,
+            "street" : "Brucknerstr. 30",
+            "zip" : 66424,
+            "city" : "Homburg",
+            "type" : "private"
+        },
+        {
+            "ID" : 185,
+            "street" : "Schloßstr. 16",
+            "zip" : 85658,
+            "city" : "Egmating",
+            "type" : "private"
+        },
+        {
+            "ID" : 186,
+            "street" : "Lappenberg 12",
+            "zip" : 31134,
+            "city" : "Hildesheim",
+            "type" : "private"
+        },
+        {
+            "ID" : 187,
+            "street" : "Am Alten Rhein 73",
+            "zip" : 47533,
+            "city" : "Kleve-Brienen",
+            "type" : "private"
+        },
+        {
+            "ID" : 190,
+            "street" : "Weilbonrstr. 25",
+            "zip" : 63303,
+            "city" : "Dreieich",
+            "type" : "private"
+        },
+        {
+            "ID" : 191,
+            "street" : "An der Aspel 14a",
+            "zip" : 97359,
+            "city" : "Schwarzach",
+            "type" : "private"
+        },
+        {
+            "ID" : 192,
+            "street" : "Bürgermeister-Lauck-Str. 9",
+            "zip" : 65439,
+            "city" : "Flörsheim am Main",
+            "type" : "private"
+        },
+        {
+            "ID" : 195,
+            "street" : "Bohlweg 13",
+            "zip" : 31832,
+            "city" : "Springe",
+            "type" : "private"
+        },
+        {
+            "ID" : 196,
+            "street" : "Gartenstr. 10",
+            "zip" : 97072,
+            "city" : "Würzburg",
+            "type" : "private"
+        },
+        {
+            "ID" : 197,
+            "street" : "Maubacher Str. 110",
+            "zip" : 52372,
+            "city" : "Kreuzau",
+            "type" : "private"
+        },
+        {
+            "ID" : 202,
+            "street" : "Friedrichstr. 25",
+            "zip" : 77654,
+            "city" : "Offenburg",
+            "type" : "private"
+        },
+        {
+            "ID" : 203,
+            "street" : "Brandstetter Str. 36",
+            "zip" : 83324,
+            "city" : "Ruhpolding",
+            "type" : "private"
+        },
+        {
+            "ID" : 204,
+            "street" : "Pfarrplatz 22",
+            "zip" : 94336,
+            "city" : "Windberg",
+            "type" : "private"
+        },
+        {
+            "ID" : 205,
+            "street" : "Unterer Sendweg 2",
+            "zip" : 44309,
+            "city" : "Dortmund",
+            "type" : "private"
+        },
+        {
+            "ID" : 207,
+            "street" : "Goldkaul 9",
+            "zip" : 53894,
+            "city" : "Mechernich",
+            "type" : "private"
+        },
+        {
+            "ID" : 208,
+            "street" : "Gutbrodstr. 87",
+            "zip" : 70193,
+            "city" : "Stuttgart",
+            "type" : "private"
+        },
+        {
+            "ID" : 209,
+            "street" : "Goldener Spiegel 9",
+            "zip" : 57074,
+            "city" : "Siegen",
+            "type" : "private"
+        },
+        {
+            "ID" : 210,
+            "street" : "Karl-Rieger-Str. 24",
+            "zip" : 93349,
+            "city" : "Mindelstetten",
+            "type" : "private"
+        },
+        {
+            "ID" : 212,
+            "street" : "Elisabethstr. 19",
+            "zip" : 52062,
+            "city" : "Aachen",
+            "type" : "private"
+        },
+        {
+            "ID" : 215,
+            "street" : "Varreler Feld 7",
+            "zip" : 28816,
+            "city" : "Stuhr",
+            "type" : "private"
+        },
+        {
+            "ID" : 218,
+            "street" : "Westmauer 23a",
+            "zip" : 59590,
+            "city" : "Bielefeld",
+            "type" : "private"
+        },
+        {
+            "ID" : 219,
+            "street" : "Bergmannsruh 17",
+            "zip" : 9633,
+            "city" : "Halsbrücke",
+            "type" : "private"
+        },
+        {
+            "ID" : 220,
+            "street" : "Dionysiuskirchplatz 13",
+            "zip" : 45355,
+            "city" : "Essen",
+            "type" : "private"
+        },
+        {
+            "ID" : 221,
+            "street" : "Am Nonnenhof 7",
+            "zip" : 53881,
+            "city" : "Euskirchen",
+            "type" : "private"
+        },
+        {
+            "ID" : 222,
+            "street" : "Hauptstr. 40",
+            "zip" : 50259,
+            "city" : "Puhlheim-Sommeln",
+            "type" : "private"
+        },
+        {
+            "ID" : 227,
+            "street" : "Andreasstr. 27",
+            "zip" : 40213,
+            "city" : "Düsseldorf",
+            "type" : "private"
+        },
+        {
+            "ID" : 229,
+            "street" : "Roseninsel 32",
+            "zip" : 96365,
+            "city" : "Nordhalben",
+            "type" : "private"
+        },
+        {
+            "ID" : 230,
+            "street" : "Fliederweg 14",
+            "zip" : 18182,
+            "city" : "Röwershagen",
+            "type" : "private"
+        },
+        {
+            "ID" : 231,
+            "street" : "Kaiserswerther Str. 66",
+            "zip" : 40477,
+            "city" : "Düsseldorf",
+            "type" : "private"
+        },
+        {
+            "ID" : 234,
+            "street" : "Straße der Jugend 23a",
+            "zip" : 3046,
+            "city" : "Cottbus",
+            "type" : "private"
+        },
+        {
+            "ID" : 235,
+            "street" : "Heinrichstr.3",
+            "zip" : 84453,
+            "city" : "Mühldorf",
+            "type" : "private"
+        },
+        {
+            "ID" : 236,
+            "street" : "Stauffenbergstr. 6",
+            "zip" : 17213,
+            "city" : "Malchow",
+            "type" : "private"
+        },
+        {
+            "ID" : 244,
+            "street" : "Offenbachstr. 7",
+            "zip" : 53881,
+            "city" : "Euskirchen",
+            "type" : "private"
+        },
+        {
+            "ID" : 245,
+            "street" : "Altenburg 33",
+            "zip" : 85665,
+            "city" : "Moosach",
+            "type" : "private"
+        },
+        {
+            "ID" : 246,
+            "street" : "Ginsterbusch 10 a",
+            "zip" : 35398,
+            "city" : "Giessen",
+            "type" : "private"
+        },
+        {
+            "ID" : 248,
+            "street" : "Breitenfelder Str. 13 B",
+            "zip" : 20251,
+            "city" : "Hamburg",
+            "type" : "private"
+        },
+        {
+            "ID" : 250,
+            "street" : "Herner Str. 156",
+            "zip" : 44809,
+            "city" : "Bochum",
+            "type" : "private"
+        },
+        {
+            "ID" : 256,
+            "street" : "Annemarie-Griesinger-Ring 8",
+            "zip" : 74523,
+            "city" : "Schwäbisch Hall",
+            "type" : "private"
+        },
+        {
+            "ID" : 257,
+            "street" : "Sudetenstr. 2",
+            "zip" : 33449,
+            "city" : "Langenberg",
+            "type" : "private"
+        },
+        {
+            "ID" : 258,
+            "street" : "Lambertusweg 5",
+            "zip" : 59387,
+            "city" : "Ascheberg",
+            "type" : "private"
+        },
+        {
+            "ID" : 260,
+            "street" : "Winkelerstr. 80",
+            "zip" : 65366,
+            "city" : "Geisenheim",
+            "type" : "private"
+        },
+        {
+            "ID" : 261,
+            "street" : "Adlerweg 2",
+            "zip" : 86420,
+            "city" : "Diedorf-Biburg",
+            "type" : "private"
+        },
+        {
+            "ID" : 262,
+            "street" : "Im Alten Stadion 31",
+            "zip" : 88250,
+            "city" : "Weingarten",
+            "type" : "private"
+        },
+        {
+            "ID" : 263,
+            "street" : "Paulinenstr. 9",
+            "zip" : 33098,
+            "city" : "Paderborn",
+            "type" : "private"
+        },
+        {
+            "ID" : 265,
+            "street" : "Krugzeller Str. 28",
+            "zip" : 87463,
+            "city" : "Dietmannsried",
+            "type" : "private"
+        },
+        {
+            "ID" : 269,
+            "street" : "Rosenweg 4",
+            "zip" : 49777,
+            "city" : "Stavern",
+            "type" : "private"
+        },
+        {
+            "ID" : 270,
+            "street" : "Auf dem Driesch 1a",
+            "zip" : 50189,
+            "city" : "Elsdorf",
+            "type" : "private"
+        },
+        {
+            "ID" : 274,
+            "street" : "Am Füllort 3c",
+            "zip" : 44805,
+            "city" : "Bochum",
+            "type" : "private"
+        },
+        {
+            "ID" : 300,
+            "street" : "Stadtmauerweg 1",
+            "zip" : 97475,
+            "city" : "Zeil a.M.",
+            "type" : "private"
+        },
+        {
+            "ID" : 298,
+            "street" : "Dr. Joseph-Bernhart Str. 2",
+            "zip" : 86842,
+            "city" : "Türkheim",
+            "type" : "private"
+        },
+        {
+            "ID" : 64,
+            "street" : " ",
+            "zip" : " ",
+            "city" : " ",
+            "type" : "private"
+        },
+        {
+            "ID" : 161,
+            "street" : " ",
+            "zip" : " ",
+            "city" : " ",
+            "type" : "private"
+        },
+        {
+            "ID" : 309,
+            "street" : "Im Falker 46",
+            "zip" : 57413,
+            "city" : "Finnentrop",
+            "type" : "private"
+        }
+    ]}
+    

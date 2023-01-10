@@ -1,0 +1,1426 @@
+{
+    "members": [
+        {
+            "ID" : 3,
+            "firstname" : "Andreas",
+            "lastname" : "Altehenger",
+            "invoice" : 1,
+            "title" : "Dipl.-Theol.",
+            "organization" : "JVA Iserlohn \/ JVA Schwerte",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 6,
+            "firstname" : "Michael",
+            "lastname" : "Barnt",
+            "invoice" : 1,
+            "title" : "Pastoralreferent",
+            "organization" : "JVA Gablingen \/ JVA Niederschönenfeld",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 17,
+            "firstname" : "Martin",
+            "lastname" : "Böller",
+            "invoice" : 1,
+            "title" : "Pastoralreferent",
+            "organization" : "JVA Remscheid",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 25,
+            "firstname" : "Markus",
+            "lastname" : "Brunner",
+            "invoice" : 1,
+            "title" : "Pastoralreferent",
+            "organization" : "JVA Amberg \/ JVA Weiden",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 37,
+            "firstname" : "Michael",
+            "lastname" : "Drescher",
+            "invoice" : 1,
+            "title" : "Pastoralreferent",
+            "organization" : "JVA Karlsruhe \/ JAA Rastatt",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 40,
+            "firstname" : "Lothar",
+            "lastname" : "Dzialdowski",
+            "invoice" : 1,
+            "title" : "Diakon",
+            "organization" : "JVA Bielefeld-Brackwede",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 73,
+            "firstname" : "Sabine",
+            "lastname" : "Götz",
+            "invoice" : 1,
+            "title" : "Schwester",
+            "organization" : "JVA Schwäbisch Gmünd",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 84,
+            "firstname" : "Markus",
+            "lastname" : "Herold",
+            "invoice" : 1,
+            "title" : "Pastoraler Mitarbeiter",
+            "organization" : "JA Raßnitz",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 91,
+            "firstname" : "Peter",
+            "lastname" : "Holzer",
+            "invoice" : 1,
+            "title" : "Dekan im Justizvollzug",
+            "organization" : "JVA Bruchsal",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 94,
+            "firstname" : "Irmgard",
+            "lastname" : "Icking",
+            "invoice" : 1,
+            "title" : "Dipl. Theol.",
+            "organization" : "",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 107,
+            "firstname" : "Michael",
+            "lastname" : "King",
+            "invoice" : 1,
+            "title" : "Pastoralreferent",
+            "organization" : "JVA Herford",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 111,
+            "firstname" : "Romain",
+            "lastname" : "Kremer",
+            "invoice" : 1,
+            "title" : "Gefängnisseelsorger",
+            "organization" : "",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 118,
+            "firstname" : "Katrin",
+            "lastname" : "Lambser",
+            "invoice" : 1,
+            "title" : "Gemeindereferentin",
+            "organization" : "JVA Bühl",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 129,
+            "firstname" : "Stephan",
+            "lastname" : "Lohse",
+            "invoice" : 1,
+            "title" : "Diakon",
+            "organization" : "JVA Bautzen",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 134,
+            "firstname" : "Bronislaw",
+            "lastname" : "Marecik",
+            "invoice" : 1,
+            "title" : "Pfarrer",
+            "organization" : "",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 137,
+            "firstname" : "Markus",
+            "lastname" : "Martin",
+            "invoice" : 1,
+            "title" : "Pastoralreferent",
+            "organization" : "JVA Kempten",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 155,
+            "firstname" : "Dietmar",
+            "lastname" : "Niesel",
+            "invoice" : 1,
+            "title" : "Diakon",
+            "organization" : "JVA Tonna \/ JSA Arnstadt",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 169,
+            "firstname" : "Christoph",
+            "lastname" : "Pitsch",
+            "invoice" : 1,
+            "title" : "Pastoralreferent",
+            "organization" : "JVA Brandenburg",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 177,
+            "firstname" : "Andreas",
+            "lastname" : "Reifenberg",
+            "invoice" : 1,
+            "title" : "Pastoralreferent",
+            "organization" : "JVA Dieburg",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 187,
+            "firstname" : "Reiner",
+            "lastname" : "Rosenberg",
+            "invoice" : 1,
+            "title" : "Pastoralreferent",
+            "organization" : "JVA Kleve",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 202,
+            "firstname" : "Simon",
+            "lastname" : "Schilling",
+            "invoice" : 1,
+            "title" : "Pastoralreferent",
+            "organization" : "JVA Offenburg",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 208,
+            "firstname" : "Martin",
+            "lastname" : "Schmid-Keimburg",
+            "invoice" : 1,
+            "title" : "Pastoralreferent",
+            "organization" : "",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 212,
+            "firstname" : "Sr. Maria Ursula SPSF",
+            "lastname" : "Schneider",
+            "invoice" : 1,
+            "title" : "Generalökonomin",
+            "organization" : "JVA Aaachen",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 221,
+            "firstname" : "Stefan",
+            "lastname" : "Schwarz",
+            "invoice" : 1,
+            "title" : "Pfarrer",
+            "organization" : "JVA Rheinbach",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 227,
+            "firstname" : "Wolfgang",
+            "lastname" : "Sieffert O.P.",
+            "invoice" : 1,
+            "title" : "Pater",
+            "organization" : "JVA Düsseldorf",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 234,
+            "firstname" : "Sr. Marion",
+            "lastname" : "Sproll",
+            "invoice" : 1,
+            "title" : "Gefängnisseelsorgerin",
+            "organization" : "",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 248,
+            "firstname" : "Klaus",
+            "lastname" : "Uhlenküken",
+            "invoice" : 1,
+            "title" : "Pastoralreferent",
+            "organization" : "UHA Hamburg",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 2,
+            "firstname" : "Sebastian",
+            "lastname" : "Alt",
+            "invoice" : 0,
+            "title" : "Gemeindeasssistent",
+            "organization" : "JVA Tonna",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 4,
+            "firstname" : "Johannes",
+            "lastname" : "Arnoldi",
+            "invoice" : 0,
+            "title" : "Diakon",
+            "organization" : "JVA Wittlich und Trier",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 5,
+            "firstname" : "Andreas",
+            "lastname" : "Bär",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "JVA Nürnberg und Erlagen",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 7,
+            "firstname" : "Patrick",
+            "lastname" : "Bauer",
+            "invoice" : 0,
+            "title" : "Gemeindereferent",
+            "organization" : "JVA Siegburg",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 9,
+            "firstname" : "Manfred",
+            "lastname" : "Becker-Irmen",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "LVR Klinik Köln",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 11,
+            "firstname" : "Patrick",
+            "lastname" : "Beirle",
+            "invoice" : 0,
+            "title" : "Pastoralreferent, Gestalttherapeut",
+            "organization" : "JVA Moabit",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 14,
+            "firstname" : "Günter",
+            "lastname" : "Berkenbrink",
+            "invoice" : 0,
+            "title" : "Gemeindereferent",
+            "organization" : "JVA Wuppertal-Ronsdorf",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 15,
+            "firstname" : "Bernarde",
+            "lastname" : "Billen OP",
+            "invoice" : 0,
+            "title" : "Schwester",
+            "organization" : "JVA Willich II",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 16,
+            "firstname" : "Theo",
+            "lastname" : "Bögemann",
+            "invoice" : 0,
+            "title" : "Dipl. Theol.",
+            "organization" : "JVA Düsseldorf",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 20,
+            "firstname" : "Reiner",
+            "lastname" : "Brandbeck",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "JVA Rockenberg",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 23,
+            "firstname" : "Peter",
+            "lastname" : "Breuer",
+            "invoice" : 0,
+            "title" : "Pfarrer",
+            "organization" : "",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 24,
+            "firstname" : "Daniela",
+            "lastname" : "Bröckl",
+            "invoice" : 0,
+            "title" : "Dipl.-Theol",
+            "organization" : "JVA Bielefeld-Senne \/ Hafthaus Ummeln",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 26,
+            "firstname" : "Krystian",
+            "lastname" : "Burczek",
+            "invoice" : 0,
+            "title" : "Pfarrer",
+            "organization" : "JVA Cottbus",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 31,
+            "firstname" : "Kazimierz",
+            "lastname" : "Dabrowski OP",
+            "invoice" : 0,
+            "title" : "Pater",
+            "organization" : "JVA Attendorn",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 38,
+            "firstname" : "Johannes",
+            "lastname" : "Drews",
+            "invoice" : 0,
+            "title" : "Pfarrer",
+            "organization" : "",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 41,
+            "firstname" : "Stefan",
+            "lastname" : "Ehrlich",
+            "invoice" : 0,
+            "title" : "Dekan",
+            "organization" : "JVA Köln",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 43,
+            "firstname" : "Thomas",
+            "lastname" : "Eisermann",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "JVA Mannheim",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 44,
+            "firstname" : "Robert",
+            "lastname" : "Eiteneuer",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 46,
+            "firstname" : "Hans-Dieter",
+            "lastname" : "Ernsing",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 47,
+            "firstname" : "Karl",
+            "lastname" : "Eßer",
+            "invoice" : 0,
+            "title" : "Pfarrer i. R.",
+            "organization" : "",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 48,
+            "firstname" : "Clemens",
+            "lastname" : "Fabry",
+            "invoice" : 0,
+            "title" : "Pfarrer",
+            "organization" : "JVA Oldenburg",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 49,
+            "firstname" : "Josef",
+            "lastname" : "Feindt",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 51,
+            "firstname" : "Clemens",
+            "lastname" : "Fiebig",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "Sozialtherapeutische Anstalt Ludwigshafen",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 52,
+            "firstname" : "Johannes",
+            "lastname" : "Finck",
+            "invoice" : 0,
+            "title" : "Gemeindereferent",
+            "organization" : "JVA Schifferstadt",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 53,
+            "firstname" : "Annette",
+            "lastname" : "Fleischhauer ssps",
+            "invoice" : 0,
+            "title" : "Gefängnisseelsorgerin",
+            "organization" : "JVA Lichtenberg",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 54,
+            "firstname" : "Matthias",
+            "lastname" : "Fobbe",
+            "invoice" : 0,
+            "title" : "Pfarrer",
+            "organization" : "JVA Remscheid - Zweiganstalt Offener Vollzug",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 55,
+            "firstname" : "Oliver",
+            "lastname" : "Föhr",
+            "invoice" : 0,
+            "title" : "Diakon",
+            "organization" : "JVA Memmingen",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 56,
+            "firstname" : "Martina",
+            "lastname" : "Forster",
+            "invoice" : 0,
+            "title" : "Gemeindereferentin",
+            "organization" : "JVA Uelzen",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 60,
+            "firstname" : "Stefan",
+            "lastname" : "Friedrichowicz",
+            "invoice" : 0,
+            "title" : "Pfarrer",
+            "organization" : "",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 64,
+            "firstname" : "Meinrad",
+            "lastname" : "Funke",
+            "invoice" : 0,
+            "title" : "Pfarrer",
+            "organization" : "",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 65,
+            "firstname" : "Markus",
+            "lastname" : "Galonska",
+            "invoice" : 0,
+            "title" : "Gemeindereferent",
+            "organization" : "JVA Wolfenbüttel",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 66,
+            "firstname" : "Georg",
+            "lastname" : "Gebhard",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "JVA Ravensburg",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 69,
+            "firstname" : "Josef",
+            "lastname" : "Gerspitzer",
+            "invoice" : 0,
+            "title" : "Dipl.-Theologe",
+            "organization" : "",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 70,
+            "firstname" : "Angela",
+            "lastname" : "Gessner",
+            "invoice" : 0,
+            "title" : "Gemeindereferentin",
+            "organization" : "JVA Weiterstadt",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 71,
+            "firstname" : "Dr. Richard",
+            "lastname" : "Goritzka",
+            "invoice" : 0,
+            "title" : "Diakon",
+            "organization" : "JVA Bremen-Oslebshausen",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 75,
+            "firstname" : "Dagmar",
+            "lastname" : "Haake",
+            "invoice" : 0,
+            "title" : "Pastoralreferentin",
+            "organization" : "JVA Vechta",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 77,
+            "firstname" : "Kornelia",
+            "lastname" : "Haas-Uhing",
+            "invoice" : 0,
+            "title" : "Pastoralreferentin",
+            "organization" : "JVA Willich II",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 79,
+            "firstname" : "Markus",
+            "lastname" : "Hanke",
+            "invoice" : 0,
+            "title" : "Vikar",
+            "organization" : "JVA Bielefeld-Brackwedde",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 80,
+            "firstname" : "Frank",
+            "lastname" : "Hattwig",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "JVA Kiel \/ Ja Schleswig \/ VA Neumünster",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 82,
+            "firstname" : "Bernhard",
+            "lastname" : "Heil",
+            "invoice" : 0,
+            "title" : "Gemeindereferent",
+            "organization" : "JVA Wiesbaden",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 83,
+            "firstname" : "Manfred",
+            "lastname" : "Heitz",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "JVA Frankenthal",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 90,
+            "firstname" : "Ludger",
+            "lastname" : "Holle",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "JVA Hannover",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 93,
+            "firstname" : "Angela",
+            "lastname" : "Hunsmann",
+            "invoice" : 0,
+            "title" : "Pastoralreferentin",
+            "organization" : "",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 95,
+            "firstname" : "Stefan",
+            "lastname" : "Ilg",
+            "invoice" : 0,
+            "title" : "Gemeindereferent",
+            "organization" : "JVA Heimsheim",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 96,
+            "firstname" : "Markus",
+            "lastname" : "Jäckel",
+            "invoice" : 0,
+            "title" : "Gefängnisseelsorger",
+            "organization" : "JVA Halle Volkstedt",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 97,
+            "firstname" : "Peter",
+            "lastname" : "Jank",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 98,
+            "firstname" : "Manfred",
+            "lastname" : "Jarmer",
+            "invoice" : 0,
+            "title" : "Pastoraler Mitarbeiter",
+            "organization" : "JVA Diez",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 99,
+            "firstname" : "Christoph",
+            "lastname" : "Janßen",
+            "invoice" : 0,
+            "title" : "Pastoraler Mitarbeiter",
+            "organization" : "JVA Hahnöversand",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 102,
+            "firstname" : "Wolfram",
+            "lastname" : "Kaier",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 103,
+            "firstname" : "Werner",
+            "lastname" : "Kaser",
+            "invoice" : 0,
+            "title" : "Subsidiar",
+            "organization" : "",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 104,
+            "firstname" : "Winfried",
+            "lastname" : "Kelkel",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "JVA Köln",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 105,
+            "firstname" : "Stephanie",
+            "lastname" : "Kersten",
+            "invoice" : 0,
+            "title" : "Pastoralreferentin",
+            "organization" : "JVA Moabit",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 106,
+            "firstname" : "Karl",
+            "lastname" : "Kindl",
+            "invoice" : 0,
+            "title" : "Gemeindereferent",
+            "organization" : "JVA Magdeburg JVA Raßnitz",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 112,
+            "firstname" : "Ralph",
+            "lastname" : "Kreutzer",
+            "invoice" : 0,
+            "title" : "Pfarrer",
+            "organization" : "JVA Aachen",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 113,
+            "firstname" : "Frank",
+            "lastname" : "Kribber",
+            "invoice" : 0,
+            "title" : "Pfarrer",
+            "organization" : "JVA Lingen",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 114,
+            "firstname" : "Ryszard",
+            "lastname" : "Krolikowski",
+            "invoice" : 0,
+            "title" : "Pfarrer",
+            "organization" : "JVA Werl",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 116,
+            "firstname" : "Michael",
+            "lastname" : "Kullinat",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "JVA Schwalmstadt",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 117,
+            "firstname" : "Mario",
+            "lastname" : "Kunz",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "JVA Erbrach",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 119,
+            "firstname" : "Angelika",
+            "lastname" : "Lang",
+            "invoice" : 0,
+            "title" : "",
+            "organization" : "Übedrregionale Vernetzung Gefängnisseelsorge Dresden",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 120,
+            "firstname" : "Klaus",
+            "lastname" : "Lange",
+            "invoice" : 0,
+            "title" : "Diakon",
+            "organization" : "JVA Burg",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 121,
+            "firstname" : "Andreas",
+            "lastname" : "Leciejewski-Leder",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "JVA Sehnde",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 131,
+            "firstname" : "Marcus",
+            "lastname" : "Lühn",
+            "invoice" : 0,
+            "title" : "Gemeindereferent",
+            "organization" : "JVA Lingen",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 132,
+            "firstname" : "Gerd",
+            "lastname" : "Lüssing",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "JVA Lübeck JVA Neumünster",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 133,
+            "firstname" : "Stefan",
+            "lastname" : "Manzeck",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "JVA Rosdorf",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 135,
+            "firstname" : "Thomas",
+            "lastname" : "Marin",
+            "invoice" : 0,
+            "title" : "Diakon",
+            "organization" : "JVA Berlin-Plötzensee",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 138,
+            "firstname" : "Maria",
+            "lastname" : "Mauch",
+            "invoice" : 0,
+            "title" : "Gefängnisseelsorgerin",
+            "organization" : "JVA Gelsenkirchen",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 139,
+            "firstname" : "Peter",
+            "lastname" : "Maus",
+            "invoice" : 0,
+            "title" : "Pfarrer",
+            "organization" : "JVA Trier JVA Wittlich JSA Wittlich",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 140,
+            "firstname" : "Josefine",
+            "lastname" : "May",
+            "invoice" : 0,
+            "title" : "Pastoralreferentin",
+            "organization" : "",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 141,
+            "firstname" : "Hubertus",
+            "lastname" : "Mayer",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "JVA Heilbronn",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 142,
+            "firstname" : "Wolfgang",
+            "lastname" : "Mayer",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "JVA Ulm",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 148,
+            "firstname" : "Michael",
+            "lastname" : "Müller",
+            "invoice" : 0,
+            "title" : "Pfarrer",
+            "organization" : "JVA Saarbrücken \/ JVA Ottweiler",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 152,
+            "firstname" : "Peter",
+            "lastname" : "Negrau",
+            "invoice" : 0,
+            "title" : "Diakon",
+            "organization" : "JVA Aschaffenburg",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 156,
+            "firstname" : "Willi",
+            "lastname" : "Oberheiden",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "JVA Euskirchen JVA Siegburg",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 158,
+            "firstname" : "Sarah",
+            "lastname" : "Ostermann",
+            "invoice" : 0,
+            "title" : "Pastoralreferentin",
+            "organization" : "JVA Duisburg-Hamborn Zweigstelle Dinslaken",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 160,
+            "firstname" : "Frank",
+            "lastname" : "Ottofrickenstein",
+            "invoice" : 0,
+            "title" : "Pfarrer",
+            "organization" : "JVA Münster ",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 161,
+            "firstname" : "Martina",
+            "lastname" : "Paar",
+            "invoice" : 0,
+            "title" : "",
+            "organization" : "",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 163,
+            "firstname" : "Hans Gerd",
+            "lastname" : "Paus",
+            "invoice" : 0,
+            "title" : "Pfarrer",
+            "organization" : "JVA Geldern",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 165,
+            "firstname" : "Sr. M. Vera",
+            "lastname" : "Perzi",
+            "invoice" : 0,
+            "title" : "Ergotherapeutin\/systemische Familientherapeutin",
+            "organization" : "JVA Stuttgart",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 166,
+            "firstname" : "Josef",
+            "lastname" : "Peters",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 167,
+            "firstname" : "A. Engelbert",
+            "lastname" : "Petsch",
+            "invoice" : 0,
+            "title" : "Pastor",
+            "organization" : "JVA Charlottenburg",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 170,
+            "firstname" : "Monika",
+            "lastname" : "Polanski",
+            "invoice" : 0,
+            "title" : "Pastoralreferentin",
+            "organization" : "JVA Luckau-Duben",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 171,
+            "firstname" : "Johann",
+            "lastname" : "Pöschl",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "JVA Straubing",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 172,
+            "firstname" : "Harald",
+            "lastname" : "Prießnitz",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "JVKH Hohenasperg",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 174,
+            "firstname" : "Richard",
+            "lastname" : "Raming",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "Kath. Gefängnisseelsorge Hamburg",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 176,
+            "firstname" : "Thomas",
+            "lastname" : "Reichert",
+            "invoice" : 0,
+            "title" : "Diakon",
+            "organization" : "JSA Wittlich ",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 181,
+            "firstname" : "Dr. Simeon",
+            "lastname" : "Reininger",
+            "invoice" : 0,
+            "title" : "Pastoraler Mitarbeiter",
+            "organization" : "",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 182,
+            "firstname" : "Engelbert",
+            "lastname" : "Renner",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "JVA Darmstadt",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 183,
+            "firstname" : "Sylvester",
+            "lastname" : "Resch",
+            "invoice" : 0,
+            "title" : "Diakon",
+            "organization" : "",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 184,
+            "firstname" : "Olaf",
+            "lastname" : "Riebes",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "JVA Zweibrücken",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 185,
+            "firstname" : "Kurt",
+            "lastname" : "Riemhofer",
+            "invoice" : 0,
+            "title" : "Dekan im JVD",
+            "organization" : "",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 186,
+            "firstname" : "Angelika",
+            "lastname" : "Röde",
+            "invoice" : 0,
+            "title" : "Gemeindereferentin",
+            "organization" : "JVA für Frauen Hildesheim",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 190,
+            "firstname" : "Alexander",
+            "lastname" : "Rudolf",
+            "invoice" : 0,
+            "title" : "Diakon",
+            "organization" : "JVA Weiterstadt",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 191,
+            "firstname" : "Georg",
+            "lastname" : "Ruhsert",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "JVA Würzburg",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 192,
+            "firstname" : "Raimund",
+            "lastname" : "Ruppert",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 195,
+            "firstname" : "Lothar",
+            "lastname" : "Schaefer",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "Jugendanstalt Hameln",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 196,
+            "firstname" : "Doris",
+            "lastname" : "Schäfer",
+            "invoice" : 0,
+            "title" : "Pastoralreferentin",
+            "organization" : "JVA Würzburg\/Schweinfurt",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 197,
+            "firstname" : "Norbert",
+            "lastname" : "Schall-Grootjans",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "JVA Aachen",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 203,
+            "firstname" : "Harald",
+            "lastname" : "Schillmeier",
+            "invoice" : 0,
+            "title" : "Diakon",
+            "organization" : "",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 204,
+            "firstname" : "Michael",
+            "lastname" : "Schlemmer OPraem",
+            "invoice" : 0,
+            "title" : "Pater",
+            "organization" : "JVA Straubing",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 205,
+            "firstname" : "Siegfried",
+            "lastname" : "Schlummer",
+            "invoice" : 0,
+            "title" : "Pfarrer",
+            "organization" : "",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 207,
+            "firstname" : "Georg",
+            "lastname" : "Schmalen",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "JVA Willich I",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 209,
+            "firstname" : "Hubertus",
+            "lastname" : "Schmidt",
+            "invoice" : 0,
+            "title" : "Kath. Seelsorger",
+            "organization" : "JVA Attendorn",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 210,
+            "firstname" : "Florian",
+            "lastname" : "Schmutz",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "JVA Neuburg-Herrenwörth",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 215,
+            "firstname" : "Helmuth",
+            "lastname" : "Schomaker",
+            "invoice" : 0,
+            "title" : "Pfarrer",
+            "organization" : "JVA Vechta (Männer)",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 218,
+            "firstname" : "Wilhelm",
+            "lastname" : "Schulte",
+            "invoice" : 0,
+            "title" : "Pfarrer",
+            "organization" : "",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 219,
+            "firstname" : "Matthias",
+            "lastname" : "Schulz",
+            "invoice" : 0,
+            "title" : "Diakom",
+            "organization" : "JVA Dresden",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 220,
+            "firstname" : "Klaus",
+            "lastname" : "Schütz",
+            "invoice" : 0,
+            "title" : "Dekan",
+            "organization" : "JVA Essen",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 222,
+            "firstname" : "Karl",
+            "lastname" : "Schwellenbach",
+            "invoice" : 0,
+            "title" : "Gemeindereferent",
+            "organization" : "JVA Wuppertal-Ronsdorf",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 229,
+            "firstname" : "Bernhard",
+            "lastname" : "Sorgenfrei",
+            "invoice" : 0,
+            "title" : "Gemeindereferent",
+            "organization" : "JVA Hof",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 230,
+            "firstname" : "Ursula",
+            "lastname" : "Soumagne-Nagler",
+            "invoice" : 0,
+            "title" : "Gemeindereferentin",
+            "organization" : "JVA Waldeck",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 231,
+            "firstname" : "Reiner",
+            "lastname" : "Spiegel",
+            "invoice" : 0,
+            "title" : "Pfarrer",
+            "organization" : "JVA Düsseldorf",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 235,
+            "firstname" : "Alfred",
+            "lastname" : "Stadler",
+            "invoice" : 0,
+            "title" : "Diakon",
+            "organization" : "JVA Laufen-Lebenau",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 236,
+            "firstname" : "Martina",
+            "lastname" : "Stamm",
+            "invoice" : 0,
+            "title" : "Gemeindereferentin",
+            "organization" : "JVA Bützow \/ JVA Neustrelitz",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 244,
+            "firstname" : "Andrea",
+            "lastname" : "Titt",
+            "invoice" : 0,
+            "title" : "Pastoralreferentin",
+            "organization" : "JVA Euskirchen",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 245,
+            "firstname" : "Norbert",
+            "lastname" : "Trischler",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 246,
+            "firstname" : "Gerd",
+            "lastname" : "Tuchscherer",
+            "invoice" : 0,
+            "title" : "Gemeindereferent",
+            "organization" : "JVA Gießen",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 250,
+            "firstname" : "Sebastian",
+            "lastname" : "Vieth",
+            "invoice" : 0,
+            "title" : "Pastoraler Mitarbeiter",
+            "organization" : "JVA Bochum",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 256,
+            "firstname" : "Dr. Kurt",
+            "lastname" : "Waidosch",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "JVA Schwäbisch Hall",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 257,
+            "firstname" : "Marian",
+            "lastname" : "Walczak",
+            "invoice" : 0,
+            "title" : "Pfarrer",
+            "organization" : "JVA Hövelhof",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 258,
+            "firstname" : "Wolfgang",
+            "lastname" : "Wandzioch",
+            "invoice" : 0,
+            "title" : "Dipl.-Theol",
+            "organization" : "JVA Hamm",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 260,
+            "firstname" : "Christiane",
+            "lastname" : "Weber-Lehr",
+            "invoice" : 0,
+            "title" : "Pastoralreferentin",
+            "organization" : "JVA Frankfurt-Main III",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 261,
+            "firstname" : "Peter",
+            "lastname" : "Wellkamp",
+            "invoice" : 0,
+            "title" : "Diakon",
+            "organization" : "JVA Kaisheim",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 262,
+            "firstname" : "Konrad",
+            "lastname" : "Widmann",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 263,
+            "firstname" : "Mirko",
+            "lastname" : "Wiedeking",
+            "invoice" : 0,
+            "title" : "Gefängnisseelsorger",
+            "organization" : "JVA Bielefeld-Senne \/ Hafthaus Ummeln",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 265,
+            "firstname" : "Richard",
+            "lastname" : "Willburger",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "JVA Aichach",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 269,
+            "firstname" : "Heinz-Bernd",
+            "lastname" : "Wolters",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "JVA Meppen",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 270,
+            "firstname" : "Dorothee",
+            "lastname" : "Wortelkamp-Mbaye",
+            "invoice" : 0,
+            "title" : "Pastoralreferentin",
+            "organization" : "JVA Köln",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 274,
+            "firstname" : "Alfons",
+            "lastname" : "Zimmer",
+            "invoice" : 0,
+            "title" : "Pastoralreferent",
+            "organization" : "JVA Bochum \/ JVA Bochum-Langendreer",
+            "membership_fee" : 50
+        },
+        {
+            "ID" : 298,
+            "firstname" : "Filip",
+            "lastname" : "Bäder",
+            "invoice" : 0,
+            "title" : "Diakon",
+            "organization" : "JVA Augsburg-Gablingen",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 300,
+            "firstname" : "Stephanie",
+            "lastname" : "Eckstein",
+            "invoice" : 0,
+            "title" : "Gemeindereferentin",
+            "organization" : "JVA Bamberg",
+            "membership_fee" : 25
+        },
+        {
+            "ID" : 309,
+            "firstname" : "Jürgen",
+            "lastname" : "Wiesner",
+            "invoice" : 0,
+            "title" : "Pastor",
+            "organization" : "JVA Attendorn",
+            "membership_fee" : 25
+        }
+    ]}
+    

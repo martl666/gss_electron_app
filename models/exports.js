@@ -12,14 +12,16 @@ function exportMailDistributorSqlResult(searchStr, searchLink) {
 }
 
 function exportCsvFileData(searchStr, searchLink) {
-    let searchQuery = "SELECT customers.*, GROUP_CONCAT(address.street || ' ' || address.city || ' ' || address.zip || ' ' || address.country || ' ' || address.type || ' ' || IFNULL(address.state, '')) AS `address`, institute.institute, institute.diocese, cci.contactData, organizational_form.men, organizational_form.remand, organizational_form.punishable, organizational_form.enforcement, organizational_form.first_execution, organizational_form.open_execution, organizational_form.women, organizational_form.org_youth AS 'organizationalYouth', organizational_form.subject_to_deportation FROM customers LEFT JOIN address ON customers.ID = address.customer_Id LEFT JOIN institute ON customers.ID = institute.customer_id LEFT JOIN organizational_form ON institute.ID = organizational_form.institute_id LEFT JOIN (SELECT customers_contact_information.customer_id, GROUP_CONCAT(customers_contact_information.contact_type || ' ' || customers_contact_information.contact_data || ' ' || customers_contact_information.contact_primary_mail_address ) AS `contactData` FROM customers_contact_information GROUP BY customer_id) cci ON customers.ID = cci.customer_id";
+    let searchQuery = "SELECT customers.*, GROUP_CONCAT(address.street || ' ' || address.city || ' ' || IIF(address.country = 'Deutschland', PRINTF('%05d',address.zip), address.zip) || ' ' || address.country || ' ' || address.type || ' ' || IFNULL(address.state, '')) AS `address`, institute.institute, institute.diocese, cci.contactData, organizational_form.men, organizational_form.remand, organizational_form.punishable, organizational_form.enforcement, organizational_form.first_execution, organizational_form.open_execution, organizational_form.women, organizational_form.org_youth AS 'organizationalYouth', organizational_form.subject_to_deportation FROM customers LEFT JOIN address ON customers.ID = address.customer_Id LEFT JOIN institute ON customers.ID = institute.customer_id LEFT JOIN organizational_form ON institute.ID = organizational_form.institute_id LEFT JOIN (SELECT customers_contact_information.customer_id, GROUP_CONCAT(customers_contact_information.contact_type || ' ' || customers_contact_information.contact_data || ' ' || customers_contact_information.contact_primary_mail_address ) AS `contactData` FROM customers_contact_information GROUP BY customer_id) cci ON customers.ID = cci.customer_id";
 
-    if (searchStr !== '') {
-        searchQuery += " WHERE 1=1 " + searchLink + ' ' + searchStr
+    if (searchStr !== '' && searchLink === 'AND') {
+        searchQuery += " WHERE 1=1 " + searchLink + ' ' + searchStr;
+    } else {
+        searchQuery += (" WHERE " + searchLink + ' ' + searchStr).replace('WHERE OR', 'WHERE');
     }
 
     searchQuery += " GROUP BY address.customer_id";
-    
+    console.log(searchQuery);
     let searchResult = db.prepare(searchQuery).all();
 
     return searchResult;

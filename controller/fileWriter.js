@@ -19,9 +19,7 @@ function writeDataToFile(data, fileName, type) {
     let pathToSave = paths.exports + path.sep + fileName;
     console.log(pathToSave);
     let firstRow = '';
-    if (type === 'csv') {
-        //firstRow = 'Mitglieder-ID,Vorname,Nachname,Titel,,,,,,,,,,,,,Adresse,Adresse,ID,JVA,Bistum,Privates Telefon,Geschäftlich Telefon, Primäre Email, Email 2, Email 3,Email 4,,,,,,,\n';
-        firstRow = 'Mitglieder-ID,Vorname,Nachname,Titel,Vorstand,Beirat,BUKO Mitglied,kein Mitglied,Ehtik,Jugend,Veröffentlichung Priv. Adr.,Anders Ort PDF,Anders Ort Heft,Anders Ort Anzahl,Pensioniert,Aktiv,Adresse,Adresse,JVA,Bistum,Privates Telefon,Geschäftlich Telefon, Primäre Email, Email 2, Email 3,Email 4,Männer,U-Haft,Strafhaft,Regelvollzug,Erstvollzug,Offener Vollzug,Frauen,Jugend Vollzug,Abschiebehaft\n';
+    if (type === 'csv') {firstRow = 'Mitglieder-ID,Vorname,Nachname,Titel,Vorstand,Beirat,BUKO Mitglied,kein Mitglied,Ehtik,Jugend,Veröffentlichung Priv. Adr.,Anders Ort PDF,Anders Ort Heft,Anders Ort Anzahl,Pensioniert,Aktiv,Evangelisch,Rechung,Lastschrift,Mitgliedsbeitrag,nur_Magazin,Adresse,Adresse,JVA,Bistum,Privates Telefon,Geschäftlich Telefon, Primäre Email, Email 2, Email 3,Email 4,Männer,U-Haft,Strafhaft,Regelvollzug,Erstvollzug,Offener Vollzug,Frauen,Jugend Vollzug,Abschiebehaft\n';
     }
     fs.writeFileSync(pathToSave, firstRow);
     for (let i = 0; i < data.length; i++) {

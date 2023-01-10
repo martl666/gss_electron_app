@@ -34,7 +34,7 @@ function addMemberAddress(addressObject, newCustomerID) {
 }
 
 function getAllPostalAddressWithoutAStoredEmail() {
-    let query = "SELECT customers.ID, customers.firstname, customers.lastname, address.street, address.city, address.zip, address.type, address.country, address.eg, address.companyname \
+    let query = "SELECT customers.ID, customers.firstname, customers.lastname, address.street, address.city, IIF(address.country = 'Deutschland', PRINTF('%05d',address.zip), address.zip), address.type, address.country, address.eg, address.companyname \
     FROM customers\
     LEFT JOIN address ON customers.ID = address.customer_id \
     WHERE customers.ID NOT IN (SELECT customers_contact_information.customer_id FROM customers_contact_information WHERE customers_contact_information.contact_type = 'email')\
@@ -51,7 +51,7 @@ function getAllPostalAddressWithoutAStoredEmail() {
 function getAllAndersOrtAddress(startAt, maxNumbersOfMagazine) {
     console.log( startAt + " " + maxNumbersOfMagazine );
     //TODO use privte address if customer has only one address saved
-    let query = "SELECT customers.ID, customers.title, customers.firstname, customers.lastname, address.street, address.city, address.zip, address.type, address.country, address.eg, address.companyname, customers.magazine_print, customers.number_of_magazine, customers.magazine_pdf, COUNT(address.type) \
+    let query = "SELECT customers.ID, customers.title, customers.firstname, customers.lastname, address.street, address.city, IIF(address.country = 'Deutschland', PRINTF('%05d',address.zip), address.zip), address.type, address.country, address.eg, address.companyname, customers.magazine_print, customers.number_of_magazine, customers.magazine_pdf, COUNT(address.type) \
     FROM customers \
     LEFT JOIN address ON customers.ID = address.customer_id \
     WHERE customers.magazine_print = 1 \
