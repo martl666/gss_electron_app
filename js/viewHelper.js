@@ -1,7 +1,7 @@
 const utf8 = require('utf8');
 
 function saveMail(input) {
-    var newMailAddress = document.getElementsByName('new_email_'+input)[0].value;
+    let newMailAddress = document.getElementsByName('new_email_'+input)[0].value;
     renderer.rendererSaveMail(input, newMailAddress);
 }
 
@@ -19,6 +19,9 @@ function updateMemberData() {
     let data = document.forms.memberDataForm;
 
     let dataObject = getQueryString(data);
+
+    console.log(dataObject.queryString);
+    console.log(dataObject.memberId);
 
     renderer.updateMemberData(dataObject.queryString, dataObject.memberId);
 
@@ -39,19 +42,19 @@ function insertMemberData() {
 }
 
 function getQueryString(data) {
-    var params = '';
-    var memberId = 0;
-    for( var i=0; i<data.elements.length; i++ )
+    let params = '';
+    let memberId = 0;
+    for( let i=0; i<data.elements.length; i++ )
     {
-    var fieldName = data.elements[i].name;
-    var fieldValue = data.elements[i].value;
-    var fieldId = data.elements[i].id;
+    let fieldName = data.elements[i].name;
+    let fieldValue = data.elements[i].value;
+    let fieldId = data.elements[i].id;
 
-    if (fieldName == 'customer_id') {
+    if (fieldName === 'customer_id') {
         memberId = fieldValue;
     }
 
-    var checkboxArr = ['board_of_directors', 'advisory_council', 'buko_member','no_member', 'ethics', 'youth', 'magazine_pdf', 'magazine_print', 'active', 'retired', 'subject_to_deportation','org_youth','women', 'open_execution','first_execution', 'enforcement', 'punishable', 'remand', 'men', 'invoice', 'debit', 'evangelical', 'magazine_membership']
+    let checkboxArr = ['board_of_directors', 'advisory_council', 'buko_member','no_member', 'ethics', 'youth', 'magazine_pdf', 'magazine_print', 'active', 'retired', 'subject_to_deportation','org_youth','women', 'open_execution','first_execution', 'enforcement', 'punishable', 'remand', 'men', 'invoice', 'debit', 'evangelical', 'magazine_membership']
     if (fieldName.length > 1) {        
         //console.log(fieldName + ' - ' + checkboxArr.indexOf(fieldName));
         if (checkboxArr.indexOf(fieldName) !== -1) {
@@ -65,7 +68,7 @@ function getQueryString(data) {
     }
     
     }
-    var queryString = params;
+    let queryString = params;
     if (params.slice(-1) === '&') {
         queryString = params.slice(0, -1);
     }
@@ -111,17 +114,17 @@ function changePrimaryMail(memberId, newPrimaryMailId) {
 }
 
 function exportHelperForQueryString(data) {
-    var params = '';
-    for( var i=0; i<data.elements.length; i++ )
+    let params = '';
+    for( let i=0; i<data.elements.length; i++ )
     {
-        var fieldName = data.elements[i].name;
-        var fieldValue = data.elements[i].value;
+        let fieldName = data.elements[i].name;
+        let fieldValue = data.elements[i].value;
         if (fieldValue != 'not_used' && fieldValue != '') {
             params += fieldName + '=' + fieldValue + '&';
         }
         
     }
-    var queryString = params;
+    let queryString = params;
 
     if (params.slice(-1) === '&') {
         queryString = params.slice(0, -1);
@@ -138,9 +141,9 @@ function changeInputFieldType(that, index) {
 }
 
 function setNumbersOfMagazine(type) {
-    var numbersOfMagazine = document.getElementById('numberOfMagazine').value;
-    var checkBoxPrint = document.getElementById('magazine_print');
-    var checkBoxPdf = document.getElementById('magazine_pdf');
+    let numbersOfMagazine = document.getElementById('numberOfMagazine').value;
+    let checkBoxPrint = document.getElementById('magazine_print');
+    let checkBoxPdf = document.getElementById('magazine_pdf');
     if (type == "print" && checkBoxPrint.checked == true) {
         document.getElementById('numberOfMagazine').value = numbersOfMagazine == 0 ? 1 : numbersOfMagazine;
     }
@@ -159,8 +162,8 @@ function setNumbersOfMagazine(type) {
 }
 
 function isCompanyNameFilled() {
-    var companynamePrivate = document.getElementById('inputCompanyNamePrivate').value.split('').length;
-    var companynameBusiness = document.getElementById('inputCompanyNameBusiness').value.split('').length;
+    let companynamePrivate = document.getElementById('inputCompanyNamePrivate').value.split('').length;
+    let companynameBusiness = document.getElementById('inputCompanyNameBusiness').value.split('').length;
     document.getElementById('egPrivate').checked = false;
     document.getElementById('egBusiness').checked = false;
 

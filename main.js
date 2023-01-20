@@ -185,26 +185,26 @@ ipcMain.handle('deleteMail', async(event, param) => {
 });
 
 ipcMain.handle('updateMemberData', async(event, param) => {
-  customersController.updateMemberData(param.updateQueryString, param.memberId);
-  addressController.updateMemberAddress(param.updateQueryString);
-  cciController.updateMemberContactInformation(param.updateQueryString);
-  organizationalFormController.updateOrganizationalForm(param.updateQueryString, param.memberId);
-  institute.updateInstitute(param.updateQueryString, param.memberId);
+  await customersController.updateMemberData(param.updateQueryString, param.memberId);
+  await addressController.updateMemberAddress(param.updateQueryString);
+  await cciController.updateMemberContactInformation(param.updateQueryString);
+  await organizationalFormController.updateOrganizationalForm(param.updateQueryString, param.memberId);
+  await institute.updateInstitute(param.updateQueryString, param.memberId);
 
   return param.memberId;
 });
 
 ipcMain.handle('addMemberData', async(event, param) => {
-  let newCustomerID = customersController.addMemberData(param.insertQueryString);
+  let newCustomerID = await customersController.addMemberData(param.insertQueryString);
   if (newCustomerID !== -1) {
-    addressController.addMemberAddress(param.insertQueryString, newCustomerID);
-    cciController.addMemberContactInformation(param.insertQueryString, newCustomerID);
-    let instituteId = institute.addInstitute(param.insertQueryString, newCustomerID);
-    organizationalFormController.addOrganizationalForm(param.insertQueryString, instituteId);
+    await addressController.addMemberAddress(param.insertQueryString, newCustomerID);
+    await cciController.addMemberContactInformation(param.insertQueryString, newCustomerID);
+    let instituteId = await institute.addInstitute(param.insertQueryString, newCustomerID);
+    await organizationalFormController.addOrganizationalForm(param.insertQueryString, instituteId);
     
-    return true;
+    return newCustomerID;
   } else {
-    return false;
+    return 0;
   }
 });
 

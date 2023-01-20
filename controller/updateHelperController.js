@@ -128,7 +128,8 @@ function createSetForUpdateDB(updateObject) {
         } else if (updateObject[key] === '') { 
             updateQuerySetPart.push(key + "=''");
         } else {
-            updateQuerySetPart.push(key + "=" +updateObject[key]);
+            if (key !== 'customer_id')
+                updateQuerySetPart.push(key + "=" +updateObject[key]);
         }
     });
 

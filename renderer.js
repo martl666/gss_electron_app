@@ -1,6 +1,6 @@
 const { ipcRenderer } = require('electron');
-var savedDataSet;
-var $_TABLE = '#table';
+let savedDataSet;
+let $_TABLE = '#table';
 
 document.querySelector('#members').addEventListener('click', () => {
   ipcRenderer.invoke('query', '').then((result) => {
@@ -56,10 +56,10 @@ function getCustomerData(memberIdInput) {
         return true;
       });
     }
-    var table = $($_TABLE).DataTable();
+    let table = $($_TABLE).DataTable();
   
     $($_TABLE+' tbody').on('click', 'tr', function () {
-        var data = table.row(this).data();
+        const data = table.row(this).data();
         ipcRenderer.invoke('getCusomerData', {memberId: data[0]}).then((result)=>{
           document.getElementById('content').innerHTML = result;
         });
@@ -68,7 +68,7 @@ function getCustomerData(memberIdInput) {
 }
 
 function showTable(result) {
-  var dataSet = result;
+  const dataSet = result;
   document.getElementById('content').innerHTML ='<table id="table" class="display table" width="100%"></table>';
   $(document).ready(function () {
     $($_TABLE).DataTable({
@@ -109,8 +109,8 @@ function rendererDeleteMail(memberId, rowId) {
   })
 }
 
-function updateMemberData(queryString, memberId) {
-  ipcRenderer.invoke('updateMemberData', {updateQueryString: queryString, memberId: memberId}).then((memberId) => {
+async function updateMemberData(queryString, memberId) {
+  await ipcRenderer.invoke('updateMemberData', {updateQueryString: queryString, memberId: memberId}).then((memberId) => {
     if (memberId >= 1) {
       $('#overlay').show().delay(1000).fadeOut();
       $('body').append(`<div class="toast fade show" id="myToast" style="position: fixed; bottom: 10px; right: 10px;">
@@ -128,9 +128,22 @@ function updateMemberData(queryString, memberId) {
   });
 }
 
-function newMemberData(queryString) {
-  ipcRenderer.invoke('addMemberData', {insertQueryString: queryString}).then((result) => {
-
+async function newMemberData(queryString) {
+  await ipcRenderer.invoke('addMemberData', {insertQueryString: queryString}).then((newMemberId) => {
+    if (newMemberId >= 1) {
+      $('#overlay').show().delay(1000).fadeOut();
+      $('body').append(`<div class="toast fade show" id="myToast" style="position: fixed; bottom: 10px; right: 10px;">
+        <div class="toast-header">
+          <strong class="me-auto">Hinweis</strong>
+          <small>vor wenigen Sekunden</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          Mitglied wurde erfolgreich gespeichert mit der Mitglieder-ID: ${newMemberId}.
+        </div>
+      </div>`);
+      getCustomerData(newMemberId);
+    }
   });
 }
 
