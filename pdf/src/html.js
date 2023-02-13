@@ -1,48 +1,35 @@
 const InvoiceNumbers = require('./invoiceNumbers');
-const members = {
-    1: {
-        firstname: 'Martin',
-        lastname: 'Haydn',
-        title: 'Dr.',
-        invoice: 1,
-        organization: 'JVA Moabit',
-        membershipFee: 25
-    }
-}
+const customersModel = require('../../models/customers');
+const addressesModel = require('../../models/address');
 
-const addresses = {
-    1: {
-        street: 'Etzelwanger Straße 14',
-        zip: '92259',
-        city: 'Neukirchen',
-        type: 'business'
-    }
-}
+let members;
+
+let addresses;
 
 module.exports = class HtmlCreator {
     constructor(html) {
         this.html = html;
     }
 
-    #getAddressInfo(memberId) {
+    #getAddressInfo() {
         let addressBlock;
-        if (members[memberId] !== undefined) {
-            addressBlock = `${members[memberId].title}<br>${members[memberId].firstname} ${members[memberId].lastname}<br>${members[memberId].organization}<br>`;
-            if (addresses[memberId] !== undefined) {
-                addressBlock += `${addresses[memberId].street}<br>${addresses[memberId].zip} ${addresses[memberId].city}`
+        if (members !== undefined) {
+            addressBlock = `${members.title}<br>${members.firstname} ${members.lastname}<br>${members.institute}<br>`;
+            if (addresses !== undefined) {
+                addressBlock += `${addresses.street}<br>${addresses.zip} ${addresses.city}`
             }
         }
 
         return addressBlock;
     }
 
-    #getText(memberId) {
-        if (members[memberId] !== undefined) {
-            if (members[memberId].invoice === 1) {
-                this.html = this.html.replaceAll('${invoiceText}', '<p>Der Gesamtbetrag ist innerhalb von 14 Tagen nach Erhalt der Rechnung mit dem<br>\
+    #getText() {
+        if (members !== undefined) {
+            if (members.invoice === 1) {
+                this.html = this.html.replace('${invoiceText}', '<p>Der Gesamtbetrag ist innerhalb von 14 Tagen nach Erhalt der Rechnung mit dem<br>\
                 <b>Verwendungszweck ${invoiceId}</b> auf unser unten genanntes Konto zu zahlen.</p>');
             } else {
-                this.html = this.html.replaceAll('${invoiceText}', '<p>Der Gesamtbetrag wird per Lastschriftverfahren von Ihrem Konto eingezogen.<br>\
+                this.html = this.html.replace('${invoiceText}', '<p>Der Gesamtbetrag wird per Lastschriftverfahren von Ihrem Konto eingezogen.<br>\
                 Es ist <b>keine Überweisung notwendig.</b></p>');
             }
         }
@@ -62,8 +49,8 @@ module.exports = class HtmlCreator {
         return this;
     }
 
-    #getMembershipFee(memberId) {
-        this.html = this.html.replaceAll('${membershipFee}', members[memberId].membershipFee);
+    #getMembershipFee() {
+        this.html = this.html.replaceAll('${membershipFee}', members.membership_fee);
 
         return this;
     }
@@ -75,13 +62,23 @@ module.exports = class HtmlCreator {
         return this;
     } 
 
-    getAddressBlock(memberId) {
-        this.html = this.html.replaceAll('${membersAddress}', this.#getAddressInfo(memberId));
-        this.#getText(memberId);
-        this.#getDate();
-        this.#getDateYear();
-        this.#getNextInvoiceNumber();
-        this.#getMembershipFee(memberId);
+  getAddressBlock(memberId) {
+        return new Promise((resolve, reject) => {
+            members = customersModel.getCustomerDataForPdf(memberId);
+            addresses = addressesModel.getAddressDataForPdf(memberId);
+            console.log(members);
+            this.html = this.html.replaceAll('${membersAddress}', this.#getAddressInfo());
+            this.#getText();
+            this.#getDate();
+            this.#getDateYear();
+            this.#getNextInvoiceNumber();
+            this.#getMembershipFee();
+
+            this.invoiceText = members.invoice === 1 ? 'Rechnung' : 'Lastschrift';
+            this.fileInfo = `_${members.firstname}_${members.lastname}`;
+
+            resolve(this);
+        });
 
         return this;
     }       

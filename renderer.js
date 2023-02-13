@@ -34,6 +34,13 @@ document.querySelector('#printEnvelops').addEventListener('click', () => {
     return true;
   });
 });
+
+document.querySelector('#createInvoice').addEventListener('click', () => {
+  ipcRenderer.invoke('createInvoice').then((result)=>{
+    document.getElementById('content').innerHTML = result;
+    return true;
+  });
+});
             
 ipcRenderer.invoke('query', '').then((result) => {
   savedDataSet = result;
@@ -195,6 +202,18 @@ function printAndersOrtLabel3() {
   });
 }
 
+function loadPdfFile (file, memberId) {
+  ipcRenderer.invoke('showPdf', {fileName: file, memberId: memberId}).then((result) => {
+    document.getElementById('content').innerHTML = result;
+  });
+}
+
+function saveNewAddress(memberId, addressObject) {
+  ipcRenderer.invoke('saveNewAddress', {addressObject: addressObject, memberId: memberId}).then(result => {
+    document.getElementById('content').innerHTML = result;
+  });
+}
+
 module.exports = {
   rendererSaveMail: rendererSaveMail,
   getCustomerData: getCustomerData,
@@ -208,4 +227,6 @@ module.exports = {
   printMailingLabel: printMailingLabel,
   printAndersOrtLabel: printAndersOrtLabel,
   printAndersOrtLabel3: printAndersOrtLabel3,
+  loadPdfFile: loadPdfFile,
+  saveNewAddress: saveNewAddress,
 }

@@ -1,0 +1,38 @@
+<!-- Modal -->
+<div class="modal fade" id="addressModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" tabindex="-1" aria-labelledby="mailModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="mailModalLabel">neue Adresse hinzufügen</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"  onClick="updateMemeberView({{ result }})"aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="modalBodyAddress">
+            <div class="col-12">
+                <label for="newcompany" class="label-form">Firmenname</label>
+                <input type="text" id="newcompany" name="company" class="form-control">
+                <label for="newStreet" class="label-form">Straße</label>
+                <input type="text" id="newStreet" name="street" class="form-control">
+                <label for="newCity" class="label-form">Stadt</label>
+                <input type="text" id="newCity" name="city" class="form-control">
+                <label for="newZip" class="label-form">Postleitzahl</label>
+                <input type="text" id="newZip" name="zip" class="form-control">
+                <label for="newState" class="label-form">Bundesland</label>
+                {{ include('./helper/germanStatesSelect.html') }}
+                <label for="newCountry" class="label-form">Land</label>
+                {{ include('./helper/countrySelect.html') }}
+                <label for="inputType" class="form-label">Adress Typ</label>
+                <select class="form-control" id="inputType" name="type">
+                    <option value="">Bitte auswählen...</option>
+                    <option value="private">Private</option>
+                    <option value="business">Geschäftlich</option>
+                    <option value="invoice">Rechnung</option>
+                </select>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" onClick="javascript:updateMemeberView({{ memberId }})" data-bs-dismiss="modal">Schließen</button>
+            <button type="button" onClick="javascript:saveNewAddress({{ memberId }})" class="btn btn-primary" id="btnSaveMail">Adresse speichern</button>
+        </div>
+        </div>
+    </div>
+</div>

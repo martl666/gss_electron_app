@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <style>
+            .clearfix::after {
+                content: '.';
+                clear: both;
+                display: block;
+                height: 0;
+                visibility: hidden;
+              }
+        </style>
+    </head>
+    <body style="padding: 20px 50px 50px 50px; font-family: Arial, Gadget, sans-serif; font-size: 16x;">
+        <header style="max-width: 100%; min-height: 120px;">
+            <img src="https://gefaengnisseelsorge.net/wp-content/uploads/2020/08/imageonline-co-whitebackgroundremoved-e1603906364843.png" width="60" style="float: left;">
+            <span style="float: left; font-size: 12px; padding-left: 10px; font-weight: bolder;"><span style="color: #014377">Katholische</span><br><span style="color: #A9092F">Gefängnisseelsorge</span><br><span style="color: #014377">in Deutschland e.V.</span></span>
+            <hr style="border: 2px solid #014377; left: 128px; top: 70px; position: absolute; min-width: 405px;">
+            <span style="float: right; font-size: 12px; text-align: right; margin-top: 55px; color: #014377; font-weight: bolder;">Geschäftsstelle<br>c/o Stadtkirche Nürnberg<br>Vordere Sterngasse 1 - 90402 Nürnberg</span>
+        </header>
+        <main style="min-width: 100%; min-height: 500px;">
+            <span style="font-size: 8px;">Katholische Gefängnisseelsorge in Deutschland e.V.<br>Vordere Sterngasse 1 - 90402 Nürnberg<br><br></span>
+            <div id="infos" class="clearfix">
+                <span style="float: left; font-size: 10px;">${membersAddress}</span>
+                <span style="float: right; text-align: right; font-size: 10px;">Rechnungsdatum: ${today}<br>Ihre Ansprechperson: Tanja Haydn<br>E-Mail: geschaeftsstelle@jva-seelsorge.de<br>Telefon: +49 (0) 151 61314374</span>
+            </div>
+            <div style="position: relative; top: 20px; font-size: 12px;">
+                <h3>Rechnung</h3>
+                <p></p>
+            </div>
+            <div class="clearfix" style="position: relative; top: 30px;">    
+                <span style="float: left; font-size: 10px;">Rechnungsnummer: ${invoiceId}</span>
+                <span style="float: right; font-size: 10px;">Datum: ${today}</span>
+            </div>
+            <div style="position: relative; top: 50px;">
+                <table style="border-collapse: collapse; border: 1px solid black; min-width: 100%; font-size: 10px;">
+                    <tr>
+                        <th>Bezeichnung</th>
+                        <th>Ust-Satz</th>
+                        <th>Einzelpreis &euro; (Brutto)</th>
+                        <th>Einzelpreis &euro; (Brutto)</th>
+                        <th>Gesamtpreis &euro; </th>
+                    </tr>
+                    <tr style="font-weight: bold;">
+                        <td style="padding: 6px;">Mitgliedsbeitrag ${dateYear}</td>
+                        <td style="padding: 6px;">0%</td>
+                        <td style="padding: 6px;"></td>
+                        <td style="text-align: center; padding: 6px;">${membershipFee},00</td>
+                        <td style="text-align: center; padding: 6px;">${membershipFee},00</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="clearfix" style="position: relative; top: 70px; font-size: 12px;">
+                <span style="float: right; border: 1 solid #000; padding: 4px 50px 4px 6px"><b>Rechnungsbetrag &emsp; &euro; ${membershipFee},00</b></span>
+            </div>
+            <div style="position: relative; top: 90px; font-size: 10px;">
+                ${invoiceText}
+            </div>
+        </main>
+        <footer style="position: absolute; bottom: 0px; min-width: 82%; min-height: 120px; color: gray; font-size: 10px;">
+            <span style="float: left">Geschäftsstelle Kath. Gefängnisseelsorge<br>c/o Stadtkirche Nürnberg<br>Vordere Sterngasse 1<br>90402 Nürnberg</span>
+            <span style="float: right;">
+                Tel.: +49 (0) 151 61314374<br>E-Mail: geschaeftsstelle@jva-seelsorge.de<br>Website: www.gefaegnisseelsorge.net<br><br>
+                Bank für Kirche und Caritas<br>IBAN: DE26 4726 0307 0021 7200 00<br>BIC: GENODEM1BKC<br>Steuernummer: 205/5766/2479
+            </span>
+        </footer>
+    </body>
+</html>

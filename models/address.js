@@ -65,9 +65,27 @@ function getAllAndersOrtAddress(startAt, maxNumbersOfMagazine) {
     return result;
 }
 
+function getAddressDataForPdf(memberId) {
+    let result = db.prepare("SELECT street, zip, city FROM address WHERE type = 'business' AND customer_id = ?").get(memberId);
+
+    if (result === undefined) {
+        result = db.prepare("SELECT street, zip, city FROM address WHERE type = 'private' AND customer_id = ?").get(memberId);
+    }
+    return result;
+}
+
+function createOrUpdateAddress(addressObject) {
+    console.log("Query: " + `INSERT INTO address (${Object.keys(addressObject)}) VALUES (${Object.values(addressObject)})`);
+    const result = db.prepare(`INSERT INTO address (${Object.keys(addressObject).map(key => `'${key}'`)}) VALUES (${Object.values(addressObject).map(value => isNaN(value) ? `'${value}'`: value)})`).run();
+    console.log('createOrUpdateAddress Result: ' + JSON.stringify(result));
+    return result;
+}
+
 module.exports = {
     updateMemberAddress: updateMemberAddress,
     getAllPostalAddressWithoutAStoredEmail: getAllPostalAddressWithoutAStoredEmail,
     getAllAndersOrtAddress: getAllAndersOrtAddress,
     addMemberAddress: addMemberAddress,
+    getAddressDataForPdf: getAddressDataForPdf,
+    createOrUpdateAddress: createOrUpdateAddress,
 }

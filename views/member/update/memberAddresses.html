@@ -2,7 +2,7 @@
   {% set addressFields = addressData|split('$$') %}
   <div class="card mt-3">
     <div class="card-header">
-      {{ addressFields[3]|replace({'p': 'P', 'b': 'B'}) }} Adresse
+      {{ addressFields[3]|replace({'p': 'P', 'b': 'B', 'invoice': 'Rechnung'}) }} Adresse
     </div>  
     <div class="card-body"> 
       <div class="col-12 mt-3">
@@ -24,7 +24,7 @@
           </div>
       </div>
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
           <label for="inputCity" class="form-label">City</label>
           <input type="text" class="form-control" id="inputCity" name="{{ addressFields[3] }}_city" value="{{ addressFields[1] }}">
         </div>
@@ -40,82 +40,32 @@
           <label for="inputCountry" class="form-label">Land</label>
           <input type="text" class="form-control" id="inputCountry" name="{{ addressFields[3] }}_country" value="{{ addressFields[5] }}">
         </div>
+        <div class="col-md-2">
+          <label for="inputType" class="form-label">Adress Typ</label>
+          <select class="form-control" id="inputType" name="{{ addressFields[3] }}_type" onChange="javascript:setAttrOnChange(this)">
+            {% if addressFields[3] == 'private' %}
+              <option value="private" selected>Private</option>
+            {% else %}
+              <option value="private">Private</option>
+            {% endif %}
+            {% if addressFields[3] == 'business' %}
+              <option value="business" selected>Geschäftlich</option>
+            {% else %}
+              <option value="business">Geschäftlich</option>
+            {% endif %}
+            {% if addressFields[3] == 'invoice' %}
+              <option value="invoice" selected>Rechnung</option>
+            {% else %}
+              <option value="invoice">Rechnung</option>
+            {% endif %}
+          </select>
+        </div>
       </div>
-      <input type="hidden" name="{{ addressFields[3] }}_type" value="{{ addressFields[3] }}">
       <input type="hidden" name="addressId" value="{{ addressFields[4] }}">
     </div>
   </div>
-  {% if loop.length < 2 %}
-    {% if addressFields[3] == 'private' %}
-      {% set addressType = 'business' %}
-      <div class="col-12">
-        <label for="inputAddress" class="form-label">Straße ({{ addressType }})</label>
-        <input type="text" class="form-control" id="inputAddress" placeholder="Musterweg 1" name="new_{{ addressType }}_street" value="">
-      </div>
-      <div class="col-12">
-          <label for="inputCompanyName{{ addressType }}" class="form-label">Firmenname</label>
-          <input type="text" class="form-control" id="inputCompanyName{{ addressType|replace({'p': 'P', 'b': 'B'}) }}" name="{{ addressType }}_companyname" value="" onkeyup="javascript:isCompanyNameFilled()">
-      </div>
-      <div class="col-12">
-          <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" name="eg{{ addressType|replace({'p': 'P', 'b': 'B'}) }}" id="eg{{ addressType|replace({'p': 'P', 'b': 'B'}) }}">
-              <label class="form-check-label" for="eg{{ addressType|replace({'p': 'P', 'b': 'B'}) }}">zu Händen</label>
-          </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <label for="inputCity" class="form-label">City</label>
-          <input type="text" class="form-control" id="inputCity" name="new_{{ addressType }}_city" value="">
-        </div>
-        <div class="col-md-2">
-          <label for="inputZip" class="form-label">Zip</label>
-          <input type="text" class="form-control" id="inputZip" name="new_{{ addressType }}_zip" value="">
-        </div>
-        <div class="col-md-2">
-          <label for="inputState" class="form-label">Bundesland</label>
-          <input type="text" class="form-control" id="inputState" name="{{ addressFields[3] }}_state" value="">
-        </div>
-        <div class="col-md-2">
-          <label for="inputCountry" class="form-label">Land</label>
-          <input type="text" class="form-control" id="inputCountry" name="new_{{ addressFields[3] }}_country" value="">
-        </div>
-      </div>
-      <input type="hidden" name="new_{{ addressType }}_type" value="{{ addressType }}">
-    {% else %}
-      {% set addressType = 'private' %}
-      <div class="col-12">
-        <label for="inputAddress" class="form-label">Straße ({{ addressType }})</label>
-        <input type="text" class="form-control" id="inputAddress" placeholder="Musterweg 1" name="new_{{ addressType }}_street" value="">
-      </div>
-      <div class="col-12">
-          <label for="inputCompanyName{{ addressType }}" class="form-label">Firmenname</label>
-          <input type="text" class="form-control" id="inputCompanyName{{ addressType|replace({'p': 'P', 'b': 'B'}) }}" name="{{ addressType }}_companyname" value="" onkeyup="javascript:isCompanyNameFilled()">
-      </div>
-      <div class="col-12">
-          <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" name="eg{{ addressType|replace({'p': 'P', 'b': 'B'}) }}" id="eg{{ addressType|replace({'p': 'P', 'b': 'B'}) }}">
-              <label class="form-check-label" for="eg{{ addressType|replace({'p': 'P', 'b': 'B'}) }}">zu Händen</label>
-          </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <label for="inputCity" class="form-label">City</label>
-          <input type="text" class="form-control" id="inputCity" name="new_{{ addressType }}_city" value="">
-        </div>
-        <div class="col-md-2">
-          <label for="inputZip" class="form-label">Zip</label>
-          <input type="text" class="form-control" id="inputZip" name="new_{{ addressType }}_zip" value="">
-        </div>
-        <div class="col-md-2">
-          <label for="inputState" class="form-label">Bundesland</label>
-          <input type="text" class="form-control" id="inputState" name="{{ addressFields[3] }}_state" value="">
-        </div>
-        <div class="col-md-2">
-          <label for="inputCountry" class="form-label">Land</label>
-          <input type="text" class="form-control" id="inputCountry" name="new_{{ addressFields[3] }}_country" value="">
-        </div>
-      </div>
-      <input type="hidden" name="new_{{ addressType }}_type" value="{{ addressType }}">
-    {% endif %}
-  {% endif %}
 {% endfor %}
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addressModal">
+  Adresse hinzufügen
+</button>
+{{ include('./member/update/modalAddress.html', {memberId: result.customer_id})}}

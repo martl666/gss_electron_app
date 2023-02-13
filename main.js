@@ -1,7 +1,7 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 const path = require('path');
-let customersController = require('./controller/customers');
+let customersController = require('./controller/customers.js');
 let addressController = require('./controller/address');
 let cciController = require('./controller/customerContactInformation');
 let organizationalFormController = require('./controller/organizationalForm');
@@ -15,10 +15,11 @@ let loader = new TwingLoaderFilesystem('./views');
 let twing = new TwingEnvironment(loader, {
     
 });
+let mainWindow;
 //'cache': './views/cache',
 const createWindow = () => {
   // Create the browser window.
-  const mainWindow = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     show: false,
     icon: __dirname + path.sep + 'img' + path.sep + 'seelsorge.jpg',
     webPreferences: {
@@ -50,14 +51,13 @@ app.whenReady().then(() => {
   })
 })
 
-
 ipcMain.handle('query', async (event, someArgument) => {
   const result = customersController.getAllMembers();
   return result
 })
 
 ipcMain.handle('getCusomerData', async (event, param) => {
-  const result = customersController.getMemberData(param.memberId);
+  let result = customersController.getMemberData(param.memberId, 'pdf', './pdf/pdf');
   let content = twing.load('member/update/memberData.html').then((template) => {
     return template.render({result: result}).then((output) => {
       return output;
@@ -78,6 +78,11 @@ ipcMain.handle('addMember', async (event, param) => {
 });
 
 ipcMain.handle('exportCSV', async (event, param) => {
+  //TODO open dialog
+  /*const options = {};
+  dialog.showOpenDialog(mainWindow, options, (filePaths) => {
+    event.sender.send('open-dialog-path-selected', filePaths);
+  })*/
   let content = twing.load('exports/exportMain.html').then((template) => {
     return template.render({csv: true}).then((output) => {
       return output;
@@ -107,6 +112,11 @@ ipcMain.handle('printEnvelops', async (event, param) => {
   return content;
 });
 
+ipcMain.handle('createInvoice', async () => {
+  const createPdfs = require('./pdf/src/app');
+  return 'Rechnungen erstellen...';
+});
+
 
 ipcMain.handle('printMailingLabel', async(event, param) => {
   const printWindow = new BrowserWindow({
@@ -121,6 +131,37 @@ ipcMain.handle('printMailingLabel', async(event, param) => {
   printWindow.show();
 
   printWindow.loadFile('print.html');
+});
+
+ipcMain.handle('saveNewAddress', async(event, param) => {
+  if(addressController.createOrUpdateAddress(param.addressObject)) {
+    return true;
+  }
+
+  return false;
+});
+
+ipcMain.handle('showPdf', async(event, param) => {
+  const pdfWindow = new BrowserWindow({
+    show: false,
+    icon: __dirname + path.sep + 'img' + path.sep + 'seelsorge.jpeg',
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+    }
+  });
+  
+  pdfWindow.show();
+
+  pdfWindow.loadFile(__dirname + param.fileName.replaceAll('./', '/'));
+  const result = customersController.getMemberData(param.memberId, 'pdf', './pdf/pdf');
+  let content = twing.load('member/update/memberData.html').then((template) => {
+    return template.render({result: result}).then((output) => {
+      return output;
+    });
+  });
+
+  return content;
 });
 
 ipcMain.handle('printAndersOrtLabel', async(event, param) => {

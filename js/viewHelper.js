@@ -1,8 +1,25 @@
 const utf8 = require('utf8');
+//const renderer = require('../renderer');
 
 function saveMail(input) {
     let newMailAddress = document.getElementsByName('new_email_'+input)[0].value;
     renderer.rendererSaveMail(input, newMailAddress);
+}
+
+function saveNewAddress(memberId) {
+    let addressObject = {
+        companyname: document.getElementsByName('company')[0].value,
+        street: document.getElementsByName('street')[0].value,
+        zip: document.getElementsByName('zip')[0].value,
+        city: document.getElementsByName('city')[0].value,
+        country: document.getElementsByName('country')[0].value,
+        state: document.getElementsByName('state')[0].value,
+        type: document.getElementsByName('type')[0].value,
+        eg: 0,
+        customer_id: memberId
+    }
+
+    renderer.saveNewAddress(memberId, addressObject);
 }
 
 function deleteMail(memberId, rowId) {
@@ -174,5 +191,12 @@ function isCompanyNameFilled() {
     if (companynameBusiness > 2) {
         document.getElementById('egBusiness').checked = true;
     }
+}
 
+function loadPdfFile(file, memberId) {
+    renderer.loadPdfFile(file, memberId);
+}
+
+function setAttrOnChange(that) {
+    that.setAttribute('name', that.value + '_type');
 }

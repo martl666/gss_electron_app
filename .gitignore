@@ -113,3 +113,7 @@ ExportDaten/*
 config/sftp.json
 
 config/config.json
+
+pdf/pdf/*
+
+pdf/node_modules/*

@@ -3,113 +3,248 @@
         <h3>Mitglied anlegen</h3>
     </div>
     <form action="javascript:checkForm();" method="post" onsubmit="event.preventDefault(); javascript:insertMemberData();" id="addMemberForm">
-        <div class="row">
-            <div class="col-md-6">
-                <label for="inputTitle" class="form-label">Titel</label>
-                <input type="text" class="form-control" id="inputTitle" name="title" value="">
+        <div class="card mt-3">
+            <div class="card-header">
+                Mitgliederinfo
+            </div>  
+            <div class="card-body"> 
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="inputTitle" class="form-label">Titel</label>
+                        <input type="text" class="form-control" id="inputTitle" name="title" value="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="inputFirstname" class="form-label">Vorname</label>
+                        <input type="text" class="form-control" id="inputFirstname" name="firstname" value="">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputLastname" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="inputLastname" name="lastname" value="">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" name="active" id="active" checked>
+                        <label class="form-check-label" for="active">aktives Mitglied</label>
+                    </div>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="evangelical" id="evangelical">
+                    <label class="form-check-label" for="evangelical">evangelisches Mitglied</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="invoice" id="invoice">
+                    <label class="form-check-label" for="invoice">Zahlung per Rechnung</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="debit" id="debit">
+                    <label class="form-check-label" for="debit">Zahlung per Lastschrift</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="magazine_membership" id="magazine_membership">
+                    <label class="form-check-label" for="magazine_membership">bekommt nur das AndersOrt Magazine, <b style="color: red;">kein Mitglied</b></label>
+                </div>
+                <div class="row mt-3">
+                  <div class="col-md-6">
+                    <label for="inputMembership_fee" class="form-label">Mitgliedsbeitrag</label>
+                    <div class="input-group mb-3">
+                      <input type="text" class="form-control" id="inputMembership_fee" name="membership_fee" value="{{ result.membership_fee }}">
+                      <span class="input-group-text"><b>€</b></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="board_of_directors" id="board_of_directors">
+                    <label class="form-check-label" for="board_of_directors">Vorstand</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="advisory_council" id="advisory_council">
+                    <label class="form-check-label" for="advisory_council">Beirat</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="buko_member" id="buko_member">
+                    <label class="form-check-label" for="buko_member">Buko Mitglied</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="no_member" id="no_member">
+                    <label class="form-check-label" for="no_member">kein Mitglied</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="ethics" id="ethics">
+                    <label class="form-check-label" for="ethics">Ehtik</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="youth" id="youth">
+                    <label class="form-check-label" for="youth">Jugendliche</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="retired" id="retired">
+                    <label class="form-check-label" for="retired">Pensioniert</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="magazine_pdf" id="magazine_pdf" onchange="javascript:setNumbersOfMagazine('pdf');">
+                    <label class="form-check-label" for="magazine_pdf">Magazine als PDF</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="magazine_print" id="magazine_print" onchange="javascript:setNumbersOfMagazine('print');">
+                    <label class="form-check-label" for="magazine_print">Magazine per Post</label>
+                </div>
+                <div class="col-12">
+                    <label for="numberOfMagazine" class="form-label">Anzahl der Magazine</label>
+                    <input type="number" min="0" step="1" class="form-control" id="numberOfMagazine"  name="number_of_magazine" value="0">
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <label for="inputFirstname" class="form-label">Vorname</label>
-                <input type="text" class="form-control" id="inputFirstname" name="firstname" value="">
-            </div>
-            <div class="col-md-6">
-                <label for="inputLastname" class="form-label">Name</label>
-                <input type="text" class="form-control" id="inputLastname" name="lastname" value="">
-            </div>
-        </div>
-        <div class="col-12">
-            <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" name="active" id="active" checked>
-                <label class="form-check-label" for="active">aktives Mitglied</label>
-            </div>
-        </div>
-        <div class="col-12">
-            <label for="inputAddress" class="form-label">Straße (privat)</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="Musterweg 1" name="private_street" value="">
-        </div>
-        <div class="col-12">
-            <label for="inputCompanyName" class="form-label">Firmenname</label>
-            <input type="text" class="form-control" id="inputCompanyName" name="private_companyname" value="" onkeyup="javascript:isCompanyNameFilled()">
-        </div>
-        <div class="col-12">
-            <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" name="private_eg" id="egPrivate">
-                <label class="form-check-label" for="egPrivate">zu Händen</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <label for="inputCity" class="form-label">City</label>
-                <input type="text" class="form-control" id="inputCity" name="private_city" value="">
-            </div>
-            <div class="col-md-2">
-                <label for="inputZip" class="form-label">Zip</label>
-                <input type="text" class="form-control" id="inputZip" name="private_zip" value="">
-            </div>
-            <div class="col-md-2">
-                <label for="inputState" class="form-label">Bundesland</label>
-                <input type="text" class="form-control" id="inputState" name="private_state" value="">
-            </div>
-            <div class="col-md-2">
-                <label for="inputCountry" class="form-label">Land</label>
-                <input type="text" class="form-control" id="inputCountry" name="private_country" value="">
-              </div>
-            <input type="hidden" name="private_type" value="private">
-        </div>
-        <div class="col-12">
-            <label for="inputAddress" class="form-label">Straße (Geschäftlich)</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="Musterweg 1" name="business_street" value="">
-        </div>
-        <div class="col-12">
-            <label for="inputCompanyNameBusiness" class="form-label">Firmenname</label>
-            <input type="text" class="form-control" id="inputCompanyNameBusiness" name="business_companyname" value="" onkeyup="javascript:isCompanyNameFilled()">
-        </div>
-        <div class="col-12">
-            <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" name="business_eg" id="egBusiness">
-                <label class="form-check-label" for="egBusiness">zu Händen</label>
+        <div class="card mt-3">
+            <div class="card-header">
+              Private Adresse
+            </div>  
+            <div class="card-body"> 
+                <div class="col-12">
+                    <label for="inputAddress" class="form-label">Straße (privat)</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="Musterweg 1" name="private_street" value="">
+                </div>
+                <div class="col-12">
+                    <label for="inputCompanyName" class="form-label">Firmenname</label>
+                    <input type="text" class="form-control" id="inputCompanyName" name="private_companyname" value="" onkeyup="javascript:isCompanyNameFilled()">
+                </div>
+                <div class="col-12">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" name="private_eg" id="egPrivate">
+                        <label class="form-check-label" for="egPrivate">zu Händen</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="inputCity" class="form-label">City</label>
+                        <input type="text" class="form-control" id="inputCity" name="private_city" value="">
+                    </div>
+                    <div class="col-md-2">
+                        <label for="inputZip" class="form-label">Zip</label>
+                        <input type="text" class="form-control" id="inputZip" name="private_zip" value="">
+                    </div>
+                    <div class="col-md-2">
+                        <label for="inputState" class="form-label">Bundesland</label>
+                        <input type="text" class="form-control" id="inputState" name="private_state" value="">
+                    </div>
+                    <div class="col-md-2">
+                        <label for="inputCountry" class="form-label">Land</label>
+                        <input type="text" class="form-control" id="inputCountry" name="private_country" value="">
+                    </div>
+                    <input type="hidden" name="private_type" value="private">
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <label for="inputCity" class="form-label">City</label>
-                <input type="text" class="form-control" id="inputCity" name="business_city" value="">
+        <div class="card mt-3">
+            <div class="card-header">
+                Geschäftlich Adresse
+            </div>  
+            <div class="card-body">
+                <div class="col-12">
+                    <label for="businessAddress" class="form-label">Straße (Geschäftlich)</label>
+                    <input type="text" class="form-control" id="businessAddress" placeholder="Musterweg 1" name="business_street" value="">
+                </div>
+                <div class="col-12">
+                    <label for="inputCompanyNameBusiness" class="form-label">Firmenname</label>
+                    <input type="text" class="form-control" id="inputCompanyNameBusiness" name="business_companyname" value="" onkeyup="javascript:isCompanyNameFilled()">
+                </div>
+                <div class="col-12">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" name="business_eg" id="egBusiness">
+                        <label class="form-check-label" for="egBusiness">zu Händen</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="businessCity" class="form-label">City</label>
+                        <input type="text" class="form-control" id="businessCity" name="business_city" value="">
+                    </div>
+                    <div class="col-md-2">
+                        <label for="businessZip" class="form-label">Zip</label>
+                        <input type="text" class="form-control" id="businessZip" name="business_zip" value="">
+                    </div>
+                    <div class="col-md-2">
+                        <label for="businessState" class="form-label">Bundesland</label>
+                        <input type="text" class="form-control" id="businessState" name="business_state" value="">
+                    </div>
+                    <div class="col-md-2">
+                        <label for="businessCountry" class="form-label">Land</label>
+                        <input type="text" class="form-control" id="businessCountry" name="business_country" value="">
+                    </div>
+                    <input type="hidden" name="business_type" value="business">
+                </div>
             </div>
-            <div class="col-md-2">
-                <label for="inputZip" class="form-label">Zip</label>
-                <input type="text" class="form-control" id="inputZip" name="business_zip" value="">
+        </div>
+        <div class="card mt-3">
+            <div class="card-header">
+                Rechnungs Adresse
+            </div>  
+            <div class="card-body">
+                <div class="col-12">
+                    <label for="inputAddress" class="form-label">Straße (Rechnung)</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="Musterweg 1" name="invoice_street" value="">
+                </div>
+                <div class="col-12">
+                    <label for="inputCompanyNameInvoice" class="form-label">Firmenname</label>
+                    <input type="text" class="form-control" id="inputCompanyNameInvoice" name="invoice_companyname" value="" onkeyup="javascript:isCompanyNameFilled()">
+                </div>
+                <div class="col-12">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" name="invoice_eg" id="egInvoice">
+                        <label class="form-check-label" for="egInvoice">zu Händen</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="invoiceCity" class="form-label">City</label>
+                        <input type="text" class="form-control" id="invoiceCity" name="invoice_city" value="">
+                    </div>
+                    <div class="col-md-2">
+                        <label for="invoiceZip" class="form-label">Zip</label>
+                        <input type="text" class="form-control" id="invoiceZip" name="invoice_zip" value="">
+                    </div>
+                    <div class="col-md-2">
+                        <label for="invoiceState" class="form-label">Bundesland</label>
+                        <input type="text" class="form-control" id="invoiceState" name="invoice_state" value="">
+                    </div>
+                    <div class="col-md-2">
+                        <label for="invoiceCountry" class="form-label">Land</label>
+                        <input type="text" class="form-control" id="invoiceCountry" name="invoice_country" value="">
+                    </div>
+                    <input type="hidden" name="invoice_type" value="invoice">
+                    <button class="btn btn-primary col-4">Private Adresse kopieren</button><br>
+                    <button class="btn btn-primary col-4">Geschäftlich Adresse kopieren</button>
+                </div>
             </div>
-            <div class="col-md-2">
-                <label for="inputState" class="form-label">Bundesland</label>
-                <input type="text" class="form-control" id="inputState" name="business_state" value="">
+        </div>
+        <div class="card mt-3">
+            <div class="card-header">
+                Kontaktinformationen
+            </div>  
+            <div class="card-body"> 
+                <div class="col-12">
+                    <label for="inputContactPrivatePhone" class="form-label">Privates Telefon</label>
+                    <input type="tel" class="form-control" id="inputContactPrivatePhone" name="contact_data" value="">
+                    <input type="hidden" name="contact_type" value="private_phone">
+                </div>
+                <div class="col-12">
+                    <label for="inputContactBusinessPhone" class="form-label">Geschäftliches Telefon</label>
+                    <input type="tel" class="form-control" id="inputContactBusinessPhone" name="contact_data" value="">
+                    <input type="hidden" name="contact_type" value="business_phone">
+                </div>
+                <div class="col-12">
+                    <label for="inputContactEmailPrimary" class="form-label">Primäre Email</label>
+                    <input type="email" class="form-control" id="inputContactEmailPrimary" name="contact_data" value="" placeholder="max@mustermann.de">
+                    <input type="hidden" name="contact_type" value="email_primary">
+                </div>
+                <div class="col-12">
+                    <label for="inputContactEmailSecond" class="form-label">weitere Email</label>
+                    <input type="email" class="form-control" id="inputContactEmailSecond" name="contact_data" value="">
+                    <input type="hidden" name="contact_type" value="email_second">
+                </div>
             </div>
-            <div class="col-md-2">
-                <label for="inputCountry" class="form-label">Land</label>
-                <input type="text" class="form-control" id="inputCountry" name="business_country" value="">
-            </div>
-            <input type="hidden" name="business_type" value="business">
-        </div>
-        <div class="col-12">
-            <label for="inputContactPrivatePhone" class="form-label">Privates Telefon</label>
-            <input type="tel" class="form-control" id="inputContactPrivatePhone" name="contact_data" value="">
-            <input type="hidden" name="contact_type" value="private_phone">
-        </div>
-        <div class="col-12">
-            <label for="inputContactBusinessPhone" class="form-label">Geschäftliches Telefon</label>
-            <input type="tel" class="form-control" id="inputContactBusinessPhone" name="contact_data" value="">
-            <input type="hidden" name="contact_type" value="business_phone">
-        </div>
-        <div class="col-12">
-            <label for="inputContactEmailPrimary" class="form-label">Primäre Email</label>
-            <input type="email" class="form-control" id="inputContactEmailPrimary" name="contact_data" value="" placeholder="max@mustermann.de">
-            <input type="hidden" name="contact_type" value="email_primary">
-        </div>
-        <div class="col-12">
-            <label for="inputContactEmailSecond" class="form-label">weitere Email</label>
-            <input type="email" class="form-control" id="inputContactEmailSecond" name="contact_data" value="">
-            <input type="hidden" name="contact_type" value="email_second">
         </div>
         <div class="card mt-3">
             <div class="card-header">
@@ -161,60 +296,6 @@
                     <label class="form-check-label" for="subject_to_deportation">Abschiebehaft</label>
                 </div>
             </div> 
-        </div>
-        <div class="card mt-3">
-            <div class="card-header">
-              Mitglieder Info
-            </div>  
-            <div class="card-body"> 
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" name="board_of_directors" id="board_of_directors">
-                    <label class="form-check-label" for="board_of_directors">Vorstand</label>
-                </div>
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" name="advisory_council" id="advisory_council">
-                    <label class="form-check-label" for="advisory_council">Beirat</label>
-                </div>
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" name="buko_member" id="buko_member">
-                    <label class="form-check-label" for="buko_member">Buko Mitglied</label>
-                </div>
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" name="no_member" id="no_member">
-                    <label class="form-check-label" for="no_member">kein Mitglied</label>
-                </div>
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" name="ethics" id="ethics">
-                    <label class="form-check-label" for="ethics">Ehtik</label>
-                </div>
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" name="youth" id="youth">
-                    <label class="form-check-label" for="youth">Jugendliche</label>
-                </div>
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" name="retired" id="retired">
-                    <label class="form-check-label" for="retired">Pensioniert</label>
-                </div>
-            </div>
-        </div>
-        <div class="card mt-3">
-            <div class="card-header">
-              Magazine
-            </div>  
-            <div class="card-body"> 
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" name="magazine_pdf" id="magazine_pdf" onchange="javascript:setNumbersOfMagazine('pdf');">
-                    <label class="form-check-label" for="magazine_pdf">Magazine als PDF</label>
-                </div>
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" name="magazine_print" id="magazine_print" onchange="javascript:setNumbersOfMagazine('print');">
-                    <label class="form-check-label" for="magazine_print">Magazine per Post</label>
-                </div>
-                <div class="col-12">
-                    <label for="numberOfMagazine" class="form-label">Anzahl der Magazine</label>
-                    <input type="number" min="0" step="1" class="form-control" id="numberOfMagazine"  name="number_of_magazine" value="0">
-                </div>
-            </div>
         </div>
         <div class="col-12">
             <button type="submit" class="btn btn-success fa-pull-right">Mitglied speichern</button>

@@ -74,7 +74,7 @@ function createUpdateObject(objectType, valuesArray) {
             break;
         case 'addressInsert':
             updateObject = address;
-            if (key.indexOf('business') !== -1 || key.indexOf('private') !== -1)
+            if (key.indexOf('business') !== -1 || key.indexOf('private') !== -1 || key.indexOf('invoice') !== -1)
                 helperKey = cleanFormFieldName('_',key)[1];
             break;
         case 'address': 

@@ -1,6 +1,7 @@
 'use strict';
 
 let customersModel = require('../models/customers');
+const {readdirSync} = require("fs");
 
 
 function getAllMembers() {
@@ -20,9 +21,9 @@ function getAllMembers() {
     
 }
 
-function getMemberData(memberId) {
+function getMemberData(memberId, fileExtension, path) {
     var result = customersModel.getMemberData(memberId);
-    result.pdf = getPdfFromMember(memberId);
+    result.pdf = getPdfFromMember(memberId, fileExtension, path);
 
     return result;
 }
@@ -65,17 +66,45 @@ function updatePrimaryMailAddress(memberId, newMailAddress) {
     return result;
 }
 
-async function getPdfFromMember(memberId) {
-    import { readdir } from 'node:fs/promises';
+function getPdfFromMember(memberId, fileExtension, mainPath) {
+    console.log('getPdfFromMember ' + memberId);
+    const fs = require('fs');
+    const path = require('path');
+    /*const mainPath = './pdf/pdf/';
+    const pathInvoice = 'Lastschrift/';
+    const pathDebit = 'Rechnung/';
 
-    try {
-        const files = await readdir('../pdf/pdf/Lastschrift/');
-        for (const file of files)
-            if (file.includes(`_${memberId}.pdf`));
-                return `Lastschrift/${file}`;
-    } catch (err) {
-        console.error(err);
+    const readDirInvoice = readdirSync(mainPath + pathInvoice);
+    for(const file of readDirInvoice) {
+        if (file.includes(`_${memberId}.pdf`)) {
+            return pathInvoice + file;
+        }
     }
+
+    const readDirDebit = readdirSync(mainPath + pathDebit);
+    for(const file of readDirDebit) {
+        if (file.includes(`_${memberId}.pdf`)) {
+            return pathDebit + file;
+        }
+    }*/
+
+    const files = [];
+    const dirs = fs.readdirSync(mainPath);
+    for(const paths of dirs) {
+        const newMainPath = mainPath + path.sep + paths;
+        if (fs.lstatSync(newMainPath).isDirectory()) {
+            const result = getPdfFromMember(memberId, fileExtension, newMainPath);
+            if (result.length > 0)
+                files.push(result);
+        }
+        
+        if (paths.includes(`_${memberId}.${fileExtension}`)) {
+            return newMainPath;
+        }
+    }
+    console.log(JSON.stringify(files[0]));
+    
+    return files;
 }
 
 module.exports = {
@@ -86,4 +115,5 @@ module.exports = {
     updateMemberData: updateMemberData,
     updatePrimaryMailAddress: updatePrimaryMailAddress,
     addMemberData: addMemberData,
+    getPdfFromMember: getPdfFromMember,
 }

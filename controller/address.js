@@ -36,6 +36,10 @@ function addMemberAddress(dataString, newCustomerID) {
     });
 }
 
+function createOrUpdateAddress(addressObject) {
+    return addressModel.createOrUpdateAddress(addressObject);
+}
+
 function getAllPostalAddressWithoutAStoredEmail() {
     return addressModel.getAllPostalAddressWithoutAStoredEmail();
 }
@@ -49,4 +53,5 @@ module.exports = {
     getAllPostalAddressWithoutAStoredEmail: getAllPostalAddressWithoutAStoredEmail,
     getAllAndersOrtAddress: getAllAndersOrtAddress,
     addMemberAddress: addMemberAddress,
+    createOrUpdateAddress: createOrUpdateAddress,
 }

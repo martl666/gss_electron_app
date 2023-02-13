@@ -1,6 +1,6 @@
 'use strict';
 
-const fs = require('fs');
+/*const fs = require('fs');
 const path = require('path');
 
 let currentDirArr = __dirname.split(path.sep);
@@ -44,3 +44,4 @@ function createDir(dirPath, name) {
         });
     }
 }
+*/
