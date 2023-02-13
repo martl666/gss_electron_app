@@ -22,6 +22,7 @@ function getAllMembers() {
 
 function getMemberData(memberId) {
     var result = customersModel.getMemberData(memberId);
+    result.pdf = getPdfFromMember(memberId);
 
     return result;
 }
@@ -62,6 +63,19 @@ function updatePrimaryMailAddress(memberId, newMailAddress) {
     var result = customersModel.updatePrimaryMailAddress(memberId, newMailAddress);
 
     return result;
+}
+
+async function getPdfFromMember(memberId) {
+    import { readdir } from 'node:fs/promises';
+
+    try {
+        const files = await readdir('../pdf/pdf/Lastschrift/');
+        for (const file of files)
+            if (file.includes(`_${memberId}.pdf`));
+                return `Lastschrift/${file}`;
+    } catch (err) {
+        console.error(err);
+    }
 }
 
 module.exports = {
