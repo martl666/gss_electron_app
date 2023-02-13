@@ -34,6 +34,7 @@ function updateMemeberView(memberId) {
 
 function updateMemberData() {
     let data = document.forms.memberDataForm;
+    console.log("DEBUG: " + JSON.stringify(data));
 
     let dataObject = getQueryString(data);
 

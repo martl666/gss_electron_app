@@ -1,10 +1,11 @@
 {% if result.pdf != null %}
 <div class="card mt-3">
     <div class="card-header">
-        Rechnungen
+        Rechnungen / Dokumente
     </div>  
     <div class="card-body">
         <span class="btn btn-success" id="bill" data-file="{{ result.pdf[0] }}" onclick="loadPdfFile(this.getAttribute('data-file'), {{ result.customer_id }});">{{ result.pdf[0] }}</span>
+        <button type="button" class="btn btn-dark fa-pull-right mt-3" id="removeMemberDataBtn" onClick="alert('dialog.showOpenDialog()' + {{ result.customer_id }});">Daten speichern</button>
     </div>
 </div>
 {% endif %}

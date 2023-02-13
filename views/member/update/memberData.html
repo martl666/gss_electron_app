@@ -21,7 +21,7 @@
     <input type="hidden" name="customer_id" value="{{ result.customer_id }}"
     <div class="col-12">
       <button type="submit" class="btn btn-success fa-pull-right mt-3" id="updateMemberDataBtn">Änderung(en) speichern</button>
-      <button type="submit" class="btn btn-danger fa-pull-right mt-3" id="removeMemberDataBtn">Mitglied löschen</button>
+      <button type="button" class="btn btn-danger fa-pull-right mt-3" id="removeMemberDataBtn" onClick="alert('clicked delete member with id: ' + {{ result.customer_id }});">Mitglied löschen</button>
     </div>
   </form>
 </div>
