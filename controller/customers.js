@@ -70,39 +70,26 @@ function getPdfFromMember(memberId, fileExtension, mainPath) {
     console.log('getPdfFromMember ' + memberId);
     const fs = require('fs');
     const path = require('path');
-    /*const mainPath = './pdf/pdf/';
-    const pathInvoice = 'Lastschrift/';
-    const pathDebit = 'Rechnung/';
-
-    const readDirInvoice = readdirSync(mainPath + pathInvoice);
-    for(const file of readDirInvoice) {
-        if (file.includes(`_${memberId}.pdf`)) {
-            return pathInvoice + file;
-        }
-    }
-
-    const readDirDebit = readdirSync(mainPath + pathDebit);
-    for(const file of readDirDebit) {
-        if (file.includes(`_${memberId}.pdf`)) {
-            return pathDebit + file;
-        }
-    }*/
 
     const files = [];
-    const dirs = fs.readdirSync(mainPath);
-    for(const paths of dirs) {
-        const newMainPath = mainPath + path.sep + paths;
-        if (fs.lstatSync(newMainPath).isDirectory()) {
-            const result = getPdfFromMember(memberId, fileExtension, newMainPath);
-            if (result.length > 0)
-                files.push(result);
+    try {
+        const dirs = fs.readdirSync(mainPath);
+        for(const paths of dirs) {
+            const newMainPath = mainPath + path.sep + paths;
+            if (fs.lstatSync(newMainPath).isDirectory()) {
+                const result = getPdfFromMember(memberId, fileExtension, newMainPath);
+                if (result.length > 0)
+                    files.push(result);
+            }
+            
+            if (paths.includes(`_${memberId}.${fileExtension}`)) {
+                return newMainPath;
+            }
         }
-        
-        if (paths.includes(`_${memberId}.${fileExtension}`)) {
-            return newMainPath;
-        }
+        console.log(JSON.stringify(files[0]));
+    } catch (e) {
+        console.error(e);
     }
-    console.log(JSON.stringify(files[0]));
     
     return files;
 }

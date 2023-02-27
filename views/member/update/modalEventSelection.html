@@ -1,0 +1,23 @@
+<!-- Modal -->
+<div class="modal fade" id="eventSelectModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="eventModalLabel">Veranstaltung auswählen</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"  onClick="updateMemeberView({{ result }})"aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="modalBodyEventToCustomer">
+            <div class="col-12">
+                <select class="form-select" id="eventId" name="event_id">
+                    <option>Bitte wählen</option>
+                    <option value="5">Martins erste Veranstaltung</option>
+                </select>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" onClick="javascript:updateMemeberView({{ result }})" data-bs-dismiss="modal">Schließen</button>
+            <button type="button" onClick="javascript:addEventToCustomer({{ result }})" class="btn btn-primary" id="btnEventToCustomer">Veranstaltung speichern</button>
+        </div>
+        </div>
+    </div>
+</div>

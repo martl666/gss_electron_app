@@ -6,7 +6,7 @@ document.querySelector('#saveData').addEventListener('click', () => {
   ipcRenderer.invoke('openDialog').then((openfile) => {
     //TODO use fs module to store the file at the right place of the customer
     ipcRenderer.invoke('saveData', {file: openfile}).then((result) => {
-      document.getElementById('content').innerHTML = result;
+      replaceContent('content', result);
     });
     
   });
@@ -24,30 +24,37 @@ document.querySelector('#addMember').addEventListener('click', () => {
   addMember();
 });
 
+document.querySelector('#createEvent').addEventListener('click', () => {
+  ipcRenderer.invoke('createEvent').then((result)=>{
+    replaceContent('content', result);
+    return true;
+  });
+});
+
 document.querySelector('#exportCSV').addEventListener('click', () => {
   ipcRenderer.invoke('exportCSV').then((result)=>{
-    document.getElementById('content').innerHTML = result;
+    replaceContent('content', result);
     return true;
   });
 });
 
 document.querySelector('#exportMailDistributor').addEventListener('click', () => {
   ipcRenderer.invoke('exportMailDistributor').then((result)=>{
-    document.getElementById('content').innerHTML = result;
+    replaceContent('content', result);
     return true;
   });
 });
 
 document.querySelector('#printEnvelops').addEventListener('click', () => {
   ipcRenderer.invoke('printEnvelops').then((result)=>{
-    document.getElementById('content').innerHTML = result;
+    replaceContent('content', result);
     return true;
   });
 });
 
 document.querySelector('#createInvoice').addEventListener('click', () => {
   ipcRenderer.invoke('createInvoice').then((result)=>{
-    document.getElementById('content').innerHTML = result;
+    replaceContent('content', result);
     return true;
   });
 });
@@ -60,7 +67,7 @@ ipcRenderer.invoke('query', '').then((result) => {
 
 function addMember() {
   ipcRenderer.invoke('addMember').then((result)=>{
-    document.getElementById('content').innerHTML = result;
+    replaceContent('content', result);
     return true;
   });
 }
@@ -69,7 +76,7 @@ function getCustomerData(memberIdInput) {
   $(document).ready(function() {
     if (memberIdInput >= 1) {
       ipcRenderer.invoke('getCusomerData', {memberId: memberIdInput}).then((result)=>{
-        document.getElementById('content').innerHTML = result;
+        replaceContent('content', result);
         return true;
       });
     }
@@ -78,7 +85,7 @@ function getCustomerData(memberIdInput) {
     $($_TABLE+' tbody').on('click', 'tr', function () {
         const data = table.row(this).data();
         ipcRenderer.invoke('getCusomerData', {memberId: data[0]}).then((result)=>{
-          document.getElementById('content').innerHTML = result;
+          replaceContent('content', result);
         });
     });
   });
@@ -214,13 +221,31 @@ function printAndersOrtLabel3() {
 
 function loadPdfFile (file, memberId) {
   ipcRenderer.invoke('showPdf', {fileName: file, memberId: memberId}).then((result) => {
-    document.getElementById('content').innerHTML = result;
+    replaceContent('content', result);
   });
 }
 
 function saveNewAddress(memberId, addressObject) {
   ipcRenderer.invoke('saveNewAddress', {addressObject: addressObject, memberId: memberId}).then(result => {
-    document.getElementById('content').innerHTML = result;
+    replaceContent('content', result);
+  });
+}
+
+function saveEvent(eventObject) {
+  ipcRenderer.invoke('saveEvent', {eventObject: eventObject}).then(content => {
+    replaceContent('content', content);
+  });
+}
+
+function saveEventToCustomer(eventCustomerObject) {
+  ipcRenderer.invoke('saveEventToCustomer', {eventCustomerObject: eventCustomerObject}).then(content => {
+    replaceContent('content', content);
+  });
+}
+
+function createConfirmationPdf(dataObj) {
+  ipcRenderer.invoke('createConfirmationPdf', {data: dataObj}).then(content => {
+    replaceContent('content', content);
   });
 }
 
@@ -239,4 +264,7 @@ module.exports = {
   printAndersOrtLabel3: printAndersOrtLabel3,
   loadPdfFile: loadPdfFile,
   saveNewAddress: saveNewAddress,
+  saveEvent: saveEvent,
+  saveEventToCustomer: saveEventToCustomer,
+  createConfirmationPdf: createConfirmationPdf,
 }

@@ -4,7 +4,11 @@
         Rechnungen / Dokumente
     </div>  
     <div class="card-body">
-        <span class="btn btn-success" id="bill" data-file="{{ result.pdf[0] }}" onclick="loadPdfFile(this.getAttribute('data-file'), {{ result.customer_id }});">{{ result.pdf[0] }}</span>
+        {% for pdf in result.pdf %}
+            <div class="row my-3">
+                <span class="btn btn-success mt-3" id="bill" data-file="{{ pdf }}" onclick="loadPdfFile(this.getAttribute('data-file'), {{ result.customer_id }});">{{ pdf }}</span>
+            </div>
+        {% endfor %}
         <button type="button" class="btn btn-dark fa-pull-right mt-3" id="removeMemberDataBtn" onClick="alert('dialog.showOpenDialog()' + {{ result.customer_id }});">Daten speichern</button>
     </div>
 </div>

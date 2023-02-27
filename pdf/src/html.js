@@ -1,10 +1,14 @@
 const InvoiceNumbers = require('./invoiceNumbers');
 const customersModel = require('../../models/customers');
 const addressesModel = require('../../models/address');
+const eventModel = require('../../models/events');
+const { TwingCacheFilesystem } = require('twing');
 
 let members;
 
 let addresses;
+
+let eventInfo;
 
 module.exports = class HtmlCreator {
     constructor(html) {
@@ -37,16 +41,42 @@ module.exports = class HtmlCreator {
         return this;
     }
 
+    #getTextDB(text) {
+        this.html = this.html.replaceAll('${textDB}', text);
+
+        return this;
+    }
+
     #getDateYear() {
         this.html = this.html.replaceAll('${dateYear}', new Date().getFullYear());
 
         return this;
     }
 
-    #getDate() {
-        this.html = this.html.replaceAll('${today}', new Date().toLocaleDateString());
+    #getDate(insertDate) {
+        let date = null;
+        if (insertDate.length > 1) {
+            date = new Date(insertDate); 
+        } else {
+            date = new Date();
+        }
+        const germanDate = date.toLocaleDateString("de-DE", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        });
+        this.html = this.html.replaceAll('${today}', germanDate);
 
         return this;
+    }
+
+    #formatDate(insertDate) {
+        const date = new Date(insertDate)
+        return date.toLocaleDateString("de-DE", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        });
     }
 
     #getMembershipFee() {
@@ -81,5 +111,25 @@ module.exports = class HtmlCreator {
         });
 
         return this;
-    }       
+    } 
+    
+    getAddressBlockConfirmation(memberId, eventId) {
+        return new Promise((resolve, reject) => {
+            members = customersModel.getCustomerDataForPdf(memberId);
+            addresses = addressesModel.getAddressDataForPdf(memberId);
+            eventInfo = eventModel.getEventInformations(eventId);
+            console.log(eventInfo);
+            console.log('Name: ' + eventInfo.event_name);
+            this.html = this.html.replaceAll('${membersAddress}', this.#getAddressInfo());
+            this.#getTextDB(eventInfo.event_text_confirmation.replace('$event_name', eventInfo.event_name).replace('$datum_start', this.#formatDate(eventInfo.event_date_start)).replace('$datum_ende', this.#formatDate(eventInfo.event_date_end)));
+            this.#getDate(eventInfo.event_date_start);
+            this.#getDateYear();
+
+            this.fileInfo = `_${members.firstname}_${members.lastname}`;
+
+            resolve(this);
+        });
+
+        return this;
+    }
 }

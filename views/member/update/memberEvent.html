@@ -1,0 +1,62 @@
+<div class="card mt-3">
+    <div class="card-header">
+      Veranstaltungen
+    </div>  
+    <div class="card-body"> 
+        <button type="button" class="btn btn-info fa-pull-right mt-3" data-bs-toggle="modal" data-bs-target="#eventSelectModal">Veranstaltung auswählen</button>
+        {{ include('./member/update/modalEventSelection.html', {result: result.customer_id}) }}
+        <div class="mb-3"></div>
+        <table class="table table-striped">
+            <tr>
+                <th>
+                    Veranstaltungs-ID
+                </th>
+                <th>
+                    Veranstaltungs-Name
+                </th>
+                <th>
+                    Bezahlt?
+                </th>
+                <th>
+                    Bezahlt Datum
+                </th>
+                <th>
+                    Rechnungsdatum
+                </th>
+                <th>
+                    Teilnahmebestätigung erstellen
+                </th>
+            </tr>
+            {% for event in result.eventsForCustomer %}
+                <tr>
+                    <td>
+                        {{ event.event_id }}
+                    </td>
+                    <td>
+                        {{ event.event_name }}
+                    </td>
+                    <td>
+                        {% if event.paid == 0%}
+                            <button type="button" class="btn btn-info">Bezahlt</button>
+                        {% else %}
+                            bezahlt
+                        {% endif %}
+                    </td>
+                    <td>
+                        {{ event.paid_date }}
+                    </td>
+                    <td>
+                        {{ event.invoice_date }}
+                    </td>
+                    <td>
+                        {% if event.confirmation_of_participation_created == 0%}
+                            <button type="button" class="btn btn-info" onclick="javascript:createConfirmationFile({{ result.customer_id }}, {{ event.event_id }});">Teilnahmebestätigung erstellen</button>
+                        {% else %}
+                            Teilnahmebestätigung wurde erstellt
+                        {% endif %}
+                    </td>
+                </tr>   
+            {% endfor %}
+        </table>
+    </div> 
+  </div>

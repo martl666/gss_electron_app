@@ -1,5 +1,5 @@
+const { rename } = require('fs');
 const utf8 = require('utf8');
-//const renderer = require('../renderer');
 
 function saveMail(input) {
     let newMailAddress = document.getElementsByName('new_email_'+input)[0].value;
@@ -200,4 +200,27 @@ function loadPdfFile(file, memberId) {
 
 function setAttrOnChange(that) {
     that.setAttribute('name', that.value + '_type');
+}
+
+function eventForm(event) {
+    event.preventDefault();
+    const form = document.getElementById("event-form");
+    const formData = new FormData(form);
+    const eventObj = Object.fromEntries(formData);
+    renderer.saveEvent(eventObj);
+    return false;
+}
+
+function addEventToCustomer(customerId) {
+    const eventId = document.getElementById('eventId').value;
+    renderer.saveEventToCustomer({customer_id: customerId, event_id: eventId})
+    
+}
+
+function replaceContent(contentId, contentToReplace) {
+    document.getElementById(contentId).innerHTML = contentToReplace;
+}
+
+function createConfirmationFile(memberId, eventId) {
+    renderer.createConfirmationPdf({memberId: memberId, eventId: eventId});   
 }

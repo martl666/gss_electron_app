@@ -78,6 +78,7 @@ ipcMain.handle('query', async (event, someArgument) => {
 
 ipcMain.handle('getCusomerData', async (event, param) => {
   let result = customersController.getMemberData(param.memberId, 'pdf', './pdf/pdf');
+  result.eventsForCustomer = require('./controller/events').getEventsForCustomer(param.memberId);
   let content = twing.load('member/update/memberData.html').then((template) => {
     return template.render({result: result}).then((output) => {
       return output;
@@ -97,12 +98,17 @@ ipcMain.handle('addMember', async (event, param) => {
   return content;
 });
 
+ipcMain.handle('createEvent', async (event, param) => {
+  let content = twing.load('events/eventCreate.html').then((template) => {
+    return template.render({}).then((output) => {
+      return output;
+    });
+  });
+  
+  return content;
+});
+
 ipcMain.handle('exportCSV', async (event, param) => {
-  //TODO open dialog
-  /*const options = {};
-  dialog.showOpenDialog(mainWindow, options, (filePaths) => {
-    event.sender.send('open-dialog-path-selected', filePaths);
-  })*/
   let content = twing.load('exports/exportMain.html').then((template) => {
     return template.render({csv: true}).then((output) => {
       return output;
@@ -133,7 +139,7 @@ ipcMain.handle('printEnvelops', async (event, param) => {
 });
 
 ipcMain.handle('createInvoice', async () => {
-  const createPdfs = require('./pdf/src/app');
+  const createPdfs = require('./pdf/src/app').createBills();
   return 'Rechnungen erstellen...';
 });
 
@@ -267,6 +273,33 @@ ipcMain.handle('addMemberData', async(event, param) => {
   } else {
     return 0;
   }
+});
+
+ipcMain.handle('saveEvent', async(event, eventObject) => {
+  const eventObjectNew = eventObject.eventObject;
+  const eventController = require('./controller/events');
+  const insertEvent = eventController.saveEvent(eventObjectNew);
+  if (insertEvent) {
+    return `<h2>Veranstaltung '${eventObjectNew.event_name}' wurde erfolgreich gespeichert</h2>`;
+  }
+  
+  return 'Event konnte nicht angelegt werden';
+});
+
+ipcMain.handle('saveEventToCustomer', async(event, eventCustomerObject) => {
+  const eventToCustomerController = require('./controller/eventToCustomer');
+  const insertEventCustomer = eventToCustomerController.saveCustomerToEvent(eventCustomerObject);
+  if (insertEventCustomer) {
+    return `Veranstaltung für Mitglied wurde erfolgreich gespeichert`;
+  }
+  
+  return 'Veranstaltung konnte dem Mitglied nicht zugewiesen werden.';
+});
+
+ipcMain.handle('createConfirmationPdf', async(event, object) => {
+  console.log('Create Confirmation PDF' + JSON.stringify(object));
+  const createPdfs = require('./pdf/src/app').createConfirmations(object);
+  return 'Teilnahmebestätigung erstellen...';
 });
 
 // Quit when all windows are closed, except on macOS. There, it's common
