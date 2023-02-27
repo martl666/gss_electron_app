@@ -2,6 +2,15 @@ const { ipcRenderer } = require('electron');
 let savedDataSet;
 let $_TABLE = '#table';
 
+document.querySelector('#saveData').addEventListener('click', () => {
+  ipcRenderer.invoke('openDialog').then((openfile) => {
+    ipcRenderer.invoke('saveData', {file: openfile}).then((result) => {
+      document.getElementById('content').innerHTML = result;
+    });
+    
+  });
+});
+
 document.querySelector('#members').addEventListener('click', () => {
   ipcRenderer.invoke('query', '').then((result) => {
     savedDataSet = result;

@@ -1,5 +1,5 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, ipcMain, dialog } = require('electron');
+const { app, BrowserWindow, ipcMain, dialog} = require('electron');
 const path = require('path');
 let customersController = require('./controller/customers.js');
 let addressController = require('./controller/address');
@@ -49,7 +49,27 @@ app.whenReady().then(() => {
     // dock icon is clicked and there are no other windows open.
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
   })
-})
+});
+
+ipcMain.handle('openDialog', async (event, someArgument) => {
+  return dialog.showOpenDialog({ properties: ['openFile'] }).then(result => {
+    const filePath = result.filePaths[0];
+    console.log(`Die ausgewählte Datei ist: ${filePath}`);
+    return filePath;
+  }).catch(err => {
+    console.log(err);
+  });
+});
+
+ipcMain.handle('saveData', async(event, file) => {
+  dialog.showSaveDialog({file: file}).then(result => {
+    const filePath = result.filePath;
+    console.log(JSON.stringify(file));
+    console.log(`Die ausgewählte Speicherort ist: ${filePath}`);
+  }).catch(err => {
+    console.log(err);
+  });
+});
 
 ipcMain.handle('query', async (event, someArgument) => {
   const result = customersController.getAllMembers();
