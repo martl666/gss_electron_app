@@ -4,6 +4,7 @@ let $_TABLE = '#table';
 
 document.querySelector('#saveData').addEventListener('click', () => {
   ipcRenderer.invoke('openDialog').then((openfile) => {
+    //TODO use fs module to store the file at the right place of the customer
     ipcRenderer.invoke('saveData', {file: openfile}).then((result) => {
       document.getElementById('content').innerHTML = result;
     });
