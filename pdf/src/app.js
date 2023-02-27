@@ -44,7 +44,7 @@ async function createConfirmations(dataObj) {
     let renderedHtml = new HtmlCreator(html);
     renderedHtml = await renderedHtml.getAddressBlockConfirmation(dataObj.memberId, dataObj.eventId);
         
-    await pdf.create(renderedHtml.html, options).toFile('./pdf/pdf/'+year+'/confirmation_'+dataObj.memberId+'.pdf', function(err, res) {
+    await pdf.create(renderedHtml.html, options).toFile('./pdf/pdf/'+year+'/confirmation_'+renderedHtml.fileInfo+'_'+dataObj.eventId+'_'+dataObj.memberId+'.pdf', function(err, res) {
         if (err) return console.log(err);
         console.log(res);
     });
