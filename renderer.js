@@ -20,6 +20,7 @@ document.querySelector('#members').addEventListener('click', () => {
   });
 });
 
+
 document.querySelector('#addMember').addEventListener('click', () => {
   addMember();
 });
@@ -54,6 +55,13 @@ document.querySelector('#printEnvelops').addEventListener('click', () => {
 
 document.querySelector('#createInvoice').addEventListener('click', () => {
   ipcRenderer.invoke('createInvoice').then((result)=>{
+    replaceContent('content', result);
+    return true;
+  });
+});
+
+document.querySelector('#createInvoiceDebit').addEventListener('click', () => {
+  ipcRenderer.invoke('createInvoiceDebit').then((result)=>{
     replaceContent('content', result);
     return true;
   });
@@ -211,6 +219,14 @@ function printAndersOrtLabel() {
   });
 }
 
+function printAndersOrtLabelHerma() {
+  ipcRenderer.invoke('printAndersOrtLabelHerma', {}).then((result) => {
+    if (result >= 1) {
+      printResult(result);
+    } 
+  });
+}
+
 function printAndersOrtLabel3() {
   ipcRenderer.invoke('printAndersOrtLabel3', {}).then((result) => {
     if (result >= 1) {
@@ -249,6 +265,12 @@ function createConfirmationPdf(dataObj) {
   });
 }
 
+function openDialog(customerId) {
+  ipcRenderer.invoke('openDialog', {customerId: customerId}).then(content => {
+    
+  });
+}
+
 module.exports = {
   rendererSaveMail: rendererSaveMail,
   getCustomerData: getCustomerData,
@@ -262,9 +284,11 @@ module.exports = {
   printMailingLabel: printMailingLabel,
   printAndersOrtLabel: printAndersOrtLabel,
   printAndersOrtLabel3: printAndersOrtLabel3,
+  printAndersOrtLabelHerma: printAndersOrtLabelHerma,
   loadPdfFile: loadPdfFile,
   saveNewAddress: saveNewAddress,
   saveEvent: saveEvent,
   saveEventToCustomer: saveEventToCustomer,
   createConfirmationPdf: createConfirmationPdf,
+  openDialog: openDialog,
 }

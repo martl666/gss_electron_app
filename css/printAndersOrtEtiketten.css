@@ -1,0 +1,74 @@
+@page {
+  size: A4;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  width: calc(210mm - 4mm);
+  /* Berücksichtige die Randbreite von 4mm auf der rechten Seite */
+  height: 263mm;
+  /* Berücksichtige den oberen Rand von 17mm */
+  padding: 0mm 3mm 0 6mm;
+  /* Setze den oberen Rand auf 17mm, den rechten Rand auf 4mm und den linken Rand auf 4mm */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 0mm 2mm;
+}
+
+.logo {
+  width: 12mm;
+  height: 12mm;
+  float: left;
+}
+
+.sender-info {
+  margin-left: 5mm;
+  font-size: 10px;
+}
+
+.label {
+  width: 91.1mm;
+  height: 58.7mm;
+  padding: 5mm;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.recipient-info {
+  margin-left: 40mm;
+  margin-top: 10mm;
+  font-size: 14px;
+}
+
+.label:nth-child(8n) {
+  page-break-after: always;
+}
+
+.label:nth-child(8n+1) {
+  margin-top: 5mm;
+}
+
+.label:nth-child(8n+2) {
+  margin-top: 5mm;
+}
+
+@media print {
+  body {
+    zoom: 101%;
+    /* Anpassung der Seitengröße für den Druck */
+  }
+
+  .container {
+    page-break-inside: avoid;
+    /* Verhindert, dass Etiketten auf mehrere Seiten aufgeteilt werden */
+  }
+}

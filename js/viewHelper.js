@@ -124,6 +124,9 @@ function printMailingLabel() {
         case '3':
             renderer.printAndersOrtLabel3();
             break;
+        case '4':
+            renderer.printAndersOrtLabelHerma();
+            break;
     }
 }
 
@@ -223,4 +226,8 @@ function replaceContent(contentId, contentToReplace) {
 
 function createConfirmationFile(memberId, eventId) {
     renderer.createConfirmationPdf({memberId: memberId, eventId: eventId});   
+}
+
+function openDialog(customerId) {
+    renderer.openDialog(customerId);
 }

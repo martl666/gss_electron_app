@@ -22,10 +22,15 @@
         if (recieverData.title !== '' && recieverData.title.toLowerCase().indexOf('dr.') !== -1) {
           title = recieverData.title + ' ';
         }
+
+        if (recieverData.institute !== '') {
+          title = recieverData.institute;
+        }
+
         var name = title + recieverData.firstname + ' ' + recieverData.lastname  + "</h3>";
         
         let zip;
-        if (recieverData.country == "Deutschland" && recieverData.zip.toString().length == 4) {
+        if (recieverData.country == "Deutschland" && recieverData.zip !== undefined && recieverData.zip.toString().length == 4) {
           zip = '0'+recieverData.zip.toString();
         } else {
           zip = recieverData.zip;

@@ -1,0 +1,104 @@
+<script>
+    const addressController = require('./controller/address');
+    MassAddressDict = addressController.getAllAndersOrtAddress(1,2);
+    function combineSenderInfo(){
+        const senderInfoConfig = require('./config/print.json');
+      
+        var address = "<img src='"+senderInfoConfig.logo+"'  alt=\"Logo\" class=\"logo\"><div class=\"sender-info\"><div>"+senderInfoConfig.evName.replace('<br>', ' ') + "</div><div>" + senderInfoConfig.street+"<br>"+ senderInfoConfig.zipCity + "</div></div>";
+      
+        return "<div class=\"header\">" + address + "</div>";
+      }
+      
+      function combineReceiverInfo(recieverData){
+        console.log(JSON.stringify(recieverData));
+        let countryInfo = "";
+        if (recieverData.country != "Deutschland" && recieverData.country != null) {
+            countryInfo = "<div>" + recieverData.country + "</div>";
+        }
+        var from =   ""
+        var companyname = recieverData.companyname + "<br>";
+        var title = "";
+        if (recieverData.title !== '' && recieverData.title.toLowerCase().indexOf('dr.') !== -1) {
+          title = recieverData.title;
+        }
+        var name = "<div>" + recieverData.title + "</div><div>" + recieverData.firstname + ' ' + recieverData.lastname  + "</div>";
+        
+        let zip;
+        if (recieverData.country == "Deutschland" && recieverData.zip !== undefined && recieverData.zip.toString().length == 4) {
+          zip = '0'+recieverData.zip.toString();
+        } else {
+          zip = recieverData.zip;
+        }
+        var address = "<div>" + recieverData.street  + "</div><div>" + zip + ' ' + recieverData.city + "</div><div>" +  countryInfo + "</div>" ;
+
+        let receiverString = "";
+
+        let eg = '';
+        if (recieverData.firstname !== '' && recieverData.eg == 1)
+          eg = 'z.H. '
+        
+        if (recieverData.eg == 1) {
+          receiverString = from + companyname + eg+ name + address;
+        } else {
+          receiverString = from + name + address;
+        }
+        return "<hr><div class=\"recipient-info\">" + receiverString + "</div>";
+      }
+
+    let data = '<html><head>';
+    data += '<link href="css/printAndersOrtEtiketten.css" rel="stylesheet">';
+    data += '</head><body><div class="container" style="margin-top: 8.5mm;">';
+      MassAddressDict.push({}, {});
+Object.keys(MassAddressDict).forEach(function(key) {
+  console.log(key + " " + MassAddressDict[key]);
+  var index = Object.keys(MassAddressDict).indexOf(key);
+  console.log('Index type: ', typeof index, ' Index: ', index);
+
+  if (index % 8 === 0 && index > 0 ) {
+    console.log('insert page-break-after');
+    data += '</div><div class="container" style="top: 8.5mm; position: relative;">';
+  }
+
+  var recieverData = MassAddressDict[key];
+
+  
+
+  var senderInfo = combineSenderInfo();
+  var receiverInfo = '<hr>';
+  if ('ID' in recieverData) {
+    receiverInfo = combineReceiverInfo(recieverData);
+  }
+  
+
+  data += '<div class=\"label\">';
+  data += senderInfo;
+  data += receiverInfo;
+  data += '</div>';
+});
+data += '</div></body></html>';
+
+PrintDiv(data);
+
+function PrintDiv(data) {
+  var mywindow = window.open();
+  var is_chrome = Boolean(mywindow.chrome);
+  mywindow.document.write(data);
+
+  if (is_chrome) {
+  setTimeout(function() { // wait until all resources loaded 
+      mywindow.document.close(); // necessary for IE >= 10
+      mywindow.focus(); // necessary for IE >= 10
+      mywindow.print(); // change window to winPrint
+      mywindow.close(); // change window to winPrint
+  }, 250);
+  } else {
+      mywindow.document.close(); // necessary for IE >= 10
+      mywindow.focus(); // necessary for IE >= 10
+
+      mywindow.print();
+      mywindow.close();
+  }
+
+  return true;
+}
+</script>

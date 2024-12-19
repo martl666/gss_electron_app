@@ -11,15 +11,14 @@ let {TwingEnvironment, TwingLoaderFilesystem} = require('twing');
 const institute = require('./controller/institute');
 
 dbUpdater.createBackup();
-let loader = new TwingLoaderFilesystem('./views');
-let twing = new TwingEnvironment(loader, {
+const loader = new TwingLoaderFilesystem('./views');
+const twing = new TwingEnvironment(loader, {
     
 });
-let mainWindow;
-//'cache': './views/cache',
+
 const createWindow = () => {
   // Create the browser window.
-  mainWindow = new BrowserWindow({
+  const mainWindow = new BrowserWindow({
     show: false,
     icon: __dirname + path.sep + 'img' + path.sep + 'seelsorge.jpg',
     webPreferences: {
@@ -51,10 +50,10 @@ app.whenReady().then(() => {
   })
 });
 
-ipcMain.handle('openDialog', async (event, someArgument) => {
+ipcMain.handle('openDialog', async (event, param) => {
   return dialog.showOpenDialog({ properties: ['openFile'] }).then(result => {
     const filePath = result.filePaths[0];
-    console.log(`Die ausgewählte Datei ist: ${filePath}`);
+    console.log(`Die ausgewählte Datei ist: ${filePath} ${param.customerId}`);
     return filePath;
   }).catch(err => {
     console.log(err);
@@ -143,6 +142,10 @@ ipcMain.handle('createInvoice', async () => {
   return 'Rechnungen erstellen...';
 });
 
+ipcMain.handle('createInvoiceDebit', async () => {
+  const createPdfs = require('./pdf/src/app').createBillsInvoice();
+  return 'Quittungen erstellen...';
+});
 
 ipcMain.handle('printMailingLabel', async(event, param) => {
   const printWindow = new BrowserWindow({
@@ -188,6 +191,21 @@ ipcMain.handle('showPdf', async(event, param) => {
   });
 
   return content;
+});
+
+ipcMain.handle('printAndersOrtLabelHerma', async(event, param) => {
+  const printWindow = new BrowserWindow({
+    show: false,
+    icon: __dirname + path.sep + 'img' + path.sep + 'seelsorge.jpeg',
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+    }
+  });
+  
+  printWindow.show();
+
+  printWindow.loadFile('printAndersOrtEtikettenGSS.html');
 });
 
 ipcMain.handle('printAndersOrtLabel', async(event, param) => {

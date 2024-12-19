@@ -4,8 +4,15 @@ const db = require('../controller/dbConnector').getDB();
 let searchHelperController = require('../controller/searchHelperController');
 
 function exportMailDistributorSqlResult(searchStr, searchLink) {
-    let searchQuery = "SELECT customers_contact_information.contact_data FROM customers_contact_information LEFT JOIN customers ON customers_contact_information.customer_id = customers.ID WHERE customers_contact_information.contact_type='email' " + searchLink + ' ' + searchStr;
+    let searchQuery = "SELECT customers_contact_information.contact_data FROM customers_contact_information LEFT JOIN customers ON customers_contact_information.customer_id = customers.ID LEFT JOIN address ON customers.ID = address.customer_Id WHERE customers_contact_information.contact_type='email' ";
     
+    if (searchStr !== '' && searchLink === 'AND') {
+        searchQuery += " " + searchLink + ' ' + searchStr;
+    } /*else {
+        searchQuery += (" WHERE " + searchLink + ' ' + searchStr).replace('WHERE OR', 'WHERE');
+    }*/
+
+    console.log("Debug-SQL: " + searchQuery);
     let searchResult = db.prepare(searchQuery).all();
 
     return searchResult;

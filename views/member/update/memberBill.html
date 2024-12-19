@@ -9,7 +9,7 @@
                 <span class="btn btn-success mt-3" id="bill" data-file="{{ pdf }}" onclick="loadPdfFile(this.getAttribute('data-file'), {{ result.customer_id }});">{{ pdf }}</span>
             </div>
         {% endfor %}
-        <button type="button" class="btn btn-dark fa-pull-right mt-3" id="removeMemberDataBtn" onClick="alert('dialog.showOpenDialog()' + {{ result.customer_id }});">Daten speichern</button>
+        <button type="button" class="btn btn-dark fa-pull-right mt-3" id="removeMemberDataBtn" onClick="openDialog({{ result.customer_id }});">Daten speichern</button>
     </div>
 </div>
 {% endif %}

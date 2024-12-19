@@ -17,8 +17,19 @@ module.exports = class HtmlCreator {
 
     #getAddressInfo() {
         let addressBlock;
+        if (addresses.companyname !== undefined && addresses.companyname !== null) {
+            members.institute = addresses.companyname;
+        } else if (addresses.companyname !== undefined && addresses.companyname === null){
+            addresses.type = 'private';
+        }
+
+        if (addresses.type === 'private') {
+            members.institute = ''; 
+        } else {
+            members.institute = '<br>' + members.institute;
+        }
         if (members !== undefined) {
-            addressBlock = `${members.title}<br>${members.firstname} ${members.lastname}<br>${members.institute}<br>`;
+            addressBlock = `${members.firstname} ${members.lastname}${members.institute}<br>`;
             if (addresses !== undefined) {
                 addressBlock += `${addresses.street}<br>${addresses.zip} ${addresses.city}`
             }
@@ -55,7 +66,7 @@ module.exports = class HtmlCreator {
 
     #getDate(insertDate) {
         let date = null;
-        if (insertDate.length > 1) {
+        if (insertDate !== undefined && insertDate.length > 1) {
             date = new Date(insertDate); 
         } else {
             date = new Date();

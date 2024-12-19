@@ -1,7 +1,7 @@
 'use strict';
 
 const db = require('../controller/dbConnector').getDB();
-let updateHelperController = require('../controller/updateHelperController');
+const updateHelperController = require('../controller/updateHelperController');
 
 function updateMemberAddress(updateObject, addressID) {
     if (addressID === '') {
@@ -51,25 +51,45 @@ function getAllPostalAddressWithoutAStoredEmail() {
 function getAllAndersOrtAddress(startAt, maxNumbersOfMagazine) {
     console.log( startAt + " " + maxNumbersOfMagazine );
     //TODO use privte address if customer has only one address saved
-    let query = "SELECT customers.ID, customers.title, customers.firstname, customers.lastname, address.street, address.city, IIF(address.country = 'Deutschland', PRINTF('%05d',address.zip), address.zip), address.type, address.country, address.eg, address.companyname, customers.magazine_print, customers.number_of_magazine, customers.magazine_pdf, COUNT(address.type) \
-    FROM customers \
-    LEFT JOIN address ON customers.ID = address.customer_id \
-    WHERE customers.magazine_print = 1 \
-    AND customers.number_of_magazine BETWEEN 3 AND 3 \
-    AND address.type = 'business' \
-    GROUP BY customers.ID \
-    ORDER BY customers.number_of_magazine DESC";
-
+    let query = "SELECT customers.ID, customers.title AS title, customers.firstname, customers.lastname, \
+                    COALESCE(business.street, private.street, 'N/A') AS street, \
+                    COALESCE(business.city, private.city, 'N/A') AS city, \
+                    COALESCE(business.country, private.country) AS country, \
+                    COALESCE(business.zip, private.zip, 'N/A') AS zip, \
+                    COALESCE(business.eg, private.eg, 'N/A') AS eg, \
+                    COALESCE(business.companyname, private.companyname, 'N/A') AS companyname, \
+                    customers.magazine_print, customers.number_of_magazine, customers.magazine_pdf, \
+                    institute \
+                FROM customers \
+                LEFT JOIN ( \
+                    SELECT customer_id, street, city, country, zip, eg, companyname \
+                    FROM address \
+                    WHERE address.type = 'business' \
+                ) AS business ON customers.ID = business.customer_id \
+                LEFT JOIN ( \
+                    SELECT customer_id, street, city, country, zip, eg, companyname \
+                    FROM address \
+                    WHERE address.type = 'private' \
+                ) AS private ON customers.ID = private.customer_id \
+                LEFT JOIN institute AS institute ON customers.ID = institute.customer_id \
+                WHERE customers.magazine_print = 1 \
+                AND customers.number_of_magazine BETWEEN 1 AND 2 \
+                ORDER BY customers.number_of_magazine DESC";
+console.log(query);
     const result = db.prepare(query).all();
 
     return result;
 }
 
 function getAddressDataForPdf(memberId) {
-    let result = db.prepare("SELECT street, zip, city FROM address WHERE type = 'business' AND customer_id = ?").get(memberId);
+    let result = db.prepare("SELECT street, CASE WHEN country = 'Deutschland' THEN printf('%05d', zip) ELSE CAST(zip AS TEXT) END AS zip, city, companyname, type FROM address WHERE type = 'invoice' AND customer_id = ?").get(memberId);
 
     if (result === undefined) {
-        result = db.prepare("SELECT street, zip, city FROM address WHERE type = 'private' AND customer_id = ?").get(memberId);
+        result = db.prepare("SELECT street, CASE WHEN country = 'Deutschland' THEN printf('%05d', zip) ELSE CAST(zip AS TEXT) END AS zip, city, type FROM address WHERE type = 'business' AND customer_id = ?").get(memberId);
+    }
+
+    if (result === undefined) {
+        result = db.prepare("SELECT street, CASE WHEN country = 'Deutschland' THEN printf('%05d', zip) ELSE CAST(zip AS TEXT) END AS zip, city, type FROM address WHERE type = 'private' AND customer_id = ?").get(memberId);
     }
     return result;
 }

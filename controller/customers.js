@@ -67,7 +67,6 @@ function updatePrimaryMailAddress(memberId, newMailAddress) {
 }
 
 function getPdfFromMember(memberId, fileExtension, mainPath) {
-    console.log('getPdfFromMember ' + memberId);
     const fs = require('fs');
     const path = require('path');
 
@@ -78,19 +77,22 @@ function getPdfFromMember(memberId, fileExtension, mainPath) {
             const newMainPath = mainPath + path.sep + paths;
             if (fs.lstatSync(newMainPath).isDirectory()) {
                 const result = getPdfFromMember(memberId, fileExtension, newMainPath);
-                if (result.length > 0)
-                    files.push(result);
+                if (result.length > 0) {
+                    if (Array.isArray(result)) {
+                        files.push(result[0]);
+                    } else {
+                        files.push(result);
+                    }
+                }
             }
             
             if (paths.includes(`_${memberId}.${fileExtension}`)) {
                 return newMainPath;
             }
         }
-        console.log(JSON.stringify(files[0]));
     } catch (e) {
         console.error(e);
     }
-    
     return files;
 }
 

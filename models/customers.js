@@ -96,8 +96,14 @@ function updatePrimaryMailAddress(memberId, newPrimaryMailAddress) {
     return false;
 }
 
-function getCustomersIdForPdf() {
-    let getAllMemberIdsForPdf = db.prepare("SELECT ID FROM customers WHERE debit = 1 OR invoice = 1 AND active = 1").all();
+function getCustomersIdForPdfDebit() {
+    let getAllMemberIdsForPdf = db.prepare("SELECT ID FROM customers WHERE debit = 1 AND active = 1").all();
+
+    return getAllMemberIdsForPdf;
+}
+
+function getCustomersIdForPdfInvoice() {
+    let getAllMemberIdsForPdf = db.prepare("SELECT ID FROM customers WHERE invoice = 1 AND active = 1").all();
 
     return getAllMemberIdsForPdf;
 }
@@ -116,6 +122,7 @@ module.exports = {
     customersUpdate: customersUpdate,
     updatePrimaryMailAddress: updatePrimaryMailAddress,
     addCustomer: addCustomer,
-    getCustomersIdForPdf: getCustomersIdForPdf,
+    getCustomersIdForPdfDebit: getCustomersIdForPdfDebit,
+    getCustomersIdForPdfInvoice: getCustomersIdForPdfInvoice,
     getCustomerDataForPdf: getCustomerDataForPdf,
 }
