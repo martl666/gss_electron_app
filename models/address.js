@@ -73,7 +73,7 @@ function getAllAndersOrtAddress(startAt, maxNumbersOfMagazine) {
                 ) AS private ON customers.ID = private.customer_id \
                 LEFT JOIN institute AS institute ON customers.ID = institute.customer_id \
                 WHERE customers.magazine_print = 1 \
-                AND customers.number_of_magazine BETWEEN 1 AND 2 \
+                AND customers.number_of_magazine BETWEEN 3 AND 3 \
                 ORDER BY customers.number_of_magazine DESC";
 console.log(query);
     const result = db.prepare(query).all();

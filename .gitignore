@@ -117,3 +117,5 @@ config/config.json
 pdf/pdf/*
 
 pdf/node_modules/*
+
+csv/*
